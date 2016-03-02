@@ -16,11 +16,40 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="v5D-sd-koh">
+                                <rect key="frame" x="163" y="162" width="275" height="275"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="275" id="OHW-On-SVp"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o3R-4n-Jro">
+                                <rect key="frame" x="253" y="550" width="95" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="95" id="K2V-Tq-T6h"/>
+                                </constraints>
+                                <state key="normal" title="Again again!"/>
+                                <connections>
+                                    <action selector="startOver:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5hb-YA-lHN"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="v5D-sd-koh" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ADf-az-G4C"/>
+                            <constraint firstItem="o3R-4n-Jro" firstAttribute="centerX" secondItem="v5D-sd-koh" secondAttribute="centerX" id="M4y-eY-HdS"/>
+                            <constraint firstAttribute="bottom" secondItem="o3R-4n-Jro" secondAttribute="bottom" constant="20" symbolic="YES" id="NW9-7J-Qdn"/>
+                            <constraint firstItem="v5D-sd-koh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="YDV-UO-RUs"/>
+                            <constraint firstItem="v5D-sd-koh" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="142" id="cby-7s-9ct"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="gifImageView" destination="v5D-sd-koh" id="lZR-xV-TuB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="759" y="341"/>
         </scene>
         <!--Record Video View Controller-->
         <scene sceneID="3Al-ff-rbj">
@@ -33,11 +62,28 @@
                     <view key="view" contentMode="scaleToFill" id="K8r-KJ-tKg">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vyO-pV-Fe7">
+                                <rect key="frame" x="271" y="285" width="59" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="59" id="vqb-fu-hd3"/>
+                                </constraints>
+                                <state key="normal" title="Record"/>
+                                <connections>
+                                    <action selector="launchCamera:" destination="qTx-Bn-ffv" eventType="touchUpInside" id="Jaj-9N-beQ"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="vyO-pV-Fe7" firstAttribute="centerY" secondItem="K8r-KJ-tKg" secondAttribute="centerY" id="Sxt-zf-MLh"/>
+                            <constraint firstItem="vyO-pV-Fe7" firstAttribute="centerX" secondItem="K8r-KJ-tKg" secondAttribute="centerX" id="gxM-jf-CL6"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4IY-13-GGb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="75" y="341"/>
         </scene>
     </scenes>
 </document>

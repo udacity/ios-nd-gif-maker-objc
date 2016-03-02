@@ -25,10 +25,18 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:TRUE];
-    UIImage *seamonsterGif = [UIImage animatedImageWithAnimatedGIFName:@"humanHitsSeamonster"];
-    self.gifImageView.image = seamonsterGif;
+    
+    //Returns an animated image
+    UIImage *gifFromRecording = [UIImage animatedImageWithAnimatedGIFURL:self.gifURL];
+
+    // Use the UIImage in your UIImageView
+    self.gifImageView.image = gifFromRecording;
+    
 }
 
+- (IBAction)startOver:(id)sender {
+    [self dismissViewControllerAnimated:TRUE completion:nil];
+}
 
 @end
 

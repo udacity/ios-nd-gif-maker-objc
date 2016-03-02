@@ -10,13 +10,19 @@
 
 #import "RecordVideoViewController.h"
 #import <MobileCoreServices/MobileCoreServices.h>
+#import "DisplayGifViewController.h"
 #import "GifMaker_ObjC-Swift.h"
 
 @interface RecordVideoViewController()
 
 @property (nonatomic) NSURL *videoURL;
+@property (nonatomic) NSURL *gifURL;
 
 @end
+
+static int const kFrameCount = 16;
+static const float kDelayTime = 0.2;
+static const int kLoopCount = 0; // 0 means loop forever
 
 @implementation RecordVideoViewController
 
@@ -34,7 +40,7 @@
         UIImagePickerController *cameraController = [[UIImagePickerController alloc] init];
         cameraController.sourceType = UIImagePickerControllerSourceTypeCamera;
         cameraController.mediaTypes = @[(NSString *) kUTTypeMovie];
-        cameraController.allowsEditing = false;
+        cameraController.allowsEditing = true;
         cameraController.delegate = self;
         
         [self presentViewController:cameraController animated:TRUE completion:nil];
@@ -75,7 +81,8 @@
         if (UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(path)) {
             UISaveVideoAtPathToSavedPhotosAlbum(path, self, @selector(video: didFinishSavingWithError: contextInfo:), nil);
         }
-        
+     
+        [self convertVideoToGif];
     }
 }
 
@@ -85,27 +92,30 @@
 
 # pragma mark - Gif Conversion and Display methods
 
-// Gif conversion and display
-func convertVideoToGif() {
-    let regift = Regift(sourceFileURL: videoURL, frameCount: frameCount, delayTime: delayTime, loopCount: loopCount)
-    self.gifURL = regift.createGif()!
-    print("Gif saved to \(regift.createGif())")
-}
-
-@IBAction func displayGif(sender: AnyObject) {
-    let gifDisplayVC = self.storyboard!.instantiateViewControllerWithIdentifier("DisplayGifViewController") as! DisplayGifViewController
-    gifDisplayVC.urlForGifToDisplay = self.gifURL
-    
-    presentViewController(gifDisplayVC, animated: true, completion: nil)
-}
-}
-
-
-
-
 -(void)convertVideoToGif {
+    Regift *regift = [[Regift alloc] initWithSourceFileURL:self.videoURL frameCount:kFrameCount delayTime:kDelayTime loopCount:kLoopCount];
+    self.gifURL = [regift createGif];
+    [self displayGif];
+}
+
+-(void)displayGif {
     
+    DisplayGifViewController *displayGifVC = [self.storyboard instantiateViewControllerWithIdentifier:@"DisplayGifViewController"];
+    displayGifVC.gifURL = self.gifURL;
+    [self presentViewController:displayGifVC animated:true completion:nil];
+
 }
 
 @end
+
+
+
+
+
+
+
+
+
+
+
 

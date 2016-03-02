@@ -10,4 +10,5 @@
 
 @interface DisplayGifViewController : UIViewController
 
+@property (nonatomic) NSURL *gifURL;
 @end
