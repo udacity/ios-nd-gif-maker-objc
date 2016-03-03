@@ -18,6 +18,8 @@
 		ED1C7FCD1C866DCA00724DC2 /* RecordVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1C7FCC1C866DCA00724DC2 /* RecordVideoViewController.m */; };
 		ED1C7FD31C866F1E00724DC2 /* UIImage+animatedGIF.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1C7FD21C866F1E00724DC2 /* UIImage+animatedGIF.m */; };
 		EDD81E191C88DC610045C1BD /* Regift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD81E181C88DC610045C1BD /* Regift.framework */; };
+		EDD81E1B1C88E9930045C1BD /* Regift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD81E1A1C88E9930045C1BD /* Regift.framework */; };
+		EDD81E1C1C88E9930045C1BD /* Regift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EDD81E1A1C88E9930045C1BD /* Regift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,20 @@
 			remoteInfo = GifMaker_ObjC;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		EDD81E1D1C88E9940045C1BD /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				EDD81E1C1C88E9930045C1BD /* Regift.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		ED1C7F921C866D4C00724DC2 /* GifMaker_ObjC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GifMaker_ObjC.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,6 +76,7 @@
 		ED1C7FD21C866F1E00724DC2 /* UIImage+animatedGIF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+animatedGIF.m"; sourceTree = "<group>"; };
 		ED1C7FD41C866FB600724DC2 /* GifMaker_ObjC-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GifMaker_ObjC-Bridging-Header.h"; sourceTree = "<group>"; };
 		EDD81E181C88DC610045C1BD /* Regift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Regift.framework; path = "../Regift/build/Debug-iphoneos/Regift.framework"; sourceTree = "<group>"; };
+		EDD81E1A1C88E9930045C1BD /* Regift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = Regift.framework; path = "/Users/gabriellemiller-messner/Library/Developer/Xcode/DerivedData/GifMaker_withRegiftFrameworkTake2-gntsthlyyhudzndkxtbmxdsdnimj/Build/Products/Debug-iphoneos/Regift.framework"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +85,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDD81E191C88DC610045C1BD /* Regift.framework in Frameworks */,
+				EDD81E1B1C88E9930045C1BD /* Regift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +109,7 @@
 		ED1C7F891C866D4C00724DC2 = {
 			isa = PBXGroup;
 			children = (
+				EDD81E1A1C88E9930045C1BD /* Regift.framework */,
 				EDD81E181C88DC610045C1BD /* Regift.framework */,
 				ED1C7F941C866D4C00724DC2 /* GifMaker_ObjC */,
 				ED1C7FAE1C866D4C00724DC2 /* GifMaker_ObjCTests */,
@@ -166,6 +185,7 @@
 				ED1C7F8E1C866D4C00724DC2 /* Sources */,
 				ED1C7F8F1C866D4C00724DC2 /* Frameworks */,
 				ED1C7F901C866D4C00724DC2 /* Resources */,
+				EDD81E1D1C88E9940045C1BD /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
