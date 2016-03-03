@@ -6,7 +6,7 @@
 //  Copyright © 2016 Gabrielle Miller-Messner. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+@import UIKit;
 
 @interface RecordVideoViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
