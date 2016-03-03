@@ -33,38 +33,6 @@
             endingLineNumber = "141"
             landmarkName = "-imagePickerController:didFinishPickingMediaWithInfo:"
             landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[RecordVideoViewController imagePickerController:didFinishPickingMediaWithInfo:]"
-                  moduleName = "GifMaker_ObjC"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gabriellemiller-messner/Documents/ios-nanodegree-gifmaker-objc/GifMaker_ObjC/GifMaker_ObjC/RecordVideoViewController.m"
-                  timestampString = "478662400.496307"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "143"
-                  endingLineNumber = "143"
-                  offsetFromSymbolStart = "960">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__81-[RecordVideoViewController imagePickerController:didFinishPickingMediaWithInfo:]_block_invoke"
-                  moduleName = "GifMaker_ObjC"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gabriellemiller-messner/Documents/ios-nanodegree-gifmaker-objc/GifMaker_ObjC/GifMaker_ObjC/RecordVideoViewController.m"
-                  timestampString = "478662400.496573"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "143"
-                  endingLineNumber = "143"
-                  offsetFromSymbolStart = "16">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

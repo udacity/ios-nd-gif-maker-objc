@@ -9,9 +9,9 @@
 #import "RecordVideoViewController.h"
 
 #import "RecordVideoViewController.h"
-#import <MobileCoreServices/MobileCoreServices.h>
+@import MobileCoreServices;
 #import "DisplayGifViewController.h"
-#import "GifMaker_ObjC-Swift.h"
+@import Regift;
 @import AVFoundation;
 
 @interface RecordVideoViewController()

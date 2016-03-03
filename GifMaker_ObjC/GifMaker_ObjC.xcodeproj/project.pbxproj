@@ -17,8 +17,7 @@
 		ED1C7FCA1C866D8200724DC2 /* DisplayGifViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1C7FC91C866D8200724DC2 /* DisplayGifViewController.m */; };
 		ED1C7FCD1C866DCA00724DC2 /* RecordVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1C7FCC1C866DCA00724DC2 /* RecordVideoViewController.m */; };
 		ED1C7FD31C866F1E00724DC2 /* UIImage+animatedGIF.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1C7FD21C866F1E00724DC2 /* UIImage+animatedGIF.m */; };
-		ED1C7FD81C86701800724DC2 /* AVAssetImageGeneratorTimePoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1C7FD71C86701800724DC2 /* AVAssetImageGeneratorTimePoints.swift */; };
-		ED1C7FDC1C879DA200724DC2 /* Regift.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1C7FDB1C879DA200724DC2 /* Regift.swift */; };
+		EDD81E191C88DC610045C1BD /* Regift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD81E181C88DC610045C1BD /* Regift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,8 +59,7 @@
 		ED1C7FD11C866F1E00724DC2 /* UIImage+animatedGIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+animatedGIF.h"; sourceTree = "<group>"; };
 		ED1C7FD21C866F1E00724DC2 /* UIImage+animatedGIF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+animatedGIF.m"; sourceTree = "<group>"; };
 		ED1C7FD41C866FB600724DC2 /* GifMaker_ObjC-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GifMaker_ObjC-Bridging-Header.h"; sourceTree = "<group>"; };
-		ED1C7FD71C86701800724DC2 /* AVAssetImageGeneratorTimePoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVAssetImageGeneratorTimePoints.swift; sourceTree = "<group>"; };
-		ED1C7FDB1C879DA200724DC2 /* Regift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Regift.swift; sourceTree = "<group>"; };
+		EDD81E181C88DC610045C1BD /* Regift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Regift.framework; path = "../Regift/build/Debug-iphoneos/Regift.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDD81E191C88DC610045C1BD /* Regift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +91,7 @@
 		ED1C7F891C866D4C00724DC2 = {
 			isa = PBXGroup;
 			children = (
+				EDD81E181C88DC610045C1BD /* Regift.framework */,
 				ED1C7F941C866D4C00724DC2 /* GifMaker_ObjC */,
 				ED1C7FAE1C866D4C00724DC2 /* GifMaker_ObjCTests */,
 				ED1C7FB91C866D4C00724DC2 /* GifMaker_ObjCUITests */,
@@ -126,8 +126,6 @@
 				ED1C7FD11C866F1E00724DC2 /* UIImage+animatedGIF.h */,
 				ED1C7FD21C866F1E00724DC2 /* UIImage+animatedGIF.m */,
 				ED1C7FD41C866FB600724DC2 /* GifMaker_ObjC-Bridging-Header.h */,
-				ED1C7FD71C86701800724DC2 /* AVAssetImageGeneratorTimePoints.swift */,
-				ED1C7FDB1C879DA200724DC2 /* Regift.swift */,
 			);
 			path = GifMaker_ObjC;
 			sourceTree = "<group>";
@@ -292,9 +290,7 @@
 				ED1C7F9A1C866D4C00724DC2 /* AppDelegate.m in Sources */,
 				ED1C7FCD1C866DCA00724DC2 /* RecordVideoViewController.m in Sources */,
 				ED1C7FD31C866F1E00724DC2 /* UIImage+animatedGIF.m in Sources */,
-				ED1C7FDC1C879DA200724DC2 /* Regift.swift in Sources */,
 				ED1C7F971C866D4C00724DC2 /* main.m in Sources */,
-				ED1C7FD81C86701800724DC2 /* AVAssetImageGeneratorTimePoints.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -529,6 +525,7 @@
 				ED1C7FC11C866D4C00724DC2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ED1C7FC21C866D4C00724DC2 /* Build configuration list for PBXNativeTarget "GifMaker_ObjCTests" */ = {
 			isa = XCConfigurationList;
@@ -537,6 +534,7 @@
 				ED1C7FC41C866D4C00724DC2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ED1C7FC51C866D4C00724DC2 /* Build configuration list for PBXNativeTarget "GifMaker_ObjCUITests" */ = {
 			isa = XCConfigurationList;
@@ -545,6 +543,7 @@
 				ED1C7FC71C866D4C00724DC2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
