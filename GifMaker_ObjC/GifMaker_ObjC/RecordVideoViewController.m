@@ -68,25 +68,6 @@ static const int kLoopCount = 0; // 0 means loop forever
 
 # pragma mark - UIImagePickerController Delegate methods
 
-//-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
-//    
-//    CFStringRef mediaType = (__bridge CFStringRef)([info objectForKey:UIImagePickerControllerMediaType]);
-//    [self dismissViewControllerAnimated:TRUE completion:nil];
-//    
-//    // Handle a movie capture
-//    if (mediaType == kUTTypeMovie) {
-//        
-//        NSURL *url = [info objectForKey:UIImagePickerControllerMediaURL];
-//        self.videoURL = url;
-//        NSString *path = url.path;
-//        if (UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(path)) {
-//            UISaveVideoAtPathToSavedPhotosAlbum(path, self, @selector(video: didFinishSavingWithError: contextInfo:), nil);
-//        }
-//     
-//        [self convertVideoToGif];
-//    }
-//}
-
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     [self dismissViewControllerAnimated:TRUE completion:nil];
 }
