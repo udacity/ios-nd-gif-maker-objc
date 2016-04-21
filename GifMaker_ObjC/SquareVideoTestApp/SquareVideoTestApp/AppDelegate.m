@@ -1,8 +1,8 @@
 //
 //  AppDelegate.m
-//  GifMaker_ObjC
+//  SquareVideoTestApp
 //
-//  Created by Gabrielle Miller-Messner on 3/1/16.
+//  Created by Gabrielle Miller-Messner on 4/20/16.
 //  Copyright © 2016 Gabrielle Miller-Messner. All rights reserved.
 //
 
@@ -17,17 +17,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    
-    if(!self.gifs) {
-        NSMutableArray *gifArray = [[NSMutableArray alloc]init];
-        self.gifs = gifArray;
-    }
-    
-    if([[NSUserDefaults standardUserDefaults] boolForKey:@"WelcomeViewSeen"]!=YES)
-    {
-        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"WelcomeViewSeen"];
-    }
-    
     return YES;
 }
 

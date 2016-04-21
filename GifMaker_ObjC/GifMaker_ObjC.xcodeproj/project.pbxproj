@@ -14,12 +14,23 @@
 		ED1C7FA51C866D4C00724DC2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED1C7FA31C866D4C00724DC2 /* LaunchScreen.storyboard */; };
 		ED1C7FB01C866D4C00724DC2 /* GifMaker_ObjCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1C7FAF1C866D4C00724DC2 /* GifMaker_ObjCTests.m */; };
 		ED1C7FBB1C866D4C00724DC2 /* GifMaker_ObjCUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1C7FBA1C866D4C00724DC2 /* GifMaker_ObjCUITests.m */; };
-		ED1C7FCA1C866D8200724DC2 /* DisplayGifViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1C7FC91C866D8200724DC2 /* DisplayGifViewController.m */; };
 		ED1C7FCD1C866DCA00724DC2 /* RecordVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1C7FCC1C866DCA00724DC2 /* RecordVideoViewController.m */; };
 		ED1C7FD31C866F1E00724DC2 /* UIImage+animatedGIF.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1C7FD21C866F1E00724DC2 /* UIImage+animatedGIF.m */; };
+		ED3F823E1C8A5A8B0084EC81 /* GifEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3F823D1C8A5A8B0084EC81 /* GifEditorViewController.m */; };
+		EDA342D31CC567C9006C23F3 /* GifPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDA342D21CC567C9006C23F3 /* GifPreviewViewController.m */; };
 		EDD81E191C88DC610045C1BD /* Regift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD81E181C88DC610045C1BD /* Regift.framework */; };
 		EDD81E1B1C88E9930045C1BD /* Regift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD81E1A1C88E9930045C1BD /* Regift.framework */; };
 		EDD81E1C1C88E9930045C1BD /* Regift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EDD81E1A1C88E9930045C1BD /* Regift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EDD81E221C8A26510045C1BD /* Gif.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD81E211C8A26510045C1BD /* Gif.m */; };
+		EDD81E261C8A3B980045C1BD /* tinaFeyHiFive.gif in Resources */ = {isa = PBXBuildFile; fileRef = EDD81E251C8A3B980045C1BD /* tinaFeyHiFive.gif */; };
+		EDD81E291C8A45D30045C1BD /* RecordVideoViewController+AllowEditing.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD81E281C8A45D30045C1BD /* RecordVideoViewController+AllowEditing.m */; };
+		EDF050B01CC5AB6700D9EC55 /* SavedGifsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF050AF1CC5AB6700D9EC55 /* SavedGifsViewController.m */; };
+		EDF050B31CC5ACF400D9EC55 /* GifCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF050B21CC5ACF400D9EC55 /* GifCell.m */; };
+		EDF050B61CC6E11E00D9EC55 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF050B51CC6E11E00D9EC55 /* WelcomeViewController.m */; };
+		EDF050C21CC7043900D9EC55 /* WelcomeViewController+AllowEditing.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF050C11CC7043800D9EC55 /* WelcomeViewController+AllowEditing.m */; };
+		EDF050C51CC711C500D9EC55 /* SavedGifsViewController+AllowEditing.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF050C41CC711C500D9EC55 /* SavedGifsViewController+AllowEditing.m */; };
+		EDF050C71CC814F300D9EC55 /* OverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDF050C61CC814F300D9EC55 /* OverlayView.xib */; };
+		EDF050CA1CC815BE00D9EC55 /* OverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF050C91CC815BE00D9EC55 /* OverlayView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,15 +79,35 @@
 		ED1C7FB61C866D4C00724DC2 /* GifMaker_ObjCUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GifMaker_ObjCUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED1C7FBA1C866D4C00724DC2 /* GifMaker_ObjCUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GifMaker_ObjCUITests.m; sourceTree = "<group>"; };
 		ED1C7FBC1C866D4C00724DC2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ED1C7FC81C866D8200724DC2 /* DisplayGifViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayGifViewController.h; sourceTree = "<group>"; };
-		ED1C7FC91C866D8200724DC2 /* DisplayGifViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisplayGifViewController.m; sourceTree = "<group>"; };
 		ED1C7FCB1C866DCA00724DC2 /* RecordVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordVideoViewController.h; sourceTree = "<group>"; };
 		ED1C7FCC1C866DCA00724DC2 /* RecordVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordVideoViewController.m; sourceTree = "<group>"; };
 		ED1C7FD11C866F1E00724DC2 /* UIImage+animatedGIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+animatedGIF.h"; sourceTree = "<group>"; };
 		ED1C7FD21C866F1E00724DC2 /* UIImage+animatedGIF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+animatedGIF.m"; sourceTree = "<group>"; };
 		ED1C7FD41C866FB600724DC2 /* GifMaker_ObjC-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GifMaker_ObjC-Bridging-Header.h"; sourceTree = "<group>"; };
+		ED3F823C1C8A5A8B0084EC81 /* GifEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GifEditorViewController.h; sourceTree = "<group>"; };
+		ED3F823D1C8A5A8B0084EC81 /* GifEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GifEditorViewController.m; sourceTree = "<group>"; };
+		EDA342D11CC567C9006C23F3 /* GifPreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GifPreviewViewController.h; sourceTree = "<group>"; };
+		EDA342D21CC567C9006C23F3 /* GifPreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GifPreviewViewController.m; sourceTree = "<group>"; };
 		EDD81E181C88DC610045C1BD /* Regift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Regift.framework; path = "../Regift/build/Debug-iphoneos/Regift.framework"; sourceTree = "<group>"; };
 		EDD81E1A1C88E9930045C1BD /* Regift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = Regift.framework; path = "/Users/gabriellemiller-messner/Library/Developer/Xcode/DerivedData/GifMaker_withRegiftFrameworkTake2-gntsthlyyhudzndkxtbmxdsdnimj/Build/Products/Debug-iphoneos/Regift.framework"; sourceTree = "<absolute>"; };
+		EDD81E201C8A26510045C1BD /* Gif.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gif.h; sourceTree = "<group>"; };
+		EDD81E211C8A26510045C1BD /* Gif.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Gif.m; sourceTree = "<group>"; };
+		EDD81E251C8A3B980045C1BD /* tinaFeyHiFive.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = tinaFeyHiFive.gif; sourceTree = "<group>"; };
+		EDD81E271C8A45D30045C1BD /* RecordVideoViewController+AllowEditing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RecordVideoViewController+AllowEditing.h"; sourceTree = "<group>"; };
+		EDD81E281C8A45D30045C1BD /* RecordVideoViewController+AllowEditing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RecordVideoViewController+AllowEditing.m"; sourceTree = "<group>"; };
+		EDF050AE1CC5AB6700D9EC55 /* SavedGifsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SavedGifsViewController.h; sourceTree = "<group>"; };
+		EDF050AF1CC5AB6700D9EC55 /* SavedGifsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SavedGifsViewController.m; sourceTree = "<group>"; };
+		EDF050B11CC5ACF400D9EC55 /* GifCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GifCell.h; sourceTree = "<group>"; };
+		EDF050B21CC5ACF400D9EC55 /* GifCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GifCell.m; sourceTree = "<group>"; };
+		EDF050B41CC6E11E00D9EC55 /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
+		EDF050B51CC6E11E00D9EC55 /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
+		EDF050C01CC7043800D9EC55 /* WelcomeViewController+AllowEditing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WelcomeViewController+AllowEditing.h"; sourceTree = "<group>"; };
+		EDF050C11CC7043800D9EC55 /* WelcomeViewController+AllowEditing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WelcomeViewController+AllowEditing.m"; sourceTree = "<group>"; };
+		EDF050C31CC711C500D9EC55 /* SavedGifsViewController+AllowEditing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SavedGifsViewController+AllowEditing.h"; sourceTree = "<group>"; };
+		EDF050C41CC711C500D9EC55 /* SavedGifsViewController+AllowEditing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SavedGifsViewController+AllowEditing.m"; sourceTree = "<group>"; };
+		EDF050C61CC814F300D9EC55 /* OverlayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OverlayView.xib; sourceTree = "<group>"; };
+		EDF050C81CC815BE00D9EC55 /* OverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OverlayView.h; sourceTree = "<group>"; };
+		EDF050C91CC815BE00D9EC55 /* OverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OverlayView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +140,22 @@
 		ED1C7F891C866D4C00724DC2 = {
 			isa = PBXGroup;
 			children = (
+				EDF050C81CC815BE00D9EC55 /* OverlayView.h */,
+				EDF050C91CC815BE00D9EC55 /* OverlayView.m */,
+				EDF050C31CC711C500D9EC55 /* SavedGifsViewController+AllowEditing.h */,
+				EDF050C41CC711C500D9EC55 /* SavedGifsViewController+AllowEditing.m */,
+				EDF050B41CC6E11E00D9EC55 /* WelcomeViewController.h */,
+				EDF050C01CC7043800D9EC55 /* WelcomeViewController+AllowEditing.h */,
+				EDF050C11CC7043800D9EC55 /* WelcomeViewController+AllowEditing.m */,
+				EDF050B51CC6E11E00D9EC55 /* WelcomeViewController.m */,
+				EDF050B11CC5ACF400D9EC55 /* GifCell.h */,
+				EDF050B21CC5ACF400D9EC55 /* GifCell.m */,
+				EDF050AE1CC5AB6700D9EC55 /* SavedGifsViewController.h */,
+				EDF050AF1CC5AB6700D9EC55 /* SavedGifsViewController.m */,
+				EDA342D11CC567C9006C23F3 /* GifPreviewViewController.h */,
+				EDA342D21CC567C9006C23F3 /* GifPreviewViewController.m */,
+				EDD81E271C8A45D30045C1BD /* RecordVideoViewController+AllowEditing.h */,
+				EDD81E281C8A45D30045C1BD /* RecordVideoViewController+AllowEditing.m */,
 				EDD81E1A1C88E9930045C1BD /* Regift.framework */,
 				EDD81E181C88DC610045C1BD /* Regift.framework */,
 				ED1C7F941C866D4C00724DC2 /* GifMaker_ObjC */,
@@ -131,20 +178,24 @@
 		ED1C7F941C866D4C00724DC2 /* GifMaker_ObjC */ = {
 			isa = PBXGroup;
 			children = (
+				EDD81E251C8A3B980045C1BD /* tinaFeyHiFive.gif */,
 				ED1C7F981C866D4C00724DC2 /* AppDelegate.h */,
 				ED1C7F991C866D4C00724DC2 /* AppDelegate.m */,
 				ED1C7F9E1C866D4C00724DC2 /* Main.storyboard */,
+				EDF050C61CC814F300D9EC55 /* OverlayView.xib */,
 				ED1C7FA11C866D4C00724DC2 /* Assets.xcassets */,
 				ED1C7FA31C866D4C00724DC2 /* LaunchScreen.storyboard */,
 				ED1C7FA61C866D4C00724DC2 /* Info.plist */,
 				ED1C7F951C866D4C00724DC2 /* Supporting Files */,
-				ED1C7FC81C866D8200724DC2 /* DisplayGifViewController.h */,
-				ED1C7FC91C866D8200724DC2 /* DisplayGifViewController.m */,
 				ED1C7FCB1C866DCA00724DC2 /* RecordVideoViewController.h */,
 				ED1C7FCC1C866DCA00724DC2 /* RecordVideoViewController.m */,
 				ED1C7FD11C866F1E00724DC2 /* UIImage+animatedGIF.h */,
 				ED1C7FD21C866F1E00724DC2 /* UIImage+animatedGIF.m */,
 				ED1C7FD41C866FB600724DC2 /* GifMaker_ObjC-Bridging-Header.h */,
+				EDD81E201C8A26510045C1BD /* Gif.h */,
+				EDD81E211C8A26510045C1BD /* Gif.m */,
+				ED3F823C1C8A5A8B0084EC81 /* GifEditorViewController.h */,
+				ED3F823D1C8A5A8B0084EC81 /* GifEditorViewController.m */,
 			);
 			path = GifMaker_ObjC;
 			sourceTree = "<group>";
@@ -279,7 +330,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDD81E261C8A3B980045C1BD /* tinaFeyHiFive.gif in Resources */,
 				ED1C7FA51C866D4C00724DC2 /* LaunchScreen.storyboard in Resources */,
+				EDF050C71CC814F300D9EC55 /* OverlayView.xib in Resources */,
 				ED1C7FA21C866D4C00724DC2 /* Assets.xcassets in Resources */,
 				ED1C7FA01C866D4C00724DC2 /* Main.storyboard in Resources */,
 			);
@@ -306,11 +359,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED1C7FCA1C866D8200724DC2 /* DisplayGifViewController.m in Sources */,
+				ED3F823E1C8A5A8B0084EC81 /* GifEditorViewController.m in Sources */,
+				EDD81E221C8A26510045C1BD /* Gif.m in Sources */,
+				EDF050B31CC5ACF400D9EC55 /* GifCell.m in Sources */,
+				EDF050B01CC5AB6700D9EC55 /* SavedGifsViewController.m in Sources */,
 				ED1C7F9A1C866D4C00724DC2 /* AppDelegate.m in Sources */,
 				ED1C7FCD1C866DCA00724DC2 /* RecordVideoViewController.m in Sources */,
+				EDF050B61CC6E11E00D9EC55 /* WelcomeViewController.m in Sources */,
+				EDA342D31CC567C9006C23F3 /* GifPreviewViewController.m in Sources */,
+				EDF050C21CC7043900D9EC55 /* WelcomeViewController+AllowEditing.m in Sources */,
+				EDF050CA1CC815BE00D9EC55 /* OverlayView.m in Sources */,
 				ED1C7FD31C866F1E00724DC2 /* UIImage+animatedGIF.m in Sources */,
 				ED1C7F971C866D4C00724DC2 /* main.m in Sources */,
+				EDF050C51CC711C500D9EC55 /* SavedGifsViewController+AllowEditing.m in Sources */,
+				EDD81E291C8A45D30045C1BD /* RecordVideoViewController+AllowEditing.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

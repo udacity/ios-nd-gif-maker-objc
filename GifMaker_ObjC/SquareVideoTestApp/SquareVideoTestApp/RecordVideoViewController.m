@@ -8,11 +8,10 @@
 
 #import "RecordVideoViewController.h"
 @import MobileCoreServices;
-@import Regift;
 @import AVFoundation;
 #import "AppDelegate.h"
 #import "RecordVideoViewController+AllowEditing.h"
-#import "GifEditorViewController.h"
+#import "ViewController.h"
 
 @interface RecordVideoViewController()
 
@@ -22,23 +21,10 @@
 
 @end
 
-static int const kFrameCount = 16;
-static const float kDelayTime = 0.2;
-static const int kLoopCount = 0; // 0 means loop forever
-
 @implementation RecordVideoViewController
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
-    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
-    if(appDelegate.gifs.count > 0) {
-        NSUInteger count = appDelegate.gifs.count;
-        self.previousGifImageView.image = appDelegate.gifs[count-1].gifImage;
-    } else {
-        Gif *firstLaunchGif = [[Gif alloc] initWithName:@"tinaFeyHiFive"];
-        self.previousGifImageView.image = firstLaunchGif.gifImage;
-    }    
 }
 
 # pragma mark - Video Recording Methods
@@ -55,29 +41,12 @@ static const int kLoopCount = 0; // 0 means loop forever
         UIImagePickerController *cameraController = [[UIImagePickerController alloc] init];
         cameraController.sourceType = UIImagePickerControllerSourceTypeCamera;
         cameraController.mediaTypes = @[(NSString *) kUTTypeMovie];
-        cameraController.allowsEditing = true;
+        cameraController.allowsEditing = false;
         cameraController.delegate = self;
         
         [self presentViewController:cameraController animated:TRUE completion:nil];
         return true;
     }
-}
-
--(void)video:(NSString *)videoPath didFinishSavingWithError:(NSError*)error contextInfo:(id)info {
-    NSString *title = @"Success";
-    NSString *message = @"Video was saved";
-    
-    if (error != nil) {
-        title = @"Error";
-        message = @"Video failed to save";
-    }
-    
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:title
-                                                                   message:message
-                                                            preferredStyle:UIAlertControllerStyleAlert];
-    
-    [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil]];
-    [self presentViewController:alert animated:TRUE completion:nil];
 }
 
 # pragma mark - UIImagePickerController Delegate methods
@@ -87,27 +56,6 @@ static const int kLoopCount = 0; // 0 means loop forever
 }
 
 # pragma mark - Gif Conversion and Display methods
-
--(void)convertVideoToGif {
-    Regift *regift = [[Regift alloc] initWithSourceFileURL:self.videoURL frameCount:kFrameCount delayTime:kDelayTime loopCount:kLoopCount];
-    self.gifURL = [regift createGif];
-    [self saveGif];
-}
-
--(void)saveGif {
-    Gif *newGif = [[Gif alloc] initWithUrl:self.gifURL caption:@"default"];
-    [self displayGif:newGif];
-}
-
--(void)displayGif:(Gif*)gif {
-   GifEditorViewController *gifEditorVC = [self.storyboard instantiateViewControllerWithIdentifier:@"GifEditorViewController"];
-    gifEditorVC.gif = gif;
-    
-    [self dismissViewControllerAnimated:TRUE completion:nil];
-    [self.navigationController pushViewController:gifEditorVC animated:true];
-
-
-}
 
 // Allows Editing
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
@@ -141,7 +89,6 @@ static const int kLoopCount = 0; // 0 means loop forever
                     case AVAssetExportSessionStatusCompleted:
                         // Custom method to import the Exported Video
                         self.videoURL = trimmedSession.outputURL;
-                        [self convertVideoToGif];
                         break;
                     case AVAssetExportSessionStatusFailed:
                         //
@@ -159,8 +106,15 @@ static const int kLoopCount = 0; // 0 means loop forever
             // If video was not trimmed, use the entire video.
         } else {
             self.videoURL = rawVideoURL;
-            [self convertVideoToGif];
+            ViewController *controller = [[ViewController alloc] init];
+            controller.videoURL = rawVideoURL;
+            [self presentViewController:controller animated:TRUE completion:nil];
         }
+        
+        ViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"ViewController"];
+        controller.videoURL = self.videoURL;
+        [self dismissViewControllerAnimated:TRUE completion:nil];
+        [self presentViewController:controller animated:TRUE completion:nil];
     }
 }
 
