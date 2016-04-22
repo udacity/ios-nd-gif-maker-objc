@@ -9,7 +9,6 @@
 #import "WelcomeViewController.h"
 #import "Gif.h"
 #import "AppDelegate.h"
-#import "RecordVideoViewController.h"
 @import MobileCoreServices;
 @import Regift;
 @import AVFoundation;
@@ -163,8 +162,8 @@ static const int kLoopCount = 0; // 0 means loop forever
     [self saveGif];
 }
 
--(void)saveGif {
-    Gif *newGif = [[Gif alloc] initWithUrl:self.gifURL caption:@"default"];
+-(void)saveGif{
+    Gif *newGif = [[Gif alloc] initWithGifUrl:self.gifURL videoURL: self.videoURL caption:@"default"];
     [self displayGif:newGif];
 }
 

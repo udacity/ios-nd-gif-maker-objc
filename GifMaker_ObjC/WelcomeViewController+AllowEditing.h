@@ -8,7 +8,6 @@
 
 #import "WelcomeViewController.h"
 #import <Foundation/Foundation.h>
-#import "RecordVideoViewController.h"
 @import AVFoundation;
 
 @interface WelcomeViewController(AllowEditing)

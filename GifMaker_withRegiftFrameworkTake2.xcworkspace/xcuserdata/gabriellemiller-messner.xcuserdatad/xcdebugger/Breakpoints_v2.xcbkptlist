@@ -25,13 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "GifMaker_ObjC/GifMaker_ObjC/UIImage+animatedGIF.m"
-            timestampString = "482892687.899479"
+            filePath = "Regift/Regift/Regift.swift"
+            timestampString = "482983548.268967"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "135"
-            endingLineNumber = "135"
-            landmarkName = "+animatedImageWithAnimatedGIFURL:"
+            startingLineNumber = "142"
+            endingLineNumber = "142"
+            landmarkName = "createGifWithCaption(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -41,76 +41,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "GifMaker_ObjC/SavedGifsViewController.m"
-            timestampString = "482892722.302322"
+            filePath = "Regift/Regift/Regift.swift"
+            timestampString = "482983571.399744"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "277"
-            endingLineNumber = "277"
-            landmarkName = "-makeItSquare:"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__40-[SavedGifsViewController makeItSquare:]_block_invoke"
-                  moduleName = "GifMaker_ObjC"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gabriellemiller-messner/Documents/ios-nanodegree-gifmaker-objc/GifMaker_ObjC/SavedGifsViewController.m"
-                  timestampString = "482893306.414119"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "277"
-                  endingLineNumber = "277"
-                  offsetFromSymbolStart = "128">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__copy_helper_block_.208"
-                  moduleName = "GifMaker_ObjC"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gabriellemiller-messner/Documents/ios-nanodegree-gifmaker-objc/GifMaker_ObjC/SavedGifsViewController.m"
-                  timestampString = "482893306.414251"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "277"
-                  endingLineNumber = "277"
-                  offsetFromSymbolStart = "116">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__destroy_helper_block_.209"
-                  moduleName = "GifMaker_ObjC"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gabriellemiller-messner/Documents/ios-nanodegree-gifmaker-objc/GifMaker_ObjC/SavedGifsViewController.m"
-                  timestampString = "482893306.414358"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "277"
-                  endingLineNumber = "277"
-                  offsetFromSymbolStart = "64">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "GifMaker_ObjC/SavedGifsViewController.m"
-            timestampString = "482892960.926874"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "237"
-            endingLineNumber = "237"
-            landmarkName = "-imagePickerController:didFinishPickingMediaWithInfo:"
+            startingLineNumber = "194"
+            endingLineNumber = "194"
+            landmarkName = "createGIFForTimePointsAndCaption(_:fileProperties:frameProperties:frameCount:caption:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -120,13 +57,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "GifMaker_ObjC/SavedGifsViewController.m"
-            timestampString = "482893022.453928"
+            filePath = "GifMaker_ObjC/GifMaker_ObjC/GifEditorViewController.m"
+            timestampString = "482983829.601982"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "271"
-            endingLineNumber = "271"
-            landmarkName = "-makeItSquare:"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
+            landmarkName = "-presentPreview"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -136,13 +73,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "GifMaker_ObjC/SavedGifsViewController.m"
-            timestampString = "482893297.878333"
+            filePath = "GifMaker_ObjC/GifMaker_ObjC/GifEditorViewController.m"
+            timestampString = "482985136.392372"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "270"
-            endingLineNumber = "270"
-            landmarkName = "-makeItSquare:"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "-presentPreview"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -152,13 +89,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "GifMaker_ObjC/SavedGifsViewController.m"
-            timestampString = "482893364.255131"
+            filePath = "GifMaker_ObjC/GifMaker_ObjC/GifEditorViewController.m"
+            timestampString = "482985522.492739"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "272"
-            endingLineNumber = "272"
-            landmarkName = "-makeItSquare:"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
+            landmarkName = "-presentPreview"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

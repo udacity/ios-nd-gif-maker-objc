@@ -14,7 +14,8 @@
 @property (nonatomic) NSURL *url;
 @property (nonatomic) NSString *caption;
 @property (nonatomic) UIImage *gifImage;
+@property (nonatomic) NSURL *rawVideoURL;
 
--(instancetype)initWithUrl: (NSURL*)url caption:(NSString*)caption;
+-(instancetype)initWithGifUrl: (NSURL*)url videoURL:(NSURL*)videoURL caption:(NSString*)caption;
 -(instancetype)initWithName:(NSString*)name;
 @end

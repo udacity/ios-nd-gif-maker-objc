@@ -482,10 +482,10 @@
                                     <action selector="presentVideoOptions:" destination="aXC-Xw-CZL" eventType="touchUpInside" id="uxn-46-LaV"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8KP-YL-9eI">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8KP-YL-9eI">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to GIFit!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FJx-3q-9aS">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Welcome to GIFit!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FJx-3q-9aS">
                                         <rect key="frame" x="214" y="438" width="173" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="173" id="VGa-yB-j0h"/>
@@ -498,7 +498,7 @@
                                             <rect key="frame" x="114" y="419" width="173" height="21"/>
                                         </variation>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's create some GIFs! Get started by tapping the button below." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gJb-7x-s6J">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Let's create some GIFs! Get started by tapping the button below." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gJb-7x-s6J">
                                         <rect key="frame" x="160" y="461" width="280" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="280" id="0ZX-v4-PU3"/>
@@ -542,14 +542,14 @@
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
+                                        <exclude reference="axa-Xj-BeT"/>
+                                        <exclude reference="wlk-ZE-y3h"/>
                                         <exclude reference="6aU-LT-OEB"/>
                                         <exclude reference="Dcj-mH-ofW"/>
                                         <exclude reference="HIU-y5-X7S"/>
                                         <exclude reference="UOi-4y-4f3"/>
                                         <exclude reference="a2K-MF-XmF"/>
                                         <exclude reference="rUB-PX-h2G"/>
-                                        <exclude reference="axa-Xj-BeT"/>
-                                        <exclude reference="wlk-ZE-y3h"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=compact-widthClass=compact">
@@ -560,10 +560,10 @@
                                     <mask key="constraints">
                                         <include reference="VpM-5L-SVu"/>
                                         <include reference="aHv-0d-o3U"/>
-                                        <include reference="HIU-y5-X7S"/>
-                                        <include reference="UOi-4y-4f3"/>
                                         <include reference="axa-Xj-BeT"/>
                                         <include reference="wlk-ZE-y3h"/>
+                                        <include reference="HIU-y5-X7S"/>
+                                        <include reference="UOi-4y-4f3"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact">
@@ -575,7 +575,7 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dtM-iO-tnE">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dtM-iO-tnE">
                                 <rect key="frame" x="130" y="42" width="340" height="340"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="280" id="UKe-2o-TdP"/>
@@ -625,11 +625,11 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="P6g-Qp-LMP"/>
                                 <exclude reference="6uf-po-Nak"/>
                                 <exclude reference="eQW-a2-5wI"/>
                                 <exclude reference="tO7-aT-Ohc"/>
                                 <exclude reference="wFF-cO-pbL"/>
+                                <exclude reference="P6g-Qp-LMP"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -643,17 +643,17 @@
                                 <exclude reference="dtM-iO-tnE"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="P6g-Qp-LMP"/>
-                                <exclude reference="Za9-Xx-Ckt"/>
                                 <include reference="6uf-po-Nak"/>
                                 <include reference="wFF-cO-pbL"/>
+                                <include reference="P6g-Qp-LMP"/>
+                                <exclude reference="Za9-Xx-Ckt"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="constraints">
-                                <exclude reference="Za9-Xx-Ckt"/>
                                 <include reference="eQW-a2-5wI"/>
                                 <include reference="tO7-aT-Ohc"/>
+                                <exclude reference="Za9-Xx-Ckt"/>
                                 <exclude reference="Izs-xz-ORd"/>
                                 <include reference="OnI-9X-EIZ"/>
                             </mask>

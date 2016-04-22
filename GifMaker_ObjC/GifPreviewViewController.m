@@ -16,13 +16,18 @@
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.gifImageView.image = self.gif.gifImage;
-    self.gifCaptionLabel.text = self.gif.caption;
+    //self.gifCaptionLabel.text = self.gif.caption;
 }
 
 
 - (IBAction)shareGif:(id)sender {
     
-    UIActivityViewController *shareController = [[UIActivityViewController alloc] initWithActivityItems:@[self.gif.gifImage] applicationActivities:nil];
+    NSData *animatedGif = [NSData dataWithContentsOfURL:self.gif.url];
+    NSArray *sharingItems = [NSArray arrayWithObjects: animatedGif, nil];
+    
+    UIActivityViewController *shareController = [[UIActivityViewController alloc] initWithActivityItems:sharingItems applicationActivities:nil];
+    
+    //UIActivityViewController *shareController = [[UIActivityViewController alloc] initWithActivityItems:@[self.gif.gifImage] applicationActivities:nil];
     
     [shareController setCompletionWithItemsHandler: ^(NSString *activityType, BOOL completed, NSArray *returnedItems, NSError *activityError) {
         if (completed) {

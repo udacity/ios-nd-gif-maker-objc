@@ -108,6 +108,50 @@ static UIImage *animatedImageWithAnimatedGIFImageSource(CGImageSourceRef const s
     return animation;
 }
 
+
++(UIImage*) drawText:(NSString*) text
+             inImage:(UIImage*)  image
+             atPoint:(CGPoint)   point
+{
+    
+    UIFont *font = [UIFont boldSystemFontOfSize:12];
+    UIGraphicsBeginImageContext(image.size);
+    [image drawInRect:CGRectMake(0,0,image.size.width,image.size.height)];
+    CGRect rect = CGRectMake(point.x, point.y, image.size.width, image.size.height);
+    [[UIColor whiteColor] set];
+    NSDictionary *attributes = [[NSDictionary alloc] initWithObjectsAndKeys: NSFontAttributeName,font, nil];
+    [text drawInRect:CGRectIntegral(rect) withAttributes:attributes];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return newImage;
+}
+
+func addCaption(image: CGImageRef, text: NSString) -> CGImage {
+    var image = UIImage(CGImage:image)
+    var font = UIFont.boldSystemFontOfSize(16)
+    UIGraphicsBeginImageContext(image.size)
+    var point  = CGPointMake(8, image.size.height - 8)
+    var firstRect = CGRectMake(0,0,image.size.width,image.size.height)
+    image.drawInRect(firstRect)
+    var secondRect = CGRectMake(point.x,point.y,image.size.width,image.size.height)
+    var color = UIColor.whiteColor()
+    color.set()
+    
+    var attributes = [NSForegroundColorAttributeName: color, NSFontAttributeName: font]
+    
+    text.drawInRect(CGRectIntegral(secondRect), withAttributes: attributes)
+    var newImage = UIGraphicsGetImageFromCurrentImageContext()
+    UIGraphicsEndImageContext()
+    return newImage.CGImage!
+}
+
+
+
+
+
+
+
 static UIImage *animatedImageWithAnimatedGIFReleasingImageSource(CGImageSourceRef CF_RELEASES_ARGUMENT source) {
     if (source) {
         UIImage *const image = animatedImageWithAnimatedGIFImageSource(source);

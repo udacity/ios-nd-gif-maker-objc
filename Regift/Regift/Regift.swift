@@ -137,6 +137,132 @@ public typealias TimePoint = CMTime
         
         return fileURL
     }
+
+/// Get the URL of the GIF created with the attributes provided in the initializer.
+    public func createGifWithCaption(caption: NSString) -> NSURL? {
+    let fileProperties = [kCGImagePropertyGIFDictionary as String:
+        [
+            kCGImagePropertyGIFLoopCount as String: loopCount
+        ]]
+    
+    let frameProperties = [kCGImagePropertyGIFDictionary as String:
+        [
+            kCGImagePropertyGIFDelayTime as String: delayTime
+        ]]
+    
+    let asset = AVURLAsset(URL: sourceFileURL, options: nil)
+    
+    // The total length of the movie, in seconds.
+    let movieLength = Float(asset.duration.value) / Float(asset.duration.timescale)
+    
+    // How far along the video track we want to move, in seconds.
+    let increment = Float(movieLength) / Float(frameCount)
+    
+    // Add each of the frames to the buffer
+    var timePoints: [TimePoint] = []
+    
+    for frameNumber in 0 ..< frameCount {
+        let seconds: Float64 = Float64(increment) * Float64(frameNumber)
+        let time = CMTimeMakeWithSeconds(seconds, Regift.TimeInterval)
+        
+        timePoints.append(time)
+    }
+    
+    do {
+        return try createGIFForTimePointsAndCaption(timePoints, fileProperties: fileProperties, frameProperties: frameProperties, frameCount: frameCount, caption: caption)
+        
+    } catch {
+        return nil
+    }
 }
+
+/// Create a GIF using the given time points in a movie file stored at the URL provided.
+///
+/// :param: timePoints An array of `TimePoint`s (which are typealiased `CMTime`s) to use as the frames in the GIF.
+/// :param: URL The URL of the video file to convert
+/// :param: fileProperties The desired attributes of the resulting GIF.
+/// :param: frameProperties The desired attributes of each frame in the resulting GIF.
+    public func createGIFForTimePointsAndCaption(timePoints: [TimePoint], fileProperties: [String: AnyObject], frameProperties: [String: AnyObject], frameCount: Int, caption: NSString) throws -> NSURL {
+    let temporaryFile = (NSTemporaryDirectory() as NSString).stringByAppendingPathComponent(Regift.FileName)
+    let fileURL = NSURL(fileURLWithPath: temporaryFile)
+    
+    guard let destination = CGImageDestinationCreateWithURL(fileURL, kUTTypeGIF, frameCount, nil) else {
+        print("An error occurred.")
+        throw RegiftError.DestinationNotFound
+    }
+    
+    CGImageDestinationSetProperties(destination, fileProperties as CFDictionaryRef)
+    
+    let asset = AVURLAsset(URL: sourceFileURL)
+    let generator = AVAssetImageGenerator(asset: asset)
+    
+    generator.appliesPreferredTrackTransform = true
+    
+    let tolerance = CMTimeMakeWithSeconds(Regift.Tolerance, Regift.TimeInterval)
+    generator.requestedTimeToleranceBefore = tolerance
+    generator.requestedTimeToleranceAfter = tolerance
+    
+    for time in timePoints {
+        do {
+            let imageRef = try generator.copyCGImageAtTime(time, actualTime: nil)
+            let imageRefWithCaption = addCaption(imageRef,text:caption)
+            CGImageDestinationAddImage(destination, imageRefWithCaption, frameProperties as CFDictionaryRef)
+        } catch let error as NSError {
+            print("An error occurred: \(error)")
+            throw RegiftError.AddFrameToDestination
+        }
+    }
+    
+    CGImageDestinationSetProperties(destination, fileProperties as CFDictionaryRef)
+    
+    // Finalize the gif
+    if !CGImageDestinationFinalize(destination) {
+        throw RegiftError.DestinationFinalize
+    }
+    
+    return fileURL
+}
+}
+
+func addCaption(image: CGImageRef, text: NSString) -> CGImage {
+    var image = UIImage(CGImage:image)
+    var font = UIFont.boldSystemFontOfSize(16)
+    UIGraphicsBeginImageContext(image.size)
+    var point  = CGPointMake(8, image.size.height - 8)
+    var firstRect = CGRectMake(0,0,image.size.width,image.size.height)
+    image.drawInRect(firstRect)
+    var secondRect = CGRectMake(point.x,point.y,image.size.width,image.size.height)
+    var color = UIColor.whiteColor()
+    color.set()
+    
+    var attributes = [NSForegroundColorAttributeName: color, NSFontAttributeName: font]
+    
+    text.drawInRect(CGRectIntegral(secondRect), withAttributes: attributes)
+    var newImage = UIGraphicsGetImageFromCurrentImageContext()
+    UIGraphicsEndImageContext()
+    return newImage.CGImage!
+}
+
+//+(UIImage*) drawText:(NSString*) text
+//inImage:(UIImage*)  image
+//atPoint:(CGPoint)   point
+//{
+//    
+//    UIFont *font = [UIFont boldSystemFontOfSize:12];
+//    UIGraphicsBeginImageContext(image.size);
+//    [image drawInRect:CGRectMake(0,0,image.size.width,image.size.height)];
+//    CGRect rect = CGRectMake(point.x, point.y, image.size.width, image.size.height);
+//    [[UIColor whiteColor] set];
+//    [text drawInRect:CGRectIntegral(rect) withFont:font];
+//    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+//    UIGraphicsEndImageContext();
+//    
+//    return newImage;
+//}
+
+
+
+
+
 
 

@@ -9,7 +9,6 @@
 #import "SavedGifsViewController.h"
 #import "AppDelegate.h"
 #import "GifCell.h"
-#import "RecordVideoViewController.h"
 #import "WelcomeViewController.h"
 @import MobileCoreServices;
 @import Regift;
@@ -67,12 +66,6 @@ static const int kLoopCount = 0; // 0 means loop forever
 -(NSArray*)gifs {
     AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
     return appDelegate.gifs;
-    
-//    Gif *firstGif = [[Gif alloc] initWithName:@"tinaFeyHiFive"];
-//    Gif *secondGif = [[Gif alloc] initWithName:@"tinaFeyHiFive"];
-//    Gif *thirdGif = [[Gif alloc] initWithName:@"tinaFeyHiFive"];
-//    NSArray *gifs = @[firstGif,secondGif, thirdGif];
-//    return gifs;
 }
 
 -(void)prepareLayout {
@@ -191,51 +184,11 @@ static const int kLoopCount = 0; // 0 means loop forever
     if (mediaType == kUTTypeMovie) {
         
         NSURL *rawVideoURL = [info objectForKey:UIImagePickerControllerMediaURL];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self makeItSquare: rawVideoURL];
+        });
         
-        // Get start and end points from trimmed video
-        NSNumber *start = [info objectForKey:@"_UIImagePickerControllerVideoEditingStart"];
-        NSNumber *end = [info objectForKey:@"_UIImagePickerControllerVideoEditingEnd"];
-        
-        // If start and end are nil then clipping was not used.
-        if (start != nil) {
-            int startMilliseconds = ([start doubleValue] * 1000);
-            int endMilliseconds = ([end doubleValue] * 1000);
-            
-            // Use AVFoundation to trim the video
-            AVURLAsset *videoURLAsset = [AVURLAsset URLAssetWithURL:rawVideoURL options:nil];
-            NSString *outputURL = [SavedGifsViewController createPath];
-            AVAssetExportSession *exportSession = [[AVAssetExportSession alloc] initWithAsset:videoURLAsset presetName:AVAssetExportPresetHighestQuality];
-            AVAssetExportSession *trimmedSession = [SavedGifsViewController configureExportSession:exportSession outputURL:outputURL startMilliseconds:startMilliseconds endMilliseconds:endMilliseconds];
-            
-            // Export trimmed video
-            
-            
-            [trimmedSession exportAsynchronouslyWithCompletionHandler:^{
-                switch (trimmedSession.status) {
-                    case AVAssetExportSessionStatusCompleted:
-                        // Custom method to import the Exported Video
-                        [self convertVideoToGif: trimmedSession.outputURL];
-                        break;
-                    case AVAssetExportSessionStatusFailed:
-                        //
-                        NSLog(@"Failed:%@",trimmedSession.error);
-                        break;
-                    case AVAssetExportSessionStatusCancelled:
-                        //
-                        NSLog(@"Canceled:%@",trimmedSession.error);
-                        break;
-                    default:
-                        break;
-                }
-            }];
-
-            
-            // If video was not trimmed, use the entire video.
-        } else {
-            NSURL *videoURL = rawVideoURL;
-            [self makeItSquare:videoURL];
-            [self convertVideoToGif: self.squareURL];
-        }
+        //[self convertVideoToGif:self.squareURL];
     }
 }
 
@@ -274,20 +227,20 @@ static const int kLoopCount = 0; // 0 means loop forever
     [exporter exportAsynchronouslyWithCompletionHandler:^(void){
         NSLog(@"Exporting done!");
         self.squareURL = exporter.outputURL;
+        [self convertVideoToGif:self.squareURL];
     }];
 }
-
 
 # pragma mark - Gif Conversion and Display methods
 
 -(void)convertVideoToGif:(NSURL*)videoURL {
     Regift *regift = [[Regift alloc] initWithSourceFileURL:videoURL frameCount:kFrameCount delayTime:kDelayTime loopCount:kLoopCount];
     NSURL *gifURL = [regift createGif];
-    [self saveGif:gifURL];
+    [self saveGif:gifURL videoURL:videoURL];
 }
 
--(void)saveGif:(NSURL*)gifURL {
-    Gif *newGif = [[Gif alloc] initWithUrl:gifURL caption:@"default"];
+-(void)saveGif:(NSURL*)gifURL videoURL: videoURL{
+    Gif *newGif = [[Gif alloc] initWithGifUrl:gifURL videoURL:videoURL caption:@"default caption"];
     [self displayGif:newGif];
 }
 
@@ -295,9 +248,10 @@ static const int kLoopCount = 0; // 0 means loop forever
     GifEditorViewController *gifEditorVC = [self.storyboard instantiateViewControllerWithIdentifier:@"GifEditorViewController"];
     gifEditorVC.gif = gif;
     
-    [self dismissViewControllerAnimated:TRUE completion:nil];
-    [self.navigationController pushViewController:gifEditorVC animated:true];
-    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self dismissViewControllerAnimated:TRUE completion:nil];
+        [self.navigationController pushViewController:gifEditorVC animated:true];
+    });
 }
 
 

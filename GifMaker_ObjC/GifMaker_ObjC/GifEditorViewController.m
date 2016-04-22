@@ -8,11 +8,16 @@
 
 #import "GifEditorViewController.h"
 #import "GifPreviewViewController.h"
+@import Regift;
 
 @interface GifEditorViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *captionTextField;
 
 @end
+
+static int const kFrameCount = 16;
+static const float kDelayTime = 0.2;
+static const int kLoopCount = 0; // 0 means loop forever
 
 @implementation GifEditorViewController
 
@@ -84,9 +89,23 @@
 # pragma mark - Preview gif
 -(void)presentPreview {
     GifPreviewViewController *previewVC = [self.storyboard instantiateViewControllerWithIdentifier:@"GifPreviewViewController"];
-    self.gif.caption = self.captionTextField.text;
-    previewVC.gif = self.gif;
-    [self.navigationController pushViewController:previewVC animated:true];
+    //self.gif.caption = self.captionTextField.text;
+    //previewVC.gif = self.gif;
+
+    Regift *regift = [[Regift alloc] initWithSourceFileURL:self.gif.rawVideoURL frameCount:kFrameCount delayTime:kDelayTime loopCount:kLoopCount];
+    NSURL *gifURLWithCaption = [regift createGif];
+    
+    Gif *gifWithCaption = [[Gif alloc] initWithGifUrl:gifURLWithCaption videoURL:self.gif.rawVideoURL caption:self.captionTextField.text];
+    
+    previewVC.gif = gifWithCaption;
+    
+    if (previewVC && gifWithCaption) {
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.navigationController pushViewController:previewVC animated:true];
+    });
+    
+    }
 }
 
 @end

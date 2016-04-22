@@ -11,13 +11,14 @@
 
 @implementation Gif
 
--(instancetype)initWithUrl: (NSURL*)url caption:(NSString*)caption {
+-(instancetype)initWithGifUrl: (NSURL*)url videoURL:(NSURL*)videoURL caption:(NSString*)caption {
     
     self = [super init];
     
     if(self){
         self.url = url;
         self.caption = caption;
+        self.rawVideoURL = videoURL;
         self.gifImage = [UIImage animatedImageWithAnimatedGIFURL:url];
     }
     
