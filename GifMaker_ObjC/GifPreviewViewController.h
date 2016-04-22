@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "Gif.h"
+@import QuartzCore;
 
 @interface GifPreviewViewController : UIViewController
 
-
+@property (weak, nonatomic) IBOutlet UIButton *shareButton;
 @property (weak, nonatomic) IBOutlet UIImageView *gifImageView;
 @property (weak, nonatomic) Gif *gif;
 @property (weak, nonatomic) IBOutlet UILabel *gifCaptionLabel;

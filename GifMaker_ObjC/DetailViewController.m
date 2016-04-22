@@ -1,33 +1,37 @@
 //
-//  GifPreviewViewController.m
+//  DetailViewController.m
 //  GifMaker_ObjC
 //
-//  Created by Gabrielle Miller-Messner on 4/18/16.
+//  Created by Gabrielle Miller-Messner on 4/22/16.
 //  Copyright © 2016 Gabrielle Miller-Messner. All rights reserved.
 //
 
-#import "GifPreviewViewController.h"
-#import "Gif.h"
-#import "AppDelegate.h"
+#import "DetailViewController.h"
 
+@interface DetailViewController ()
 
-@implementation GifPreviewViewController
+@end
+
+@implementation DetailViewController
 
 
 -(void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
+    [super viewWillAppear:TRUE];
     self.gifImageView.image = self.gif.gifImage;
-    self.gifCaptionLabel.text = self.gif.caption;
-    [self formatButton];
+    //UIColor *detailViewColor = UIColor color
+    self.navigationController.navigationBar.barTintColor = self.view.backgroundColor;
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
 }
 
--(void)formatButton {
-    
-    [self.shareButton.layer setBorderWidth:10.0];
-    [self.shareButton.layer setBorderColor:(__bridge CGColorRef _Nullable)([self radicalPinkColor])];
-    
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
 }
 
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
 
 - (IBAction)shareGif:(id)sender {
     
@@ -48,18 +52,10 @@
     [self presentViewController:shareController animated:TRUE completion: nil];
 }
 
-
-- (IBAction)saveGif:(id)sender {
-
-    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
-    [appDelegate.gifs addObject: self.gif];
-    [self.navigationController popToRootViewControllerAnimated:TRUE];
-}
-                                            
-
--(UIColor*)radicalPinkColor {
-    UIColor *color = [UIColor colorWithRed:252.0/255.0 green:55.0/255.0 blue:104.0/255.0 alpha:1];
+-(UIColor*)backgroundColor {
+    UIColor* color = [UIColor colorWithRed:46.0/255.0 green:61.0/255.0 blue:72.0/255.0 alpha:1];
     return color;
 }
+
 
 @end

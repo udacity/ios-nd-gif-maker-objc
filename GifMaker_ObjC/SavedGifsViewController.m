@@ -16,6 +16,7 @@
 #import "GifEditorViewController.h"
 #import "SavedGifsViewController+AllowEditing.h"
 #import "OverlayView.h"
+#import "DetailViewController.h"
 
 @interface SavedGifsViewController()
 
@@ -48,6 +49,9 @@ static const int kLoopCount = 0; // 0 means loop forever
         
     }
     
+    self.navigationController.navigationBar.barTintColor = self.view.backgroundColor;
+    
+    
     if([[NSUserDefaults standardUserDefaults] boolForKey:@"WelcomeViewSeen"] != YES) {
         WelcomeViewController *welcomeVC = [self.storyboard instantiateViewControllerWithIdentifier: @"WelcomeViewController"];
         [self.navigationController pushViewController:welcomeVC animated:TRUE];
@@ -62,6 +66,12 @@ static const int kLoopCount = 0; // 0 means loop forever
 -(void)viewDidAppear:(BOOL)animated{
 
 }
+
+-(void)viewWillDisappear:(BOOL)animated {
+    
+    self.navigationItem.title = @"";
+}
+
 
 -(NSArray*)gifs {
     AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
@@ -81,6 +91,15 @@ static const int kLoopCount = 0; // 0 means loop forever
 }
 
 # pragma mark UICollectionViewDelegate
+
+-(void)collectionView:(UICollectionView*)collectionView didSelectItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    
+    Gif *gif = self.savedGifs[indexPath.item];
+    DetailViewController *detailVC = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailViewController"];
+    detailVC.gif = gif;
+    
+    [self.navigationController pushViewController:detailVC animated:TRUE];
+}
 
 
 # pragma mark UICollectionViewDatasource
@@ -240,7 +259,7 @@ static const int kLoopCount = 0; // 0 means loop forever
 }
 
 -(void)saveGif:(NSURL*)gifURL videoURL: videoURL{
-    Gif *newGif = [[Gif alloc] initWithGifUrl:gifURL videoURL:videoURL caption:@"default caption"];
+    Gif *newGif = [[Gif alloc] initWithGifUrl:gifURL videoURL:videoURL caption:nil];
     [self displayGif:newGif];
 }
 

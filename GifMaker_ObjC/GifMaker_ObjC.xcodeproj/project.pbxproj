@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED055A261CCAB1A5003398D9 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED055A251CCAB1A5003398D9 /* DetailViewController.m */; };
+		ED055A281CCAC9D0003398D9 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED055A271CCAC9D0003398D9 /* QuartzCore.framework */; };
 		ED1C7F971C866D4C00724DC2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1C7F961C866D4C00724DC2 /* main.m */; };
 		ED1C7F9A1C866D4C00724DC2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1C7F991C866D4C00724DC2 /* AppDelegate.m */; };
 		ED1C7FA01C866D4C00724DC2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED1C7F9E1C866D4C00724DC2 /* Main.storyboard */; };
@@ -63,6 +65,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		ED055A241CCAB1A5003398D9 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		ED055A251CCAB1A5003398D9 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		ED055A271CCAC9D0003398D9 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		ED1C7F921C866D4C00724DC2 /* GifMaker_ObjC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GifMaker_ObjC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED1C7F961C866D4C00724DC2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		ED1C7F981C866D4C00724DC2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -109,6 +114,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED055A281CCAC9D0003398D9 /* QuartzCore.framework in Frameworks */,
 				EDD81E191C88DC610045C1BD /* Regift.framework in Frameworks */,
 				EDD81E1B1C88E9930045C1BD /* Regift.framework in Frameworks */,
 			);
@@ -134,6 +140,9 @@
 		ED1C7F891C866D4C00724DC2 = {
 			isa = PBXGroup;
 			children = (
+				ED055A271CCAC9D0003398D9 /* QuartzCore.framework */,
+				ED055A241CCAB1A5003398D9 /* DetailViewController.h */,
+				ED055A251CCAB1A5003398D9 /* DetailViewController.m */,
 				EDF050C81CC815BE00D9EC55 /* OverlayView.h */,
 				EDF050C91CC815BE00D9EC55 /* OverlayView.m */,
 				EDF050C31CC711C500D9EC55 /* SavedGifsViewController+AllowEditing.h */,
@@ -358,6 +367,7 @@
 				EDA342D31CC567C9006C23F3 /* GifPreviewViewController.m in Sources */,
 				EDF050C21CC7043900D9EC55 /* WelcomeViewController+AllowEditing.m in Sources */,
 				EDF050CA1CC815BE00D9EC55 /* OverlayView.m in Sources */,
+				ED055A261CCAB1A5003398D9 /* DetailViewController.m in Sources */,
 				ED1C7FD31C866F1E00724DC2 /* UIImage+animatedGIF.m in Sources */,
 				ED1C7F971C866D4C00724DC2 /* main.m in Sources */,
 				EDF050C51CC711C500D9EC55 /* SavedGifsViewController+AllowEditing.m in Sources */,

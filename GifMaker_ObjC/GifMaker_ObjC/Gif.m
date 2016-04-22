@@ -19,7 +19,7 @@
         self.url = url;
         self.caption = caption;
         self.rawVideoURL = videoURL;
-        self.gifImage = [UIImage animatedImageWithAnimatedGIFURL:url];
+        self.gifImage = [UIImage animatedImageWithAnimatedGIFURL:url caption: self.caption];
     }
     
     return self;

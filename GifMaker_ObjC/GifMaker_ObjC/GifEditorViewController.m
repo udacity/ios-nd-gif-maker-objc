@@ -9,15 +9,16 @@
 #import "GifEditorViewController.h"
 #import "GifPreviewViewController.h"
 @import Regift;
+#import "UIImage+animatedGif.h"
 
 @interface GifEditorViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *captionTextField;
 
 @end
 
-static int const kFrameCount = 16;
-static const float kDelayTime = 0.2;
-static const int kLoopCount = 0; // 0 means loop forever
+//static int const kFrameCount = 16;
+//static const float kDelayTime = 0.2;
+//static const int kLoopCount = 0; // 0 means loop forever
 
 @implementation GifEditorViewController
 
@@ -36,8 +37,20 @@ static const int kLoopCount = 0; // 0 means loop forever
                                    target:self
                                    action:@selector(presentPreview)];
     self.navigationItem.rightBarButtonItem = nextButton;
+    self.navigationItem.rightBarButtonItem.tintColor = [UIColor colorWithRed:252.0/255.0 green:55.0/255.0 blue:104.0/255.0 alpha:1];
+    [self.navigationController.navigationBar setTitleTextAttributes:
+     @{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    
+    self.navigationController.navigationBar.barTintColor = self.view.backgroundColor;
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+
     [self subscribeToKeyboardNotifications];
 
+}
+
+-(void)viewWillDisappear:(BOOL)animated {
+    
+    self.navigationItem.title = @"";
 }
 
 -(void)viewDidDisappear:(BOOL)animated {
@@ -89,23 +102,16 @@ static const int kLoopCount = 0; // 0 means loop forever
 # pragma mark - Preview gif
 -(void)presentPreview {
     GifPreviewViewController *previewVC = [self.storyboard instantiateViewControllerWithIdentifier:@"GifPreviewViewController"];
-    //self.gif.caption = self.captionTextField.text;
-    //previewVC.gif = self.gif;
-
-    Regift *regift = [[Regift alloc] initWithSourceFileURL:self.gif.rawVideoURL frameCount:kFrameCount delayTime:kDelayTime loopCount:kLoopCount];
-    NSURL *gifURLWithCaption = [regift createGif];
+    self.gif.caption = self.captionTextField.text;
     
-    Gif *gifWithCaption = [[Gif alloc] initWithGifUrl:gifURLWithCaption videoURL:self.gif.rawVideoURL caption:self.captionTextField.text];
-    
-    previewVC.gif = gifWithCaption;
-    
-    if (previewVC && gifWithCaption) {
+    previewVC.gif = self.gif;
     
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.navigationController pushViewController:previewVC animated:true];
     });
     
-    }
 }
+
+
 
 @end

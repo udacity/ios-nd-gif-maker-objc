@@ -24,10 +24,10 @@
             </objects>
             <point key="canvasLocation" x="-2801" y="-770"/>
         </scene>
-        <!--Saved Gifs View Controller-->
+        <!--My Collection-->
         <scene sceneID="ALv-Et-lNO">
             <objects>
-                <viewController storyboardIdentifier="SavedGifsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="upq-jB-3dI" customClass="SavedGifsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SavedGifsViewController" title="My Collection" useStoryboardIdentifierAsRestorationIdentifier="YES" id="upq-jB-3dI" customClass="SavedGifsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="E4A-ch-Oxv"/>
                         <viewControllerLayoutGuide type="bottom" id="zVw-uv-suS"/>
@@ -137,7 +137,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="7HF-Yq-Lti"/>
+                    <navigationItem key="navigationItem" title="My Collection" id="7HF-Yq-Lti"/>
                     <connections>
                         <outlet property="collectionEmptyImageView" destination="U6B-fQ-sxP" id="lFR-e6-SLD"/>
                         <outlet property="collectionEmptyLabel" destination="kXt-1P-rUQ" id="pd3-Ta-0GV"/>
@@ -147,7 +147,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1mO-R1-5Re" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1983" y="-805"/>
+            <point key="canvasLocation" x="-1983" y="-805.5"/>
         </scene>
         <!--Record Video View Controller-->
         <scene sceneID="3Al-ff-rbj">
@@ -300,10 +300,10 @@
             </objects>
             <point key="canvasLocation" x="-1243.5" y="-805"/>
         </scene>
-        <!--Gif Editor View Controller-->
+        <!--Add a Caption-->
         <scene sceneID="7IM-YL-IPR">
             <objects>
-                <viewController storyboardIdentifier="GifEditorViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gN0-HT-VRx" customClass="GifEditorViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GifEditorViewController" title="Add a Caption" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gN0-HT-VRx" customClass="GifEditorViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SRd-cZ-f0f"/>
                         <viewControllerLayoutGuide type="bottom" id="8Ay-xf-bgi"/>
@@ -319,15 +319,6 @@
                                     <constraint firstAttribute="width" constant="275" id="TuA-sW-s9C"/>
                                 </constraints>
                             </imageView>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JEz-qJ-5g8">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                <items>
-                                    <navigationItem title="Edit Your Gif!" id="Wgj-P4-Kht"/>
-                                </items>
-                                <variation key="heightClass=compact-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="0.0" width="400" height="44"/>
-                                </variation>
-                            </navigationBar>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add Caption Here" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h48-5I-UWw">
                                 <rect key="frame" x="173" y="397" width="255" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -390,20 +381,10 @@
                                 <variation key="heightClass=compact-widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="0.0" y="0.0" width="400" height="44"/>
                                 </variation>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="0.0" width="400" height="44"/>
+                                </variation>
                             </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lhd-AV-TR9">
-                                <rect key="frame" x="129" y="475" width="343" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="YBJ-dx-iZo"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <state key="normal" title="Share">
-                                    <color key="titleColor" red="0.98823529409999999" green="0.2156862745" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="shareGif:" destination="cB7-Y1-ZFX" eventType="touchUpInside" id="Q7C-Na-sgd"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Oh4-as-Xk7">
                                 <rect key="frame" x="171" y="408" width="259" height="21"/>
                                 <constraints>
@@ -414,7 +395,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lbv-UE-pdt">
+                            <button contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lbv-UE-pdt">
                                 <rect key="frame" x="129" y="533" width="343" height="50"/>
                                 <color key="backgroundColor" red="0.98823529409999999" green="0.2156862745" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -428,36 +409,152 @@
                                     <action selector="saveGif:" destination="cB7-Y1-ZFX" eventType="touchUpInside" id="mX2-Qh-YzE"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lhd-AV-TR9">
+                                <rect key="frame" x="129" y="475" width="343" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="YBJ-dx-iZo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="tintColor" red="0.98823529409999999" green="0.2156862745" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Share">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="shareGif:" destination="cB7-Y1-ZFX" eventType="touchUpInside" id="Q7C-Na-sgd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.18039215689999999" green="0.23921568630000001" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="Lhd-AV-TR9" firstAttribute="leading" secondItem="Alv-iW-6pc" secondAttribute="leadingMargin" constant="109" id="CSW-xw-JDz"/>
                             <constraint firstItem="n4d-p7-20W" firstAttribute="centerY" secondItem="Alv-iW-6pc" secondAttribute="centerY" id="Dzo-O5-dXp"/>
                             <constraint firstItem="n4d-p7-20W" firstAttribute="centerX" secondItem="Alv-iW-6pc" secondAttribute="centerX" id="EFi-5E-Bcm"/>
                             <constraint firstItem="Lbv-UE-pdt" firstAttribute="top" secondItem="Lhd-AV-TR9" secondAttribute="bottom" constant="8" id="JqX-7E-BBT"/>
                             <constraint firstItem="Oh4-as-Xk7" firstAttribute="top" secondItem="n4d-p7-20W" secondAttribute="bottom" constant="-29" id="O2C-1S-JrQ"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Lbv-UE-pdt" secondAttribute="trailing" constant="108" id="OB7-YP-YUq"/>
+                            <constraint firstItem="Lbv-UE-pdt" firstAttribute="top" secondItem="Lhd-AV-TR9" secondAttribute="bottom" constant="8" id="VkQ-ge-qsj"/>
                             <constraint firstItem="Oh4-as-Xk7" firstAttribute="centerX" secondItem="n4d-p7-20W" secondAttribute="centerX" id="Ys9-oQ-Epz"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Lhd-AV-TR9" secondAttribute="trailing" constant="108" id="dgq-Cc-dgB"/>
+                            <constraint firstItem="Lhd-AV-TR9" firstAttribute="leading" secondItem="Alv-iW-6pc" secondAttribute="leadingMargin" id="auD-Se-5sg"/>
+                            <constraint firstItem="Lhd-AV-TR9" firstAttribute="trailing" secondItem="Alv-iW-6pc" secondAttribute="trailingMargin" id="bE9-Mj-wEF"/>
+                            <constraint firstItem="zEa-bK-uMp" firstAttribute="top" secondItem="Lbv-UE-pdt" secondAttribute="bottom" constant="20" id="fUD-q6-cep"/>
+                            <constraint firstItem="Lbv-UE-pdt" firstAttribute="leading" secondItem="Alv-iW-6pc" secondAttribute="leadingMargin" id="fXO-D0-xBr"/>
                             <constraint firstItem="Lhd-AV-TR9" firstAttribute="centerX" secondItem="Alv-iW-6pc" secondAttribute="centerX" id="h1R-lJ-3KJ"/>
+                            <constraint firstItem="Lbv-UE-pdt" firstAttribute="trailing" secondItem="Alv-iW-6pc" secondAttribute="trailingMargin" id="pmA-tW-7kg"/>
                             <constraint firstItem="Lbv-UE-pdt" firstAttribute="centerX" secondItem="Alv-iW-6pc" secondAttribute="centerX" id="qS8-3w-nxf"/>
-                            <constraint firstItem="Lbv-UE-pdt" firstAttribute="leading" secondItem="Alv-iW-6pc" secondAttribute="leadingMargin" constant="109" id="udm-Wa-j2d"/>
-                            <constraint firstItem="Lhd-AV-TR9" firstAttribute="top" secondItem="n4d-p7-20W" secondAttribute="bottom" constant="38" id="yy4-5i-vvW"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="auD-Se-5sg"/>
+                                <exclude reference="bE9-Mj-wEF"/>
+                                <exclude reference="VkQ-ge-qsj"/>
+                                <exclude reference="fXO-D0-xBr"/>
+                                <exclude reference="pmA-tW-7kg"/>
+                                <exclude reference="fUD-q6-cep"/>
+                            </mask>
+                        </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
                                 <include reference="n4d-p7-20W"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="auD-Se-5sg"/>
+                                <include reference="bE9-Mj-wEF"/>
+                                <include reference="VkQ-ge-qsj"/>
+                                <include reference="fXO-D0-xBr"/>
+                                <include reference="pmA-tW-7kg"/>
+                                <include reference="fUD-q6-cep"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
                         <outlet property="gifCaptionLabel" destination="Oh4-as-Xk7" id="5e5-ss-E0F"/>
                         <outlet property="gifImageView" destination="n4d-p7-20W" id="ex1-hH-FOh"/>
+                        <outlet property="shareButton" destination="Lhd-AV-TR9" id="mqa-Me-Rod"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KCC-tI-bRp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="64" y="-367"/>
+            <point key="canvasLocation" x="156" y="-795"/>
+        </scene>
+        <!--DetailViewController-->
+        <scene sceneID="l2Z-NT-AXf">
+            <objects>
+                <viewController storyboardIdentifier="DetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ilf-GF-t1a" userLabel="DetailViewController" customClass="DetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="141-ek-2z6"/>
+                        <viewControllerLayoutGuide type="bottom" id="8DJ-Ka-ETF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="98u-Ei-l0c">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JMd-x7-7Pc">
+                                <rect key="frame" x="163" y="162" width="275" height="275"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="275" id="YRN-pP-Lh2"/>
+                                    <constraint firstAttribute="width" constant="275" id="ikt-nK-aqv"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j35-pP-1fk">
+                                <rect key="frame" x="129" y="475" width="343" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="HJv-Nb-SzD"/>
+                                    <constraint firstAttribute="height" constant="50" id="L3X-N3-yGu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="Share">
+                                    <color key="titleColor" red="0.98823529409999999" green="0.2156862745" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="HJv-Nb-SzD"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="HJv-Nb-SzD"/>
+                                    </mask>
+                                </variation>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.18039215689999999" green="0.23921568630000001" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="j35-pP-1fk" firstAttribute="centerX" secondItem="98u-Ei-l0c" secondAttribute="centerX" id="3Q6-8n-e4Y"/>
+                            <constraint firstItem="8DJ-Ka-ETF" firstAttribute="top" secondItem="j35-pP-1fk" secondAttribute="bottom" constant="20" id="3dQ-iW-Vds"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="j35-pP-1fk" secondAttribute="trailing" constant="108" id="6vm-02-EoI"/>
+                            <constraint firstItem="j35-pP-1fk" firstAttribute="leading" secondItem="98u-Ei-l0c" secondAttribute="leadingMargin" constant="109" id="ISu-b7-X60"/>
+                            <constraint firstItem="JMd-x7-7Pc" firstAttribute="centerY" secondItem="98u-Ei-l0c" secondAttribute="centerY" id="L6t-Qf-49m"/>
+                            <constraint firstItem="j35-pP-1fk" firstAttribute="leading" secondItem="98u-Ei-l0c" secondAttribute="leadingMargin" id="URH-2e-ugn"/>
+                            <constraint firstItem="JMd-x7-7Pc" firstAttribute="centerX" secondItem="98u-Ei-l0c" secondAttribute="centerX" id="osV-W8-Gac"/>
+                            <constraint firstItem="j35-pP-1fk" firstAttribute="trailing" secondItem="98u-Ei-l0c" secondAttribute="trailingMargin" id="w4Q-ei-akv"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="URH-2e-ugn"/>
+                                <exclude reference="w4Q-ei-akv"/>
+                                <exclude reference="3dQ-iW-Vds"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="JMd-x7-7Pc"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="6vm-02-EoI"/>
+                                <exclude reference="ISu-b7-X60"/>
+                                <include reference="URH-2e-ugn"/>
+                                <include reference="w4Q-ei-akv"/>
+                                <include reference="3dQ-iW-Vds"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="gifImageView" destination="JMd-x7-7Pc" id="sdM-9k-D50"/>
+                        <outlet property="shareButton" destination="j35-pP-1fk" id="tJH-PA-5XP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BEl-4x-y0s" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="915" y="-791.25"/>
         </scene>
         <!--Welcome View Controller-->
         <scene sceneID="MO7-ys-2QJ">
