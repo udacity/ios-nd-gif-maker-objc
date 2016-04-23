@@ -30,7 +30,6 @@
 		EDF050C21CC7043900D9EC55 /* WelcomeViewController+AllowEditing.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF050C11CC7043800D9EC55 /* WelcomeViewController+AllowEditing.m */; };
 		EDF050C51CC711C500D9EC55 /* SavedGifsViewController+AllowEditing.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF050C41CC711C500D9EC55 /* SavedGifsViewController+AllowEditing.m */; };
 		EDF050C71CC814F300D9EC55 /* OverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDF050C61CC814F300D9EC55 /* OverlayView.xib */; };
-		EDF050CA1CC815BE00D9EC55 /* OverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF050C91CC815BE00D9EC55 /* OverlayView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,8 +104,6 @@
 		EDF050C31CC711C500D9EC55 /* SavedGifsViewController+AllowEditing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SavedGifsViewController+AllowEditing.h"; sourceTree = "<group>"; };
 		EDF050C41CC711C500D9EC55 /* SavedGifsViewController+AllowEditing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SavedGifsViewController+AllowEditing.m"; sourceTree = "<group>"; };
 		EDF050C61CC814F300D9EC55 /* OverlayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OverlayView.xib; sourceTree = "<group>"; };
-		EDF050C81CC815BE00D9EC55 /* OverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OverlayView.h; sourceTree = "<group>"; };
-		EDF050C91CC815BE00D9EC55 /* OverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OverlayView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,8 +140,6 @@
 				ED055A271CCAC9D0003398D9 /* QuartzCore.framework */,
 				ED055A241CCAB1A5003398D9 /* DetailViewController.h */,
 				ED055A251CCAB1A5003398D9 /* DetailViewController.m */,
-				EDF050C81CC815BE00D9EC55 /* OverlayView.h */,
-				EDF050C91CC815BE00D9EC55 /* OverlayView.m */,
 				EDF050C31CC711C500D9EC55 /* SavedGifsViewController+AllowEditing.h */,
 				EDF050C41CC711C500D9EC55 /* SavedGifsViewController+AllowEditing.m */,
 				EDF050B41CC6E11E00D9EC55 /* WelcomeViewController.h */,
@@ -366,7 +361,6 @@
 				EDF050B61CC6E11E00D9EC55 /* WelcomeViewController.m in Sources */,
 				EDA342D31CC567C9006C23F3 /* GifPreviewViewController.m in Sources */,
 				EDF050C21CC7043900D9EC55 /* WelcomeViewController+AllowEditing.m in Sources */,
-				EDF050CA1CC815BE00D9EC55 /* OverlayView.m in Sources */,
 				ED055A261CCAB1A5003398D9 /* DetailViewController.m in Sources */,
 				ED1C7FD31C866F1E00724DC2 /* UIImage+animatedGIF.m in Sources */,
 				ED1C7F971C866D4C00724DC2 /* main.m in Sources */,
