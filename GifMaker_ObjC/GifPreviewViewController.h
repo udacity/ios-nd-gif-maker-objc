@@ -14,7 +14,7 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *shareButton;
 @property (weak, nonatomic) IBOutlet UIImageView *gifImageView;
-@property (weak, nonatomic) Gif *gif;
+@property (nonatomic) Gif *gif;
 @property (weak, nonatomic) IBOutlet UILabel *gifCaptionLabel;
 
 @end

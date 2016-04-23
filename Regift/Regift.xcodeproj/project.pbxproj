@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED5D331D1CCAF7AD00E35C61 /* RegiftCaption.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5D331C1CCAF7AD00E35C61 /* RegiftCaption.swift */; };
 		EDD81DE31C88C5F30045C1BD /* Regift.h in Headers */ = {isa = PBXBuildFile; fileRef = EDD81DE21C88C5F30045C1BD /* Regift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EDD81DEA1C88C5F30045C1BD /* Regift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD81DDF1C88C5F30045C1BD /* Regift.framework */; };
 		EDD81DEF1C88C5F30045C1BD /* RegiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD81DEE1C88C5F30045C1BD /* RegiftTests.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		ED5D331C1CCAF7AD00E35C61 /* RegiftCaption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegiftCaption.swift; sourceTree = "<group>"; };
 		EDD81DDF1C88C5F30045C1BD /* Regift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Regift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDD81DE21C88C5F30045C1BD /* Regift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Regift.h; sourceTree = "<group>"; };
 		EDD81DE41C88C5F30045C1BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 				EDD81DFA1C88C61C0045C1BD /* Regift.swift */,
 				EDD81DE21C88C5F30045C1BD /* Regift.h */,
 				EDD81DE41C88C5F30045C1BD /* Info.plist */,
+				ED5D331C1CCAF7AD00E35C61 /* RegiftCaption.swift */,
 			);
 			path = Regift;
 			sourceTree = "<group>";
@@ -202,6 +205,7 @@
 			files = (
 				EDD81DFC1C88C61C0045C1BD /* Regift.swift in Sources */,
 				EDD81DFB1C88C61C0045C1BD /* AVAssetImageGeneratorTimePoints.swift in Sources */,
+				ED5D331D1CCAF7AD00E35C61 /* RegiftCaption.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,6 +388,7 @@
 				EDD81DF51C88C5F30045C1BD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EDD81DF61C88C5F30045C1BD /* Build configuration list for PBXNativeTarget "RegiftTests" */ = {
 			isa = XCConfigurationList;
@@ -392,6 +397,7 @@
 				EDD81DF81C88C5F30045C1BD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

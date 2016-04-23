@@ -163,7 +163,7 @@ static const int kLoopCount = 0; // 0 means loop forever
 }
 
 -(void)saveGif{
-    Gif *newGif = [[Gif alloc] initWithGifUrl:self.gifURL videoURL: self.videoURL caption:@"default"];
+    Gif *newGif = [[Gif alloc] initWithGifUrl:self.gifURL videoURL: self.videoURL caption:nil];
     [self displayGif:newGif];
 }
 

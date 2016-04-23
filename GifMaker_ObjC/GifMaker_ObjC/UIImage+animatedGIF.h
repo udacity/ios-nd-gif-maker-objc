@@ -36,7 +36,7 @@
  
  I operate exactly like `+[UIImage animatedImageWithAnimatedGIFData:]`, except that I read the data from `theURL`.  If `theURL` is not a `file:` URL, you probably want to call me on a background thread or GCD queue to avoid blocking the main thread.
  */
-+ (UIImage * _Nullable)animatedImageWithAnimatedGIFURL:(NSURL * _Nonnull)url caption: (NSString* _Nullable)caption;
++ (UIImage * _Nullable)animatedImageWithAnimatedGIFURL:(NSURL * _Nonnull)url;
 
 + (UIImage * _Nullable)animatedImageWithAnimatedGIFName:(NSString * _Nonnull)name;
 

@@ -11,7 +11,6 @@
 
 @interface GifCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *gifImageView;
-@property (weak, nonatomic) IBOutlet UILabel *captionLabel;
 
 -(instancetype)populateCellWithGif:(Gif*)gif;
 

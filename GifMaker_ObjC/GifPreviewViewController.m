@@ -17,7 +17,6 @@
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.gifImageView.image = self.gif.gifImage;
-    self.gifCaptionLabel.text = self.gif.caption;
     [self formatButton];
 }
 

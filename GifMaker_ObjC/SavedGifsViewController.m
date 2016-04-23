@@ -141,6 +141,7 @@ static const int kLoopCount = 0; // 0 means loop forever
                                          handler:^(UIAlertAction * action)
                                          {
                                              //Do some thing here
+                                             [self chooseFromAlbum];
                                              [createNewGifAlert dismissViewControllerAnimated:YES completion:nil];
                                              
                                          }];
@@ -162,6 +163,17 @@ static const int kLoopCount = 0; // 0 means loop forever
     
 }
 
+-(void)chooseFromAlbum {
+     UIImagePickerController *albumController = [[UIImagePickerController alloc] init];
+    albumController.delegate = self;
+    albumController.mediaTypes = @[(NSString *) kUTTypeMovie];
+    albumController.allowsEditing = true;
+    [self presentViewController:albumController animated:TRUE completion:nil];
+
+}
+
+
+
 - (BOOL)startCameraFromViewController:(UIViewController*)viewController {
     
     if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
@@ -175,11 +187,6 @@ static const int kLoopCount = 0; // 0 means loop forever
         cameraController.delegate = self;
         
         // Constrain to square
-        
-        
-//        OverlayView *myViewObject = [[[NSBundle mainBundle] loadNibNamed:@"OverlayView" owner:self options:nil] objectAtIndex:0];
-//        cameraController.cameraOverlayView=myViewObject;
-    
         
         [self presentViewController:cameraController animated:TRUE completion:nil];
         return true;

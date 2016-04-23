@@ -12,7 +12,6 @@
 
 -(instancetype)populateCellWithGif:(Gif*)gif {
     self.gifImageView.image = gif.gifImage;
-    self.captionLabel.text = gif.caption;
     
     return self;
 }

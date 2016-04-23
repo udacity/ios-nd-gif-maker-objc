@@ -16,9 +16,9 @@
 
 @end
 
-//static int const kFrameCount = 16;
-//static const float kDelayTime = 0.2;
-//static const int kLoopCount = 0; // 0 means loop forever
+static int const kFrameCount = 16;
+static const float kDelayTime = 0.2;
+static const int kLoopCount = 0; // 0 means loop forever
 
 @implementation GifEditorViewController
 
@@ -43,6 +43,7 @@
     
     self.navigationController.navigationBar.barTintColor = self.view.backgroundColor;
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    self.navigationItem.title = @"Add a Caption";
 
     [self subscribeToKeyboardNotifications];
 
@@ -103,15 +104,17 @@
 -(void)presentPreview {
     GifPreviewViewController *previewVC = [self.storyboard instantiateViewControllerWithIdentifier:@"GifPreviewViewController"];
     self.gif.caption = self.captionTextField.text;
+
+    Regift *regift = [[Regift alloc] initWithSourceFileURL:self.gif.rawVideoURL frameCount:kFrameCount delayTime:kDelayTime loopCount:kLoopCount];
     
-    previewVC.gif = self.gif;
+    UIFont *captionFont = self.captionTextField.font;
+    NSURL *gifURL = [regift createGifWithCaption:self.captionTextField.text font:captionFont ];
+
+    Gif *newGif = [[Gif alloc] initWithGifUrl:gifURL videoURL:self.gif.rawVideoURL caption:self.captionTextField.text];
     
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self.navigationController pushViewController:previewVC animated:true];
-    });
+    previewVC.gif = newGif;
     
+    [self.navigationController pushViewController:previewVC animated:true];
 }
-
-
 
 @end

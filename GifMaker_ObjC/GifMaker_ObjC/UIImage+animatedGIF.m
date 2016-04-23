@@ -90,29 +90,13 @@ static NSArray *frameArray(size_t const count, CGImageRef const images[count], i
     return [NSArray arrayWithObjects:frames count:frameCount];
 }
 
-static NSArray *frameArrayWithCaption(NSString *const caption, size_t const count, CGImageRef const images[count], int const delayCentiseconds[count], int const totalDurationCentiseconds) {
-    int const gcd = vectorGCD(count, delayCentiseconds);
-    size_t const frameCount = totalDurationCentiseconds / gcd;
-    UIImage *frames[frameCount];
-    for (size_t i = 0, f = 0; i < count; ++i) {
-        UIImage *const frame = [UIImage imageWithCGImage:images[i]];
-        
-        CGPoint captionPoint = CGPointMake(20, 20);
-        UIImage *const frameWithCaption = [UIImage drawText:caption inImage:frame atPoint:captionPoint];
-        for (size_t j = delayCentiseconds[i] / gcd; j > 0; --j) {
-            frames[f++] = frameWithCaption;
-        }
-    }
-    return [NSArray arrayWithObjects:frames count:frameCount];
-}
-
 static void releaseImages(size_t const count, CGImageRef const images[count]) {
     for (size_t i = 0; i < count; ++i) {
         CGImageRelease(images[i]);
     }
 }
 
-static UIImage *animatedImageWithAnimatedGIFImageSource(CGImageSourceRef const source, NSString *const caption) {
+static UIImage *animatedImageWithAnimatedGIFImageSource(CGImageSourceRef const source) {
     size_t const count = CGImageSourceGetCount(source);
     CGImageRef images[count];
     int delayCentiseconds[count]; // in centiseconds
@@ -120,12 +104,7 @@ static UIImage *animatedImageWithAnimatedGIFImageSource(CGImageSourceRef const s
     int const totalDurationCentiseconds = sum(count, delayCentiseconds);
 
     NSMutableArray *frames;
-    if(!caption) {
-        frames = [NSMutableArray arrayWithArray: frameArray(count, images, delayCentiseconds, totalDurationCentiseconds)];
-    } else {
-        frames = [NSMutableArray arrayWithArray: frameArrayWithCaption(caption, count, images, delayCentiseconds, totalDurationCentiseconds)];
-    }
-    
+    frames = [NSMutableArray arrayWithArray: frameArray(count, images, delayCentiseconds, totalDurationCentiseconds)];
     UIImage *const animation = [UIImage animatedImageWithImages:frames duration:(NSTimeInterval)totalDurationCentiseconds / 100.0];
     releaseImages(count, images);
     return animation;
@@ -147,34 +126,9 @@ static UIImage *animatedImageWithAnimatedGIFImageSource(CGImageSourceRef const s
     return newImage;
 }
 
-//func addCaption(image: CGImageRef, text: NSString) -> CGImage {
-//    var image = UIImage(CGImage:image)
-//    var font = UIFont.boldSystemFontOfSize(16)
-//    UIGraphicsBeginImageContext(image.size)
-//    var point  = CGPointMake(8, image.size.height - 8)
-//    var firstRect = CGRectMake(0,0,image.size.width,image.size.height)
-//    image.drawInRect(firstRect)
-//    var secondRect = CGRectMake(point.x,point.y,image.size.width,image.size.height)
-//    var color = UIColor.whiteColor()
-//    color.set()
-//    
-//    var attributes = [NSForegroundColorAttributeName: color, NSFontAttributeName: font]
-//    
-//    text.drawInRect(CGRectIntegral(secondRect), withAttributes: attributes)
-//    var newImage = UIGraphicsGetImageFromCurrentImageContext()
-//    UIGraphicsEndImageContext()
-//    return newImage.CGImage!
-//}
-
-
-
-
-
-
-
-static UIImage *animatedImageWithAnimatedGIFReleasingImageSource(CGImageSourceRef CF_RELEASES_ARGUMENT source, NSString *const caption) {
+static UIImage *animatedImageWithAnimatedGIFReleasingImageSource(CGImageSourceRef CF_RELEASES_ARGUMENT source) {
     if (source) {
-        UIImage *const image = animatedImageWithAnimatedGIFImageSource(source, caption);
+        UIImage *const image = animatedImageWithAnimatedGIFImageSource(source);
         CFRelease(source);
         return image;
     } else {
@@ -183,8 +137,7 @@ static UIImage *animatedImageWithAnimatedGIFReleasingImageSource(CGImageSourceRe
 }
 
 + (UIImage *)animatedImageWithAnimatedGIFData:(NSData *)data {
-    NSString *const caption = nil;
-    return animatedImageWithAnimatedGIFReleasingImageSource(CGImageSourceCreateWithData(toCF data, NULL), caption);
+    return animatedImageWithAnimatedGIFReleasingImageSource(CGImageSourceCreateWithData(toCF data, NULL));
 }
 
 // Added by GM - February 29, 2016
@@ -192,12 +145,11 @@ static UIImage *animatedImageWithAnimatedGIFReleasingImageSource(CGImageSourceRe
     
     NSURL *bundleURL = [[NSBundle mainBundle] URLForResource: name withExtension:@"gif"];
     NSData *imageData = [NSData dataWithContentsOfURL: bundleURL];
-    NSString *const caption = nil;
-    return animatedImageWithAnimatedGIFReleasingImageSource(CGImageSourceCreateWithData(toCF imageData, NULL), caption);
+    return animatedImageWithAnimatedGIFReleasingImageSource(CGImageSourceCreateWithData(toCF imageData, NULL));
 }
 
-+ (UIImage *)animatedImageWithAnimatedGIFURL:(NSURL *)url caption: (NSString*)caption {
-    return animatedImageWithAnimatedGIFReleasingImageSource(CGImageSourceCreateWithURL(toCF url, NULL), caption);
++ (UIImage *)animatedImageWithAnimatedGIFURL:(NSURL *)url{
+    return animatedImageWithAnimatedGIFReleasingImageSource(CGImageSourceCreateWithURL(toCF url, NULL));
 }
 
 @end
