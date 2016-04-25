@@ -12,7 +12,7 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-@property (nonatomic) NSMutableArray<Gif *> *gifs;
+@property (strong, nonatomic) NSMutableArray *gifs;
 //@property (nonatomic) BOOL welcomeViewSeen;
 
 @end

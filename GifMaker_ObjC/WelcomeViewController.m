@@ -15,6 +15,12 @@
 #import "GifEditorViewController.h"
 #import "WelcomeViewController+AllowEditing.h"
 
+@interface WelcomeViewController()
+
+@property (nonatomic) NSURL *squareURL;
+@end
+
+
 static int const kFrameCount = 16;
 static const float kDelayTime = 0.2;
 static const int kLoopCount = 0; // 0 means loop forever
@@ -131,7 +137,7 @@ static const int kLoopCount = 0; // 0 means loop forever
                     case AVAssetExportSessionStatusCompleted:
                         // Custom method to import the Exported Video
                         self.videoURL = trimmedSession.outputURL;
-                        [self convertVideoToGif];
+                        [self makeVideoSquare:self.videoURL];
                         break;
                     case AVAssetExportSessionStatusFailed:
                         //
@@ -149,15 +155,54 @@ static const int kLoopCount = 0; // 0 means loop forever
             // If video was not trimmed, use the entire video.
         } else {
             self.videoURL = rawVideoURL;
-            [self convertVideoToGif];
+            [self makeVideoSquare:self.videoURL];
         }
     }
 }
 
+-(void)makeVideoSquare: (NSURL*)rawVideoURL{
+    //make it square
+    AVAsset *videoAsset = [AVAsset assetWithURL:rawVideoURL];
+    AVMutableComposition *composition = [AVMutableComposition composition];
+    [composition  addMutableTrackWithMediaType:AVMediaTypeVideo preferredTrackID:kCMPersistentTrackID_Invalid];
+    
+    AVAssetTrack *videoTrack = [[videoAsset tracksWithMediaType:AVMediaTypeVideo] objectAtIndex:0];
+    
+    AVMutableVideoComposition* videoComposition = [AVMutableVideoComposition videoComposition];
+    videoComposition.renderSize = CGSizeMake(videoTrack.naturalSize.height, videoTrack.naturalSize.height);
+    videoComposition.frameDuration = CMTimeMake(1, 30);
+    
+    AVMutableVideoCompositionInstruction *instruction = [AVMutableVideoCompositionInstruction videoCompositionInstruction];
+    instruction.timeRange = CMTimeRangeMake(kCMTimeZero, CMTimeMakeWithSeconds(60, 30) );
+    
+    // rotate to portrait
+    AVMutableVideoCompositionLayerInstruction* transformer = [AVMutableVideoCompositionLayerInstruction videoCompositionLayerInstructionWithAssetTrack:videoTrack];
+    CGAffineTransform t1 = CGAffineTransformMakeTranslation(videoTrack.naturalSize.height, -(videoTrack.naturalSize.width - videoTrack.naturalSize.height) /2 );
+    CGAffineTransform t2 = CGAffineTransformRotate(t1, M_PI_2);
+    
+    CGAffineTransform finalTransform = t2;
+    [transformer setTransform:finalTransform atTime:kCMTimeZero];
+    instruction.layerInstructions = [NSArray arrayWithObject:transformer];
+    videoComposition.instructions = [NSArray arrayWithObject: instruction];
+    
+    // export
+    AVAssetExportSession *exporter = [[AVAssetExportSession alloc] initWithAsset:videoAsset presetName:AVAssetExportPresetHighestQuality] ;
+    exporter.videoComposition = videoComposition;
+    NSString *path = [WelcomeViewController createPath];
+    exporter.outputURL = [NSURL fileURLWithPath:path];
+    exporter.outputFileType=AVFileTypeQuickTimeMovie;
+    
+    [exporter exportAsynchronouslyWithCompletionHandler:^(void){
+        NSLog(@"Exporting done!");
+        self.squareURL = exporter.outputURL;
+        [self convertVideoToGif:self.squareURL];
+    }];
+}
+
 # pragma mark - Gif Conversion and Display methods
 
--(void)convertVideoToGif {
-    Regift *regift = [[Regift alloc] initWithSourceFileURL:self.videoURL frameCount:kFrameCount delayTime:kDelayTime loopCount:kLoopCount];
+-(void)convertVideoToGif: (NSURL*)url {
+    Regift *regift = [[Regift alloc] initWithSourceFileURL:url frameCount:kFrameCount delayTime:kDelayTime loopCount:kLoopCount];
     self.gifURL = [regift createGif];
     [self saveGif];
 }
@@ -171,9 +216,11 @@ static const int kLoopCount = 0; // 0 means loop forever
     GifEditorViewController *gifEditorVC = [self.storyboard instantiateViewControllerWithIdentifier:@"GifEditorViewController"];
     gifEditorVC.gif = gif;
     
-    [self dismissViewControllerAnimated:TRUE completion:nil];
-    [self.navigationController pushViewController:gifEditorVC animated:true];
     
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self dismissViewControllerAnimated:TRUE completion:nil];
+        [self.navigationController pushViewController:gifEditorVC animated:true];
+    });
 }
 
 

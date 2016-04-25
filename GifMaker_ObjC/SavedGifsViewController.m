@@ -15,16 +15,16 @@
 @import AVFoundation;
 #import "GifEditorViewController.h"
 #import "SavedGifsViewController+AllowEditing.h"
-#import "OverlayView.h"
 #import "DetailViewController.h"
 
 @interface SavedGifsViewController()
 
 @property (weak, nonatomic) IBOutlet UIImageView *collectionEmptyImageView;
 @property (weak, nonatomic) IBOutlet UILabel *collectionEmptyLabel;
-@property (weak, nonatomic) NSArray *savedGifs;
+@property (nonatomic) NSArray *savedGifs;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic) NSURL *squareURL;
+@property (nonatomic) NSURL *trimmedURL;
 
 @end
 
@@ -40,7 +40,13 @@ static const int kLoopCount = 0; // 0 means loop forever
     self.collectionView.dataSource = self;
     
     AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
-    self.savedGifs = appDelegate.gifs;
+    if (!self.savedGifs) {
+        self.savedGifs = [[NSArray alloc] init];
+    }
+    
+    self.savedGifs = [NSKeyedUnarchiver unarchiveObjectWithFile:[self gifsFilePath]];
+    
+    appDelegate.gifs = [NSMutableArray arrayWithArray:self.savedGifs];
     [self.collectionView reloadData];
     
     if (self.savedGifs.count > 0) {
@@ -60,6 +66,12 @@ static const int kLoopCount = 0; // 0 means loop forever
 
 -(void) viewDidLoad {
     [super viewDidLoad];
+//    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+//    appDelegate.gifs = [NSKeyedUnarchiver unarchiveObjectWithFile:[self gifsFilePath]];
+    //self.savedGifs = appDelegate.gifs;
+    
+    
+    self.savedGifs = [NSKeyedUnarchiver unarchiveObjectWithFile:[self gifsFilePath]];
     [self prepareLayout];
 }
 
@@ -76,6 +88,20 @@ static const int kLoopCount = 0; // 0 means loop forever
 -(NSArray*)gifs {
     AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
     return appDelegate.gifs;
+}
+
+-(NSString*)gifsFilePath {
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    //NSFileManager *manager = [NSFileManager defaultManager];
+    NSString *gifsArrayURL = [documentsDirectory stringByAppendingPathComponent:@"savedGifs"] ;
+    //[manager createDirectoryAtPath:gifsArrayURL withIntermediateDirectories:YES attributes:nil error:nil];
+
+    // Remove Existing File
+    //[manager removeItemAtPath:outputURL error:nil];
+    
+    return gifsArrayURL;
 }
 
 -(void)prepareLayout {
@@ -105,9 +131,9 @@ static const int kLoopCount = 0; // 0 means loop forever
 # pragma mark UICollectionViewDatasource
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    //return 3;
-    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
-    return appDelegate.gifs.count;
+//    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+//    return appDelegate.gifs.count;
+    return [self.savedGifs count];
 }
 
 -(UICollectionViewCell*)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -210,15 +236,52 @@ static const int kLoopCount = 0; // 0 means loop forever
     if (mediaType == kUTTypeMovie) {
         
         NSURL *rawVideoURL = [info objectForKey:UIImagePickerControllerMediaURL];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self makeItSquare: rawVideoURL];
-        });
         
-        //[self convertVideoToGif:self.squareURL];
+        // Get start and end points from trimmed video
+        NSNumber *start = [info objectForKey:@"_UIImagePickerControllerVideoEditingStart"];
+        NSNumber *end = [info objectForKey:@"_UIImagePickerControllerVideoEditingEnd"];
+        
+        // If start and end are nil then clipping was not used.
+        if (start != nil) {
+            int startMilliseconds = ([start doubleValue] * 1000);
+            int endMilliseconds = ([end doubleValue] * 1000);
+            
+            // Use AVFoundation to trim the video
+            AVURLAsset *videoAsset = [AVURLAsset URLAssetWithURL:rawVideoURL options:nil];
+            NSString *outputURL = [SavedGifsViewController createPath];
+            AVAssetExportSession *exportSession = [[AVAssetExportSession alloc] initWithAsset:videoAsset presetName:AVAssetExportPresetHighestQuality];
+            AVAssetExportSession *trimmedSession = [SavedGifsViewController configureExportSession:exportSession outputURL:outputURL startMilliseconds:startMilliseconds endMilliseconds:endMilliseconds];
+            __block NSURL *trimmedURL;
+            
+            // Export trimmed video
+            [trimmedSession exportAsynchronouslyWithCompletionHandler:^{
+                switch (trimmedSession.status) {
+                    case AVAssetExportSessionStatusCompleted:
+                        // Custom method to import the Exported Video
+                        trimmedURL = trimmedSession.outputURL;
+                        [self makeVideoSquare:trimmedURL];
+                        break;
+                    case AVAssetExportSessionStatusFailed:
+                        //
+                        NSLog(@"Failed:%@",trimmedSession.error);
+                        break;
+                    case AVAssetExportSessionStatusCancelled:
+                        //
+                        NSLog(@"Canceled:%@",trimmedSession.error);
+                        break;
+                    default:
+                        break;
+                }
+            }];
+            
+            // If video was not trimmed, use the entire video.
+        } else {
+            [self makeVideoSquare:rawVideoURL];
+        }
     }
 }
 
--(void)makeItSquare: (NSURL*)rawVideoURL{
+-(void)makeVideoSquare: (NSURL*)rawVideoURL{
     //make it square
     AVAsset *videoAsset = [AVAsset assetWithURL:rawVideoURL];
     AVMutableComposition *composition = [AVMutableComposition composition];
@@ -250,10 +313,12 @@ static const int kLoopCount = 0; // 0 means loop forever
     exporter.outputURL = [NSURL fileURLWithPath:path];
     exporter.outputFileType=AVFileTypeQuickTimeMovie;
     
+    __block NSURL *squareURL;
+    
     [exporter exportAsynchronouslyWithCompletionHandler:^(void){
         NSLog(@"Exporting done!");
-        self.squareURL = exporter.outputURL;
-        [self convertVideoToGif:self.squareURL];
+        squareURL = exporter.outputURL;
+        [self convertVideoToGif:squareURL];
     }];
 }
 

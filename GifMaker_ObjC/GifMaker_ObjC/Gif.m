@@ -36,6 +36,26 @@
     return self;
 }
 
+-(instancetype)initWithCoder:(NSCoder *)decoder{
+   
+    self = [super init];
+    
+    // Unarchive the data, one property at a time
+    self.url = [decoder decodeObjectForKey:@"gifURL"];
+    self.caption = [decoder decodeObjectForKey:@"caption"];
+    self.rawVideoURL = [decoder decodeObjectForKey:@"rawVideoURL"];
+    self.gifImage = [decoder decodeObjectForKey:@"gifImage"];
+
+    return self;
+}
+
+-(void)encodeWithCoder:(NSCoder *)coder {
+    [coder encodeObject:self.url forKey: @"gifURL"];
+    [coder encodeObject:self.caption forKey: @"caption"];
+    [coder encodeObject:self.rawVideoURL forKey: @"rawVideoURL"];
+    [coder encodeObject:self.gifImage forKey: @"gifImage"];
+}
+
 
 
 @end

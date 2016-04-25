@@ -19,8 +19,7 @@
     // Override point for customization after application launch.
     
     if(!self.gifs) {
-        NSMutableArray *gifArray = [[NSMutableArray alloc]init];
-        self.gifs = gifArray;
+        self.gifs = [[NSMutableArray alloc]init];
     }
     
     if([[NSUserDefaults standardUserDefaults] boolForKey:@"WelcomeViewSeen"]!=YES)

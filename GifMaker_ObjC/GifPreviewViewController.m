@@ -47,11 +47,25 @@
     [self presentViewController:shareController animated:TRUE completion: nil];
 }
 
+-(NSString*)gifsFilePath {
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    //NSFileManager *manager = [NSFileManager defaultManager];
+    NSString *gifsArrayURL = [documentsDirectory stringByAppendingPathComponent:@"savedGifs"] ;
+    //[manager createDirectoryAtPath:gifsArrayURL withIntermediateDirectories:YES attributes:nil error:nil];
+    
+    // Remove Existing File
+    //[manager removeItemAtPath:outputURL error:nil];
+    
+    return gifsArrayURL;
+}
 
 - (IBAction)saveGif:(id)sender {
 
     AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
     [appDelegate.gifs addObject: self.gif];
+    [NSKeyedArchiver archiveRootObject:appDelegate.gifs toFile:[self gifsFilePath]];
     [self.navigationController popToRootViewControllerAnimated:TRUE];
 }
                                             
