@@ -11,6 +11,8 @@
 		2AF807EC1CCFDA5600CFD995 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2AF807E71CCFDA5600CFD995 /* Info.plist */; };
 		2AF807ED1CCFDA5600CFD995 /* Regift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF807E91CCFDA5600CFD995 /* Regift.swift */; };
 		2AF807EE1CCFDA5600CFD995 /* RegiftCaption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF807EA1CCFDA5600CFD995 /* RegiftCaption.swift */; };
+		2AF807F21CCFE3C300CFD995 /* UIViewController+Record.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF807F11CCFE3C300CFD995 /* UIViewController+Record.m */; };
+		2AF807F51CCFF7E000CFD995 /* UIViewController+Theme.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF807F41CCFF7E000CFD995 /* UIViewController+Theme.m */; };
 		ED055A261CCAB1A5003398D9 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED055A251CCAB1A5003398D9 /* DetailViewController.m */; };
 		ED055A281CCAC9D0003398D9 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED055A271CCAC9D0003398D9 /* QuartzCore.framework */; };
 		ED1C7F971C866D4C00724DC2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1C7F961C866D4C00724DC2 /* main.m */; };
@@ -28,8 +30,6 @@
 		EDF050B01CC5AB6700D9EC55 /* SavedGifsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF050AF1CC5AB6700D9EC55 /* SavedGifsViewController.m */; };
 		EDF050B31CC5ACF400D9EC55 /* GifCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF050B21CC5ACF400D9EC55 /* GifCell.m */; };
 		EDF050B61CC6E11E00D9EC55 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF050B51CC6E11E00D9EC55 /* WelcomeViewController.m */; };
-		EDF050C21CC7043900D9EC55 /* WelcomeViewController+AllowEditing.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF050C11CC7043800D9EC55 /* WelcomeViewController+AllowEditing.m */; };
-		EDF050C51CC711C500D9EC55 /* SavedGifsViewController+AllowEditing.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF050C41CC711C500D9EC55 /* SavedGifsViewController+AllowEditing.m */; };
 		EDF050C71CC814F300D9EC55 /* OverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDF050C61CC814F300D9EC55 /* OverlayView.xib */; };
 /* End PBXBuildFile section */
 
@@ -56,8 +56,12 @@
 		2AF807E81CCFDA5600CFD995 /* Regift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Regift.h; sourceTree = "<group>"; };
 		2AF807E91CCFDA5600CFD995 /* Regift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Regift.swift; sourceTree = "<group>"; };
 		2AF807EA1CCFDA5600CFD995 /* RegiftCaption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegiftCaption.swift; sourceTree = "<group>"; };
-		ED055A241CCAB1A5003398D9 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		ED055A251CCAB1A5003398D9 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		2AF807F01CCFE3C300CFD995 /* UIViewController+Record.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+Record.h"; path = "../UIViewController+Record.h"; sourceTree = "<group>"; };
+		2AF807F11CCFE3C300CFD995 /* UIViewController+Record.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+Record.m"; path = "../UIViewController+Record.m"; sourceTree = "<group>"; };
+		2AF807F31CCFF7E000CFD995 /* UIViewController+Theme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Theme.h"; sourceTree = "<group>"; };
+		2AF807F41CCFF7E000CFD995 /* UIViewController+Theme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Theme.m"; sourceTree = "<group>"; };
+		ED055A241CCAB1A5003398D9 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailViewController.h; path = ../DetailViewController.h; sourceTree = "<group>"; };
+		ED055A251CCAB1A5003398D9 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailViewController.m; path = ../DetailViewController.m; sourceTree = "<group>"; };
 		ED055A271CCAC9D0003398D9 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		ED1C7F921C866D4C00724DC2 /* GifMaker_ObjC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GifMaker_ObjC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED1C7F961C866D4C00724DC2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -83,16 +87,12 @@
 		EDD81E201C8A26510045C1BD /* Gif.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gif.h; sourceTree = "<group>"; };
 		EDD81E211C8A26510045C1BD /* Gif.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Gif.m; sourceTree = "<group>"; };
 		EDD81E251C8A3B980045C1BD /* tinaFeyHiFive.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = tinaFeyHiFive.gif; sourceTree = "<group>"; };
-		EDF050AE1CC5AB6700D9EC55 /* SavedGifsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SavedGifsViewController.h; sourceTree = "<group>"; };
-		EDF050AF1CC5AB6700D9EC55 /* SavedGifsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SavedGifsViewController.m; sourceTree = "<group>"; };
+		EDF050AE1CC5AB6700D9EC55 /* SavedGifsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SavedGifsViewController.h; path = ../SavedGifsViewController.h; sourceTree = "<group>"; };
+		EDF050AF1CC5AB6700D9EC55 /* SavedGifsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SavedGifsViewController.m; path = ../SavedGifsViewController.m; sourceTree = "<group>"; };
 		EDF050B11CC5ACF400D9EC55 /* GifCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GifCell.h; sourceTree = "<group>"; };
 		EDF050B21CC5ACF400D9EC55 /* GifCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GifCell.m; sourceTree = "<group>"; };
-		EDF050B41CC6E11E00D9EC55 /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
-		EDF050B51CC6E11E00D9EC55 /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
-		EDF050C01CC7043800D9EC55 /* WelcomeViewController+AllowEditing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WelcomeViewController+AllowEditing.h"; sourceTree = "<group>"; };
-		EDF050C11CC7043800D9EC55 /* WelcomeViewController+AllowEditing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WelcomeViewController+AllowEditing.m"; sourceTree = "<group>"; };
-		EDF050C31CC711C500D9EC55 /* SavedGifsViewController+AllowEditing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SavedGifsViewController+AllowEditing.h"; sourceTree = "<group>"; };
-		EDF050C41CC711C500D9EC55 /* SavedGifsViewController+AllowEditing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SavedGifsViewController+AllowEditing.m"; sourceTree = "<group>"; };
+		EDF050B41CC6E11E00D9EC55 /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WelcomeViewController.h; path = ../WelcomeViewController.h; sourceTree = "<group>"; };
+		EDF050B51CC6E11E00D9EC55 /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WelcomeViewController.m; path = ../WelcomeViewController.m; sourceTree = "<group>"; };
 		EDF050C61CC814F300D9EC55 /* OverlayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OverlayView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -134,22 +134,20 @@
 			path = Regift;
 			sourceTree = "<group>";
 		};
-		ED1C7F891C866D4C00724DC2 = {
+		2AF807EF1CCFE30F00CFD995 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				ED055A271CCAC9D0003398D9 /* QuartzCore.framework */,
-				ED055A241CCAB1A5003398D9 /* DetailViewController.h */,
-				ED055A251CCAB1A5003398D9 /* DetailViewController.m */,
-				EDF050C31CC711C500D9EC55 /* SavedGifsViewController+AllowEditing.h */,
-				EDF050C41CC711C500D9EC55 /* SavedGifsViewController+AllowEditing.m */,
-				EDF050B41CC6E11E00D9EC55 /* WelcomeViewController.h */,
-				EDF050C01CC7043800D9EC55 /* WelcomeViewController+AllowEditing.h */,
-				EDF050C11CC7043800D9EC55 /* WelcomeViewController+AllowEditing.m */,
-				EDF050B51CC6E11E00D9EC55 /* WelcomeViewController.m */,
+				2AF807E51CCFDA5600CFD995 /* Regift */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ED1C7F891C866D4C00724DC2 = {
+			isa = PBXGroup;
+			children = (
 				EDF050B11CC5ACF400D9EC55 /* GifCell.h */,
 				EDF050B21CC5ACF400D9EC55 /* GifCell.m */,
-				EDF050AE1CC5AB6700D9EC55 /* SavedGifsViewController.h */,
-				EDF050AF1CC5AB6700D9EC55 /* SavedGifsViewController.m */,
 				EDA342D11CC567C9006C23F3 /* GifPreviewViewController.h */,
 				EDA342D21CC567C9006C23F3 /* GifPreviewViewController.m */,
 				ED1C7F941C866D4C00724DC2 /* GifMaker_ObjC */,
@@ -172,7 +170,16 @@
 		ED1C7F941C866D4C00724DC2 /* GifMaker_ObjC */ = {
 			isa = PBXGroup;
 			children = (
-				2AF807E51CCFDA5600CFD995 /* Regift */,
+				EDF050B41CC6E11E00D9EC55 /* WelcomeViewController.h */,
+				EDF050B51CC6E11E00D9EC55 /* WelcomeViewController.m */,
+				EDF050AE1CC5AB6700D9EC55 /* SavedGifsViewController.h */,
+				EDF050AF1CC5AB6700D9EC55 /* SavedGifsViewController.m */,
+				2AF807F01CCFE3C300CFD995 /* UIViewController+Record.h */,
+				2AF807F11CCFE3C300CFD995 /* UIViewController+Record.m */,
+				2AF807F31CCFF7E000CFD995 /* UIViewController+Theme.h */,
+				2AF807F41CCFF7E000CFD995 /* UIViewController+Theme.m */,
+				ED055A241CCAB1A5003398D9 /* DetailViewController.h */,
+				ED055A251CCAB1A5003398D9 /* DetailViewController.m */,
 				EDD81E251C8A3B980045C1BD /* tinaFeyHiFive.gif */,
 				ED1C7F981C866D4C00724DC2 /* AppDelegate.h */,
 				ED1C7F991C866D4C00724DC2 /* AppDelegate.m */,
@@ -181,7 +188,6 @@
 				ED1C7FA11C866D4C00724DC2 /* Assets.xcassets */,
 				ED1C7FA31C866D4C00724DC2 /* LaunchScreen.storyboard */,
 				ED1C7FA61C866D4C00724DC2 /* Info.plist */,
-				ED1C7F951C866D4C00724DC2 /* Supporting Files */,
 				ED1C7FD11C866F1E00724DC2 /* UIImage+animatedGIF.h */,
 				ED1C7FD21C866F1E00724DC2 /* UIImage+animatedGIF.m */,
 				ED1C7FD41C866FB600724DC2 /* GifMaker_ObjC-Bridging-Header.h */,
@@ -189,6 +195,8 @@
 				EDD81E211C8A26510045C1BD /* Gif.m */,
 				ED3F823C1C8A5A8B0084EC81 /* GifEditorViewController.h */,
 				ED3F823D1C8A5A8B0084EC81 /* GifEditorViewController.m */,
+				ED1C7F951C866D4C00724DC2 /* Supporting Files */,
+				2AF807EF1CCFE30F00CFD995 /* Frameworks */,
 			);
 			path = GifMaker_ObjC;
 			sourceTree = "<group>";
@@ -361,12 +369,12 @@
 				ED1C7F9A1C866D4C00724DC2 /* AppDelegate.m in Sources */,
 				EDF050B61CC6E11E00D9EC55 /* WelcomeViewController.m in Sources */,
 				EDA342D31CC567C9006C23F3 /* GifPreviewViewController.m in Sources */,
-				EDF050C21CC7043900D9EC55 /* WelcomeViewController+AllowEditing.m in Sources */,
 				ED055A261CCAB1A5003398D9 /* DetailViewController.m in Sources */,
+				2AF807F21CCFE3C300CFD995 /* UIViewController+Record.m in Sources */,
+				2AF807F51CCFF7E000CFD995 /* UIViewController+Theme.m in Sources */,
 				2AF807EB1CCFDA5600CFD995 /* AVAssetImageGeneratorTimePoints.swift in Sources */,
 				ED1C7FD31C866F1E00724DC2 /* UIImage+animatedGIF.m in Sources */,
 				ED1C7F971C866D4C00724DC2 /* main.m in Sources */,
-				EDF050C51CC711C500D9EC55 /* SavedGifsViewController+AllowEditing.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

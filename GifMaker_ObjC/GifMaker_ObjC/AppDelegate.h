@@ -6,14 +6,13 @@
 //  Copyright © 2016 Gabrielle Miller-Messner. All rights reserved.
 //
 
-@import UIKit;
-#import "Gif.h"
+#import <UIKit/UIKit.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+
 @property (strong, nonatomic) NSMutableArray *gifs;
-//@property (nonatomic) BOOL welcomeViewSeen;
 
 @end
 
