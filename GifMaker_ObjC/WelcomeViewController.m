@@ -20,7 +20,6 @@
 @property (nonatomic) NSURL *squareURL;
 @end
 
-
 static int const kFrameCount = 16;
 static const float kDelayTime = 0.2;
 static const int kLoopCount = 0; // 0 means loop forever
@@ -49,7 +48,7 @@ static const int kLoopCount = 0; // 0 means loop forever
                          handler:^(UIAlertAction * action)
                          {
                              //Do some thing here
-                             [self startCameraFromViewController:self];
+                             [self launchVideoCamera];
                              [createNewGifAlert dismissViewControllerAnimated:YES completion:nil];
                              
                          }];
@@ -81,20 +80,20 @@ static const int kLoopCount = 0; // 0 means loop forever
 
 }
 
-- (BOOL)startCameraFromViewController:(UIViewController*)viewController {
+- (void)launchVideoCamera {
     
     if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
-        return false;
+        return;
     } else {
         
-        UIImagePickerController *cameraController = [[UIImagePickerController alloc] init];
-        cameraController.sourceType = UIImagePickerControllerSourceTypeCamera;
-        cameraController.mediaTypes = @[(NSString *) kUTTypeMovie];
-        cameraController.allowsEditing = true;
-        cameraController.delegate = self;
+        UIImagePickerController *recordVideoController = [[UIImagePickerController alloc] init];
+        recordVideoController.sourceType = UIImagePickerControllerSourceTypeCamera;
+        recordVideoController.mediaTypes = @[(NSString *) kUTTypeMovie];
+        recordVideoController.allowsEditing = true;
+        recordVideoController.delegate = self;
         
-        [self presentViewController:cameraController animated:TRUE completion:nil];
-        return true;
+        [self presentViewController:recordVideoController animated:TRUE completion:nil];
+        return;
     }
 }
 
@@ -109,7 +108,6 @@ static const int kLoopCount = 0; // 0 means loop forever
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
     
     CFStringRef mediaType = (__bridge CFStringRef)([info objectForKey:UIImagePickerControllerMediaType]);
-    //[self dismissViewControllerAnimated:TRUE completion:nil];
     
     // Handle a movie capture
     if (mediaType == kUTTypeMovie) {
