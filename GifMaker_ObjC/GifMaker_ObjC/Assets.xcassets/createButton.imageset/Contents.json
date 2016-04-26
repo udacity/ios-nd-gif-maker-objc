@@ -2,20 +2,22 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "createButton.png",
-      "scale" : "1x"
+      "scale" : "1x",
+      "filename" : "creatBtn.png"
     },
     {
       "idiom" : "universal",
-      "scale" : "2x"
+      "scale" : "2x",
+      "filename" : "creatBtn@2x.png"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x"
+      "scale" : "3x",
+      "filename" : "creatBtn@3x.png"
     }
   ],
   "info" : {
-    "version" : 1,
-    "author" : "xcode"
+    "author" : "zeplin",
+    "version" : "1"
   }
 }
