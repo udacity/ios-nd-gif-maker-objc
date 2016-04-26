@@ -13,7 +13,7 @@
 typedef enum {
     Light,
     Dark,
-    DarkTransparent
+    DarkTranslucent
 } Theme;
 
 - (void)applyTheme:(Theme)theme;

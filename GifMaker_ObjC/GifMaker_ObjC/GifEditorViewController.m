@@ -7,12 +7,15 @@
 //
 
 #import "GifEditorViewController.h"
+#import "UIViewController+Theme.h"
+
 #import "GifPreviewViewController.h"
 #import "UIImage+animatedGif.h"
 
 #import "GifMaker_Objc-Swift.h"
 
 @interface GifEditorViewController ()
+
 @property (weak, nonatomic) IBOutlet UITextField *captionTextField;
 
 @end
@@ -23,40 +26,38 @@ static const int kLoopCount = 0; // 0 means loop forever
 
 @implementation GifEditorViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    self.title = @"Add a Caption";
+    [self applyTheme:Dark];
 }
 
--(void)viewWillAppear:(BOOL)animated {
-    self.captionTextField.delegate = self;
+- (void)viewDidLoad {
+    [super viewDidLoad];
+
     self.gifImageView.image = self.gif.gifImage;
     
-    UIBarButtonItem *nextButton = [[UIBarButtonItem alloc]
-                                   initWithTitle:@"Next"
-                                   style:UIBarButtonItemStylePlain
-                                   target:self
-                                   action:@selector(presentPreview)];
-    self.navigationItem.rightBarButtonItem = nextButton;
-    self.navigationItem.rightBarButtonItem.tintColor = [UIColor colorWithRed:252.0/255.0 green:55.0/255.0 blue:104.0/255.0 alpha:1];
-    [self.navigationController.navigationBar setTitleTextAttributes:
-     @{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    NSDictionary *defaultAttributes = @{NSStrokeColorAttributeName : [UIColor blackColor],
+                                        NSStrokeWidthAttributeName : @(-4),
+                                        NSForegroundColorAttributeName : [UIColor whiteColor],
+                                        NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:40.0]};
+    [self.captionTextField setDefaultTextAttributes:defaultAttributes];
+    [self.captionTextField setTextAlignment:NSTextAlignmentCenter];
+    [self.captionTextField setAttributedPlaceholder:[[NSAttributedString alloc] initWithString:@"Add Caption" attributes:defaultAttributes]];
     
-    self.navigationController.navigationBar.barTintColor = self.view.backgroundColor;
-    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    self.navigationItem.title = @"Add a Caption";
-
     [self subscribeToKeyboardNotifications];
-
+    
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
+    [self.view addGestureRecognizer:tapGesture];
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
-    
-    self.navigationItem.title = @"";
+    self.title = @"";
 }
 
--(void)viewDidDisappear:(BOOL)animated {
-    [self unsubscribeFromKeyboardNotifications];
+- (void)dismissKeyboard {
+    [self.view endEditing:TRUE];
 }
 
 #pragma mark - UITextFieldDelegate methods
@@ -67,9 +68,9 @@ static const int kLoopCount = 0; // 0 means loop forever
 }
 
 #pragma mark - Observe Keyboard notifications
+
 -(void)subscribeToKeyboardNotifications {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
-    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
 }
 

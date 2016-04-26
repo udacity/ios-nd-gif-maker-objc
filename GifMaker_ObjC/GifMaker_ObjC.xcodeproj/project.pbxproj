@@ -82,8 +82,8 @@
 		ED1C7FD41C866FB600724DC2 /* GifMaker_ObjC-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GifMaker_ObjC-Bridging-Header.h"; sourceTree = "<group>"; };
 		ED3F823C1C8A5A8B0084EC81 /* GifEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GifEditorViewController.h; sourceTree = "<group>"; };
 		ED3F823D1C8A5A8B0084EC81 /* GifEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GifEditorViewController.m; sourceTree = "<group>"; };
-		EDA342D11CC567C9006C23F3 /* GifPreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GifPreviewViewController.h; sourceTree = "<group>"; };
-		EDA342D21CC567C9006C23F3 /* GifPreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GifPreviewViewController.m; sourceTree = "<group>"; };
+		EDA342D11CC567C9006C23F3 /* GifPreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GifPreviewViewController.h; path = ../GifPreviewViewController.h; sourceTree = "<group>"; };
+		EDA342D21CC567C9006C23F3 /* GifPreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GifPreviewViewController.m; path = ../GifPreviewViewController.m; sourceTree = "<group>"; };
 		EDD81E201C8A26510045C1BD /* Gif.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gif.h; sourceTree = "<group>"; };
 		EDD81E211C8A26510045C1BD /* Gif.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Gif.m; sourceTree = "<group>"; };
 		EDD81E251C8A3B980045C1BD /* tinaFeyHiFive.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = tinaFeyHiFive.gif; sourceTree = "<group>"; };
@@ -148,8 +148,6 @@
 			children = (
 				EDF050B11CC5ACF400D9EC55 /* GifCell.h */,
 				EDF050B21CC5ACF400D9EC55 /* GifCell.m */,
-				EDA342D11CC567C9006C23F3 /* GifPreviewViewController.h */,
-				EDA342D21CC567C9006C23F3 /* GifPreviewViewController.m */,
 				ED1C7F941C866D4C00724DC2 /* GifMaker_ObjC */,
 				ED1C7FAE1C866D4C00724DC2 /* GifMaker_ObjCTests */,
 				ED1C7FB91C866D4C00724DC2 /* GifMaker_ObjCUITests */,
@@ -178,6 +176,8 @@
 				2AF807F11CCFE3C300CFD995 /* UIViewController+Record.m */,
 				2AF807F31CCFF7E000CFD995 /* UIViewController+Theme.h */,
 				2AF807F41CCFF7E000CFD995 /* UIViewController+Theme.m */,
+				EDA342D11CC567C9006C23F3 /* GifPreviewViewController.h */,
+				EDA342D21CC567C9006C23F3 /* GifPreviewViewController.m */,
 				ED055A241CCAB1A5003398D9 /* DetailViewController.h */,
 				ED055A251CCAB1A5003398D9 /* DetailViewController.m */,
 				EDD81E251C8A3B980045C1BD /* tinaFeyHiFive.gif */,

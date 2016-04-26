@@ -26,7 +26,7 @@
     [self.shareButton.layer setCornerRadius:4.0];
     
     self.gifImageView.image = self.gif.gifImage;
-    [self applyTheme:DarkTransparent];
+    [self applyTheme:DarkTranslucent];
 }
 
 - (IBAction)shareGif:(id)sender {
