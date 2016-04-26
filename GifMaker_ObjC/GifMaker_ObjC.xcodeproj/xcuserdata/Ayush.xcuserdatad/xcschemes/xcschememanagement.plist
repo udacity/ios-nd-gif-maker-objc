@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Regift.xcscheme</key>
+		<key>GifMaker_ObjC.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,12 +12,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>EDD81DDE1C88C5F30045C1BD</key>
+		<key>ED1C7F911C866D4C00724DC2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EDD81DE81C88C5F30045C1BD</key>
+		<key>ED1C7FAA1C866D4C00724DC2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>ED1C7FB51C866D4C00724DC2</key>
 		<dict>
 			<key>primary</key>
 			<true/>

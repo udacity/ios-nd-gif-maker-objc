@@ -8,8 +8,9 @@
 
 #import "GifEditorViewController.h"
 #import "GifPreviewViewController.h"
-@import Regift;
 #import "UIImage+animatedGif.h"
+
+#import "GifMaker_Objc-Swift.h"
 
 @interface GifEditorViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *captionTextField;
@@ -104,6 +105,7 @@ static const int kLoopCount = 0; // 0 means loop forever
 -(void)presentPreview {
     GifPreviewViewController *previewVC = [self.storyboard instantiateViewControllerWithIdentifier:@"GifPreviewViewController"];
     self.gif.caption = self.captionTextField.text;
+    
 
     Regift *regift = [[Regift alloc] initWithSourceFileURL:self.gif.rawVideoURL frameCount:kFrameCount delayTime:kDelayTime loopCount:kLoopCount];
     

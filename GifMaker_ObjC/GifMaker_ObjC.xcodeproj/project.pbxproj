@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2AF807EB1CCFDA5600CFD995 /* AVAssetImageGeneratorTimePoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF807E61CCFDA5600CFD995 /* AVAssetImageGeneratorTimePoints.swift */; };
+		2AF807EC1CCFDA5600CFD995 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2AF807E71CCFDA5600CFD995 /* Info.plist */; };
+		2AF807ED1CCFDA5600CFD995 /* Regift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF807E91CCFDA5600CFD995 /* Regift.swift */; };
+		2AF807EE1CCFDA5600CFD995 /* RegiftCaption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF807EA1CCFDA5600CFD995 /* RegiftCaption.swift */; };
 		ED055A261CCAB1A5003398D9 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED055A251CCAB1A5003398D9 /* DetailViewController.m */; };
 		ED055A281CCAC9D0003398D9 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED055A271CCAC9D0003398D9 /* QuartzCore.framework */; };
 		ED1C7F971C866D4C00724DC2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1C7F961C866D4C00724DC2 /* main.m */; };
@@ -19,9 +23,6 @@
 		ED1C7FD31C866F1E00724DC2 /* UIImage+animatedGIF.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1C7FD21C866F1E00724DC2 /* UIImage+animatedGIF.m */; };
 		ED3F823E1C8A5A8B0084EC81 /* GifEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3F823D1C8A5A8B0084EC81 /* GifEditorViewController.m */; };
 		EDA342D31CC567C9006C23F3 /* GifPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDA342D21CC567C9006C23F3 /* GifPreviewViewController.m */; };
-		EDD81E191C88DC610045C1BD /* Regift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD81E181C88DC610045C1BD /* Regift.framework */; };
-		EDD81E1B1C88E9930045C1BD /* Regift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD81E1A1C88E9930045C1BD /* Regift.framework */; };
-		EDD81E1C1C88E9930045C1BD /* Regift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EDD81E1A1C88E9930045C1BD /* Regift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EDD81E221C8A26510045C1BD /* Gif.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD81E211C8A26510045C1BD /* Gif.m */; };
 		EDD81E261C8A3B980045C1BD /* tinaFeyHiFive.gif in Resources */ = {isa = PBXBuildFile; fileRef = EDD81E251C8A3B980045C1BD /* tinaFeyHiFive.gif */; };
 		EDF050B01CC5AB6700D9EC55 /* SavedGifsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF050AF1CC5AB6700D9EC55 /* SavedGifsViewController.m */; };
@@ -49,21 +50,12 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		EDD81E1D1C88E9940045C1BD /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				EDD81E1C1C88E9930045C1BD /* Regift.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
+		2AF807E61CCFDA5600CFD995 /* AVAssetImageGeneratorTimePoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVAssetImageGeneratorTimePoints.swift; sourceTree = "<group>"; };
+		2AF807E71CCFDA5600CFD995 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2AF807E81CCFDA5600CFD995 /* Regift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Regift.h; sourceTree = "<group>"; };
+		2AF807E91CCFDA5600CFD995 /* Regift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Regift.swift; sourceTree = "<group>"; };
+		2AF807EA1CCFDA5600CFD995 /* RegiftCaption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegiftCaption.swift; sourceTree = "<group>"; };
 		ED055A241CCAB1A5003398D9 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		ED055A251CCAB1A5003398D9 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		ED055A271CCAC9D0003398D9 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -88,8 +80,6 @@
 		ED3F823D1C8A5A8B0084EC81 /* GifEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GifEditorViewController.m; sourceTree = "<group>"; };
 		EDA342D11CC567C9006C23F3 /* GifPreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GifPreviewViewController.h; sourceTree = "<group>"; };
 		EDA342D21CC567C9006C23F3 /* GifPreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GifPreviewViewController.m; sourceTree = "<group>"; };
-		EDD81E181C88DC610045C1BD /* Regift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Regift.framework; path = "../Regift/build/Debug-iphoneos/Regift.framework"; sourceTree = "<group>"; };
-		EDD81E1A1C88E9930045C1BD /* Regift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = Regift.framework; path = "/Users/gabriellemiller-messner/Library/Developer/Xcode/DerivedData/GifMaker_withRegiftFrameworkTake2-gntsthlyyhudzndkxtbmxdsdnimj/Build/Products/Debug-iphoneos/Regift.framework"; sourceTree = "<absolute>"; };
 		EDD81E201C8A26510045C1BD /* Gif.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gif.h; sourceTree = "<group>"; };
 		EDD81E211C8A26510045C1BD /* Gif.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Gif.m; sourceTree = "<group>"; };
 		EDD81E251C8A3B980045C1BD /* tinaFeyHiFive.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = tinaFeyHiFive.gif; sourceTree = "<group>"; };
@@ -112,8 +102,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED055A281CCAC9D0003398D9 /* QuartzCore.framework in Frameworks */,
-				EDD81E191C88DC610045C1BD /* Regift.framework in Frameworks */,
-				EDD81E1B1C88E9930045C1BD /* Regift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,6 +122,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2AF807E51CCFDA5600CFD995 /* Regift */ = {
+			isa = PBXGroup;
+			children = (
+				2AF807E61CCFDA5600CFD995 /* AVAssetImageGeneratorTimePoints.swift */,
+				2AF807E71CCFDA5600CFD995 /* Info.plist */,
+				2AF807E81CCFDA5600CFD995 /* Regift.h */,
+				2AF807E91CCFDA5600CFD995 /* Regift.swift */,
+				2AF807EA1CCFDA5600CFD995 /* RegiftCaption.swift */,
+			);
+			path = Regift;
+			sourceTree = "<group>";
+		};
 		ED1C7F891C866D4C00724DC2 = {
 			isa = PBXGroup;
 			children = (
@@ -152,8 +152,6 @@
 				EDF050AF1CC5AB6700D9EC55 /* SavedGifsViewController.m */,
 				EDA342D11CC567C9006C23F3 /* GifPreviewViewController.h */,
 				EDA342D21CC567C9006C23F3 /* GifPreviewViewController.m */,
-				EDD81E1A1C88E9930045C1BD /* Regift.framework */,
-				EDD81E181C88DC610045C1BD /* Regift.framework */,
 				ED1C7F941C866D4C00724DC2 /* GifMaker_ObjC */,
 				ED1C7FAE1C866D4C00724DC2 /* GifMaker_ObjCTests */,
 				ED1C7FB91C866D4C00724DC2 /* GifMaker_ObjCUITests */,
@@ -174,6 +172,7 @@
 		ED1C7F941C866D4C00724DC2 /* GifMaker_ObjC */ = {
 			isa = PBXGroup;
 			children = (
+				2AF807E51CCFDA5600CFD995 /* Regift */,
 				EDD81E251C8A3B980045C1BD /* tinaFeyHiFive.gif */,
 				ED1C7F981C866D4C00724DC2 /* AppDelegate.h */,
 				ED1C7F991C866D4C00724DC2 /* AppDelegate.m */,
@@ -230,7 +229,6 @@
 				ED1C7F8E1C866D4C00724DC2 /* Sources */,
 				ED1C7F8F1C866D4C00724DC2 /* Frameworks */,
 				ED1C7F901C866D4C00724DC2 /* Resources */,
-				EDD81E1D1C88E9940045C1BD /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -326,6 +324,7 @@
 			files = (
 				EDD81E261C8A3B980045C1BD /* tinaFeyHiFive.gif in Resources */,
 				ED1C7FA51C866D4C00724DC2 /* LaunchScreen.storyboard in Resources */,
+				2AF807EC1CCFDA5600CFD995 /* Info.plist in Resources */,
 				EDF050C71CC814F300D9EC55 /* OverlayView.xib in Resources */,
 				ED1C7FA21C866D4C00724DC2 /* Assets.xcassets in Resources */,
 				ED1C7FA01C866D4C00724DC2 /* Main.storyboard in Resources */,
@@ -355,13 +354,16 @@
 			files = (
 				ED3F823E1C8A5A8B0084EC81 /* GifEditorViewController.m in Sources */,
 				EDD81E221C8A26510045C1BD /* Gif.m in Sources */,
+				2AF807EE1CCFDA5600CFD995 /* RegiftCaption.swift in Sources */,
 				EDF050B31CC5ACF400D9EC55 /* GifCell.m in Sources */,
 				EDF050B01CC5AB6700D9EC55 /* SavedGifsViewController.m in Sources */,
+				2AF807ED1CCFDA5600CFD995 /* Regift.swift in Sources */,
 				ED1C7F9A1C866D4C00724DC2 /* AppDelegate.m in Sources */,
 				EDF050B61CC6E11E00D9EC55 /* WelcomeViewController.m in Sources */,
 				EDA342D31CC567C9006C23F3 /* GifPreviewViewController.m in Sources */,
 				EDF050C21CC7043900D9EC55 /* WelcomeViewController+AllowEditing.m in Sources */,
 				ED055A261CCAB1A5003398D9 /* DetailViewController.m in Sources */,
+				2AF807EB1CCFDA5600CFD995 /* AVAssetImageGeneratorTimePoints.swift in Sources */,
 				ED1C7FD31C866F1E00724DC2 /* UIImage+animatedGIF.m in Sources */,
 				ED1C7F971C866D4C00724DC2 /* main.m in Sources */,
 				EDF050C51CC711C500D9EC55 /* SavedGifsViewController+AllowEditing.m in Sources */,
@@ -509,7 +511,7 @@
 				INFOPLIST_FILE = GifMaker_ObjC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_BUNDLE_IDENTIFIER = "Udacity.GifMaker-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.udacity.GifMaker-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "GifMaker_ObjC/GifMaker_ObjC-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -526,7 +528,7 @@
 				INFOPLIST_FILE = GifMaker_ObjC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_BUNDLE_IDENTIFIER = "Udacity.GifMaker-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.udacity.GifMaker-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "GifMaker_ObjC/GifMaker_ObjC-Bridging-Header.h";
 			};

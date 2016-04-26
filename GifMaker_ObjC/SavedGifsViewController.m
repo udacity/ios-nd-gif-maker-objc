@@ -11,11 +11,12 @@
 #import "GifCell.h"
 #import "WelcomeViewController.h"
 @import MobileCoreServices;
-@import Regift;
 @import AVFoundation;
 #import "GifEditorViewController.h"
 #import "SavedGifsViewController+AllowEditing.h"
 #import "DetailViewController.h"
+
+#import "GifMaker_Objc-Swift.h"
 
 @interface SavedGifsViewController()
 

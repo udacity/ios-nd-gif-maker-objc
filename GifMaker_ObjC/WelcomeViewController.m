@@ -10,10 +10,11 @@
 #import "Gif.h"
 #import "AppDelegate.h"
 @import MobileCoreServices;
-@import Regift;
 @import AVFoundation;
 #import "GifEditorViewController.h"
 #import "WelcomeViewController+AllowEditing.h"
+
+#import "GifMaker_Objc-Swift.h"
 
 @interface WelcomeViewController()
 
