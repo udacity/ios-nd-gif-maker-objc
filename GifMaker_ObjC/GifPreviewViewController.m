@@ -62,7 +62,6 @@
 }
 
 - (IBAction)shareGif:(id)sender {
-    
     NSData *animatedGif = [NSData dataWithContentsOfURL:self.gif.url];
     NSArray *sharingItems = [NSArray arrayWithObjects: animatedGif, nil];
     
@@ -72,7 +71,6 @@
             [self.navigationController popToRootViewControllerAnimated:TRUE];
         }
     }];
-    
     
     [self presentViewController:shareController animated:TRUE completion: nil];
 }

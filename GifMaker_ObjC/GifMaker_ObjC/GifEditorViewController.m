@@ -64,38 +64,38 @@ static const int kLoopCount = 0; // 0 means loop forever
 
 #pragma mark - UITextFieldDelegate methods
 
--(BOOL)textFieldShouldReturn:(UITextField *)textField {
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
     return true;
 }
 
 #pragma mark - Observe Keyboard notifications
 
--(void)subscribeToKeyboardNotifications {
+- (void)subscribeToKeyboardNotifications {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
 }
 
--(void)unsubscribeFromKeyboardNotifications {
+- (void)unsubscribeFromKeyboardNotifications {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
 }
 
--(void)keyboardWillShow:(NSNotification*)notification {
+- (void)keyboardWillShow:(NSNotification*)notification {
     CGRect rect = self.view.frame;
     rect.origin.y -= [self getKeyboardHeight:notification];
     self.view.frame = rect;
 }
 
--(void)keyboardWillHide:(NSNotification*)notification {
+- (void)keyboardWillHide:(NSNotification*)notification {
     CGRect rect = self.view.frame;
     rect.origin.y += [self getKeyboardHeight:notification];
     self.view.frame = rect;
 }
 
--(CGFloat)getKeyboardHeight:(NSNotification*)notification {
+- (CGFloat)getKeyboardHeight:(NSNotification*)notification {
     NSDictionary *userInfo = notification.userInfo;
-    NSValue *keyboardFrameEnd = [userInfo valueForKey: UIKeyboardFrameEndUserInfoKey]; // of CGRect
+    NSValue *keyboardFrameEnd = [userInfo valueForKey: UIKeyboardFrameEndUserInfoKey];
     CGRect keyboardFrameEndRect = [keyboardFrameEnd CGRectValue];
     return keyboardFrameEndRect.size.height;
 }
@@ -105,15 +105,14 @@ static const int kLoopCount = 0; // 0 means loop forever
 }
 
 # pragma mark - Preview gif
--(void)presentPreview {
+
+- (IBAction)presentPreview:(id)sender {
     GifPreviewViewController *previewVC = [self.storyboard instantiateViewControllerWithIdentifier:@"GifPreviewViewController"];
     self.gif.caption = self.captionTextField.text;
-    
 
     Regift *regift = [[Regift alloc] initWithSourceFileURL:self.gif.rawVideoURL frameCount:kFrameCount delayTime:kDelayTime loopCount:kLoopCount];
-    
     UIFont *captionFont = self.captionTextField.font;
-    NSURL *gifURL = [regift createGifWithCaption:self.captionTextField.text font:captionFont ];
+    NSURL *gifURL = [regift createGifWithCaption:self.captionTextField.text font:captionFont];
 
     Gif *newGif = [[Gif alloc] initWithGifUrl:gifURL videoURL:self.gif.rawVideoURL caption:self.captionTextField.text];
     previewVC.gif = newGif;
