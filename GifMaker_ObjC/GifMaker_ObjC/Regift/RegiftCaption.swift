@@ -3,7 +3,7 @@
 //  Regift
 //
 //  Created by Gabrielle Miller-Messner on 4/22/16.
-//  Copyright © 2016 Gabrielle Miller-Messner. All rights reserved.
+//  Modified from http://stackoverflow.com/questions/6992830/how-to-write-text-on-image-in-objective-c-iphone
 //
 
 import UIKit

@@ -2,8 +2,9 @@
 //  Regift.swift
 //  GifMaker_ObjC
 //
-//  Created by Gabrielle Miller-Messner on 3/2/16.
-//  Copyright © 2016 Gabrielle Miller-Messner. All rights reserved.
+//  Modified by Gabrielle Miller-Messner on 3/2/16.
+//  Created by Matthew Palmer on 27/12/2014.
+//  Copyright (c) 2014 Matthew Palmer. All rights reserved.
 //
 
 import Foundation
