@@ -49,6 +49,7 @@ static const int kLoopCount = 0;
         [newGifActionSheet addAction:cancel];
         
         [self presentViewController:newGifActionSheet animated:YES completion:nil];
+        [newGifActionSheet.view setTintColor:[UIColor colorWithRed:255.0/255.0 green:65.0/255.0 blue:112.0/255.0 alpha:1.0]];
     }
 }
 
