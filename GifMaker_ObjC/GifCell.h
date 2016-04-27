@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+
 #import "Gif.h"
 
 @interface GifCell : UICollectionViewCell
+
 @property (weak, nonatomic) IBOutlet UIImageView *gifImageView;
 
--(instancetype)populateCellWithGif:(Gif*)gif;
+- (void)configureForGif:(Gif *)gif;
 
 @end

@@ -53,6 +53,8 @@ static const int kLoopCount = 0; // 0 means loop forever
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
     self.title = @"";
 }
 
@@ -114,7 +116,6 @@ static const int kLoopCount = 0; // 0 means loop forever
     NSURL *gifURL = [regift createGifWithCaption:self.captionTextField.text font:captionFont ];
 
     Gif *newGif = [[Gif alloc] initWithGifUrl:gifURL videoURL:self.gif.rawVideoURL caption:self.captionTextField.text];
-    
     previewVC.gif = newGif;
     
     [self.navigationController pushViewController:previewVC animated:true];

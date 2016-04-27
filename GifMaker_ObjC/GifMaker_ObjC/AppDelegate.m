@@ -19,6 +19,20 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.gifs = [NSMutableArray arrayWithArray:[NSKeyedUnarchiver unarchiveObjectWithFile:GIFURL]];
     
+    self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    UIViewController *viewController;
+    if([[NSUserDefaults standardUserDefaults] boolForKey:@"WelcomeViewSeen"] != YES) {
+        viewController = [storyboard instantiateViewControllerWithIdentifier:@"WelcomeNav"];
+    } else {
+        viewController = [storyboard instantiateViewControllerWithIdentifier:@"CollectionNav"];
+    }
+    
+    self.window.rootViewController = viewController;
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 

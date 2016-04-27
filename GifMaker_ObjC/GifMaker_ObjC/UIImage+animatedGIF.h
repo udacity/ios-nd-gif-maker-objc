@@ -40,7 +40,7 @@
 
 + (UIImage * _Nullable)animatedImageWithAnimatedGIFName:(NSString * _Nonnull)name;
 
-+(UIImage*) drawText:(NSString*)text inImage:(UIImage*)image atPoint:(CGPoint)point;
++ (UIImage * _Nullable)drawText:(NSString * _Nonnull)text inImage:(UIImage * _Nonnull)image atPoint:(CGPoint)point;
 
 @end
 

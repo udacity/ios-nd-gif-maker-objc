@@ -34,12 +34,6 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    
-    if([[NSUserDefaults standardUserDefaults] boolForKey:@"WelcomeViewSeen"] != YES) {
-        WelcomeViewController *welcomeVC = [self.storyboard instantiateViewControllerWithIdentifier: @"WelcomeViewController"];
-        [self.navigationController pushViewController:welcomeVC animated:TRUE];
-    }
-    
     self.emptyView.hidden = self.savedGifs.count != 0;
     
     [self.collectionView reloadData];
@@ -99,7 +93,7 @@
     GifCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GifCell" forIndexPath:indexPath];
     
     Gif *gif = [self.savedGifs objectAtIndex:indexPath.row];
-    [cell populateCellWithGif:gif];
+    [cell configureForGif:gif];
 
     return cell;
 }

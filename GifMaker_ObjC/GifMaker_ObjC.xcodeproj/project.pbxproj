@@ -30,7 +30,6 @@
 		EDF050B01CC5AB6700D9EC55 /* SavedGifsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF050AF1CC5AB6700D9EC55 /* SavedGifsViewController.m */; };
 		EDF050B31CC5ACF400D9EC55 /* GifCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF050B21CC5ACF400D9EC55 /* GifCell.m */; };
 		EDF050B61CC6E11E00D9EC55 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF050B51CC6E11E00D9EC55 /* WelcomeViewController.m */; };
-		EDF050C71CC814F300D9EC55 /* OverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDF050C61CC814F300D9EC55 /* OverlayView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,11 +88,10 @@
 		EDD81E251C8A3B980045C1BD /* tinaFeyHiFive.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = tinaFeyHiFive.gif; sourceTree = "<group>"; };
 		EDF050AE1CC5AB6700D9EC55 /* SavedGifsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SavedGifsViewController.h; path = ../SavedGifsViewController.h; sourceTree = "<group>"; };
 		EDF050AF1CC5AB6700D9EC55 /* SavedGifsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SavedGifsViewController.m; path = ../SavedGifsViewController.m; sourceTree = "<group>"; };
-		EDF050B11CC5ACF400D9EC55 /* GifCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GifCell.h; sourceTree = "<group>"; };
-		EDF050B21CC5ACF400D9EC55 /* GifCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GifCell.m; sourceTree = "<group>"; };
+		EDF050B11CC5ACF400D9EC55 /* GifCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GifCell.h; path = ../GifCell.h; sourceTree = "<group>"; };
+		EDF050B21CC5ACF400D9EC55 /* GifCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GifCell.m; path = ../GifCell.m; sourceTree = "<group>"; };
 		EDF050B41CC6E11E00D9EC55 /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WelcomeViewController.h; path = ../WelcomeViewController.h; sourceTree = "<group>"; };
 		EDF050B51CC6E11E00D9EC55 /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WelcomeViewController.m; path = ../WelcomeViewController.m; sourceTree = "<group>"; };
-		EDF050C61CC814F300D9EC55 /* OverlayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OverlayView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,8 +144,6 @@
 		ED1C7F891C866D4C00724DC2 = {
 			isa = PBXGroup;
 			children = (
-				EDF050B11CC5ACF400D9EC55 /* GifCell.h */,
-				EDF050B21CC5ACF400D9EC55 /* GifCell.m */,
 				ED1C7F941C866D4C00724DC2 /* GifMaker_ObjC */,
 				ED1C7FAE1C866D4C00724DC2 /* GifMaker_ObjCTests */,
 				ED1C7FB91C866D4C00724DC2 /* GifMaker_ObjCUITests */,
@@ -184,7 +180,6 @@
 				ED1C7F981C866D4C00724DC2 /* AppDelegate.h */,
 				ED1C7F991C866D4C00724DC2 /* AppDelegate.m */,
 				ED1C7F9E1C866D4C00724DC2 /* Main.storyboard */,
-				EDF050C61CC814F300D9EC55 /* OverlayView.xib */,
 				ED1C7FA11C866D4C00724DC2 /* Assets.xcassets */,
 				ED1C7FA31C866D4C00724DC2 /* LaunchScreen.storyboard */,
 				ED1C7FA61C866D4C00724DC2 /* Info.plist */,
@@ -193,6 +188,8 @@
 				ED1C7FD41C866FB600724DC2 /* GifMaker_ObjC-Bridging-Header.h */,
 				EDD81E201C8A26510045C1BD /* Gif.h */,
 				EDD81E211C8A26510045C1BD /* Gif.m */,
+				EDF050B11CC5ACF400D9EC55 /* GifCell.h */,
+				EDF050B21CC5ACF400D9EC55 /* GifCell.m */,
 				ED3F823C1C8A5A8B0084EC81 /* GifEditorViewController.h */,
 				ED3F823D1C8A5A8B0084EC81 /* GifEditorViewController.m */,
 				ED1C7F951C866D4C00724DC2 /* Supporting Files */,
@@ -333,7 +330,6 @@
 				EDD81E261C8A3B980045C1BD /* tinaFeyHiFive.gif in Resources */,
 				ED1C7FA51C866D4C00724DC2 /* LaunchScreen.storyboard in Resources */,
 				2AF807EC1CCFDA5600CFD995 /* Info.plist in Resources */,
-				EDF050C71CC814F300D9EC55 /* OverlayView.xib in Resources */,
 				ED1C7FA21C866D4C00724DC2 /* Assets.xcassets in Resources */,
 				ED1C7FA01C866D4C00724DC2 /* Main.storyboard in Resources */,
 			);
