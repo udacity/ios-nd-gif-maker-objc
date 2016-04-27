@@ -252,15 +252,6 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f8c-bV-EaN">
-                                <rect key="frame" x="20" y="518" width="560" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="CWO-ye-mXB"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.18039215689999999" green="0.23921568630000001" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -268,16 +259,12 @@
                             <constraint firstItem="HQu-c2-zTO" firstAttribute="top" secondItem="Alv-iW-6pc" secondAttribute="topMargin" constant="20" id="BMd-cM-52I"/>
                             <constraint firstItem="zEa-bK-uMp" firstAttribute="top" secondItem="aqi-WW-nfX" secondAttribute="bottom" constant="20" id="Ibz-ed-k9d"/>
                             <constraint firstItem="aqi-WW-nfX" firstAttribute="leading" secondItem="Alv-iW-6pc" secondAttribute="leadingMargin" id="NdQ-Y0-uYO"/>
-                            <constraint firstItem="f8c-bV-EaN" firstAttribute="trailing" secondItem="Alv-iW-6pc" secondAttribute="trailingMargin" id="YQz-4B-UKa"/>
-                            <constraint firstItem="f8c-bV-EaN" firstAttribute="leading" secondItem="Alv-iW-6pc" secondAttribute="leadingMargin" id="roK-7W-RHm"/>
-                            <constraint firstItem="f8c-bV-EaN" firstAttribute="bottom" secondItem="HQu-c2-zTO" secondAttribute="bottom" constant="-12" id="vYO-GV-uEZ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="aqi-WW-nfX" secondAttribute="trailing" id="wVr-2y-Gea"/>
                             <constraint firstItem="HQu-c2-zTO" firstAttribute="trailing" secondItem="Alv-iW-6pc" secondAttribute="trailingMargin" id="zRI-vt-qbN"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Preview" id="SWX-N6-oaS"/>
                     <connections>
-                        <outlet property="gifCaptionLabel" destination="f8c-bV-EaN" id="Wh6-BY-ogz"/>
                         <outlet property="gifImageView" destination="HQu-c2-zTO" id="uku-FT-irL"/>
                         <outlet property="saveButton" destination="xoi-MZ-GNH" id="6PO-BC-kqM"/>
                         <outlet property="shareButton" destination="lnU-9g-0xe" id="WmF-UA-8YP"/>
@@ -351,7 +338,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BEl-4x-y0s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="915" y="-792"/>
+            <point key="canvasLocation" x="228" y="-770"/>
         </scene>
         <!--Welcome View Controller-->
         <scene sceneID="MO7-ys-2QJ">
@@ -446,7 +433,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IJp-h7-HxK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-432" y="-65"/>
+            <point key="canvasLocation" x="-482" y="-70"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="J0V-fD-n3N">

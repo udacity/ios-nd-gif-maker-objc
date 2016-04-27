@@ -16,7 +16,7 @@
 @interface GifPreviewViewController()
 
 @property (weak, nonatomic) IBOutlet UIImageView *gifImageView;
-@property (weak, nonatomic) IBOutlet UILabel *gifCaptionLabel;
+//@property (weak, nonatomic) IBOutlet UILabel *gifCaptionLabel;
 
 @property (weak, nonatomic) IBOutlet UIButton *shareButton;
 @property (weak, nonatomic) IBOutlet UIButton *saveButton;
@@ -58,7 +58,7 @@
                                         NSForegroundColorAttributeName : [UIColor whiteColor],
                                         NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:40.0]};
     NSAttributedString *attributedCaption = [[NSAttributedString alloc] initWithString:self.gif.caption attributes:defaultAttributes];
-    [self.gifCaptionLabel setAttributedText:attributedCaption];
+    //[self.gifCaptionLabel setAttributedText:attributedCaption];
 }
 
 - (IBAction)shareGif:(id)sender {

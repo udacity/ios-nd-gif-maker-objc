@@ -29,7 +29,7 @@
     } else {
         viewController = [storyboard instantiateViewControllerWithIdentifier:@"CollectionNav"];
     }
-    
+
     self.window.rootViewController = viewController;
     [self.window makeKeyAndVisible];
     

@@ -30,7 +30,7 @@ extension Regift {
         
         // Draw text
         let sideMargin = (image.size.width - captionWidth)/2.0
-        let textOrigin  = CGPointMake(sideMargin, image.size.height - 60)
+        let textOrigin  = CGPointMake(sideMargin, image.size.height - 70)
         let secondRect = CGRectMake(textOrigin.x,textOrigin.y,image.size.width,image.size.height)
         text.drawInRect(CGRectIntegral(secondRect), withAttributes: attributes)
         
