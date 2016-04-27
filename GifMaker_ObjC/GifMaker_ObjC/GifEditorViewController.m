@@ -30,7 +30,11 @@ static const int kLoopCount = 0; // 0 means loop forever
 -(void)viewWillAppear:(BOOL)animated {
     self.captionTextField.delegate = self;
     self.gifImageView.image = self.gif.gifImage;
-    
+    [self configureNavBar];
+    [self subscribeToKeyboardNotifications];
+}
+
+-(void)configureNavBar{
     UIBarButtonItem *nextButton = [[UIBarButtonItem alloc]
                                    initWithTitle:@"Next"
                                    style:UIBarButtonItemStylePlain
@@ -44,9 +48,6 @@ static const int kLoopCount = 0; // 0 means loop forever
     self.navigationController.navigationBar.barTintColor = self.view.backgroundColor;
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     self.navigationItem.title = @"Add a Caption";
-
-    [self subscribeToKeyboardNotifications];
-
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
@@ -63,6 +64,10 @@ static const int kLoopCount = 0; // 0 means loop forever
 -(BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
     return true;
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    textField.placeholder = nil;
 }
 
 #pragma mark - Observe Keyboard notifications
@@ -96,22 +101,16 @@ static const int kLoopCount = 0; // 0 means loop forever
     return keyboardFrameEndRect.size.height;
 }
 
-- (void)textFieldDidBeginEditing:(UITextField *)textField {
-    textField.placeholder = nil;
-}
-
 # pragma mark - Preview gif
 -(void)presentPreview {
-    GifPreviewViewController *previewVC = [self.storyboard instantiateViewControllerWithIdentifier:@"GifPreviewViewController"];
-    self.gif.caption = self.captionTextField.text;
-
     Regift *regift = [[Regift alloc] initWithSourceFileURL:self.gif.rawVideoURL frameCount:kFrameCount delayTime:kDelayTime loopCount:kLoopCount];
     
     UIFont *captionFont = self.captionTextField.font;
-    NSURL *gifURL = [regift createGifWithCaption:self.captionTextField.text font:captionFont ];
+    NSURL *urlForGifWithCaption = [regift createGifWithCaption:self.captionTextField.text font:captionFont ];
 
-    Gif *newGif = [[Gif alloc] initWithGifUrl:gifURL videoURL:self.gif.rawVideoURL caption:self.captionTextField.text];
+    Gif *newGif = [[Gif alloc] initWithGifUrl:urlForGifWithCaption videoURL:self.gif.rawVideoURL caption:self.captionTextField.text];
     
+    GifPreviewViewController *previewVC = [self.storyboard instantiateViewControllerWithIdentifier:@"GifPreviewViewController"];
     previewVC.gif = newGif;
     
     [self.navigationController pushViewController:previewVC animated:true];

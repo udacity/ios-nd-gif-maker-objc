@@ -17,16 +17,7 @@
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.gifImageView.image = self.gif.gifImage;
-    [self formatButton];
 }
-
--(void)formatButton {
-    
-    [self.shareButton.layer setBorderWidth:10.0];
-    [self.shareButton.layer setBorderColor:(__bridge CGColorRef _Nullable)([self radicalPinkColor])];
-    
-}
-
 
 - (IBAction)shareGif:(id)sender {
     
@@ -42,7 +33,6 @@
             [self.navigationController popToRootViewControllerAnimated:TRUE];
         }
     }];
-    
     
     [self presentViewController:shareController animated:TRUE completion: nil];
 }
