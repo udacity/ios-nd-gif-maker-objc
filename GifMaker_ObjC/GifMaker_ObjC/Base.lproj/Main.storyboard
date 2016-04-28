@@ -435,24 +435,6 @@
             </objects>
             <point key="canvasLocation" x="-482" y="-70"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="J0V-fD-n3N">
-            <objects>
-                <navigationController storyboardIdentifier="WelcomeNav" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="db6-Yy-098" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ClI-7B-EYr">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="aXC-Xw-CZL" kind="relationship" relationship="rootViewController" id="XBt-Gt-iUj"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Yc8-4S-OIA" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1244" y="-65"/>
-        </scene>
     </scenes>
     <resources>
         <image name="Close" width="22" height="22"/>

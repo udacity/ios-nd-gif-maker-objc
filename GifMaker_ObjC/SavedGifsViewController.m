@@ -47,6 +47,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    [self showWelcome];
+    
     // Bottom Blur
     CAGradientLayer *bottomBlur = [CAGradientLayer layer];
     bottomBlur.frame = CGRectMake(0.0f, self.view.frame.size.height - 100.0f, self.view.frame.size.width, 100.0f);
@@ -57,6 +59,13 @@
     // Load Stored Gifs
     AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
     self.savedGifs = appDelegate.gifs;
+}
+
+-(void)showWelcome {
+    if([[NSUserDefaults standardUserDefaults] boolForKey:@"WelcomeViewSeen"] != YES) {
+        UIViewController *welcomeViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"WelcomeViewController"];
+        [self.navigationController pushViewController:welcomeViewController animated:true];
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
