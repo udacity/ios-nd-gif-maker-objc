@@ -132,13 +132,15 @@
 			path = Regift;
 			sourceTree = "<group>";
 		};
-		2AF807EF1CCFE30F00CFD995 /* Frameworks */ = {
+		2AF807EF1CCFE30F00CFD995 /* Third Party Code */ = {
 			isa = PBXGroup;
 			children = (
+				ED1C7FD11C866F1E00724DC2 /* UIImage+animatedGIF.h */,
+				ED1C7FD21C866F1E00724DC2 /* UIImage+animatedGIF.m */,
 				ED055A271CCAC9D0003398D9 /* QuartzCore.framework */,
 				2AF807E51CCFDA5600CFD995 /* Regift */,
 			);
-			name = Frameworks;
+			name = "Third Party Code";
 			sourceTree = "<group>";
 		};
 		ED1C7F891C866D4C00724DC2 = {
@@ -183,8 +185,6 @@
 				ED1C7FA11C866D4C00724DC2 /* Assets.xcassets */,
 				ED1C7FA31C866D4C00724DC2 /* LaunchScreen.storyboard */,
 				ED1C7FA61C866D4C00724DC2 /* Info.plist */,
-				ED1C7FD11C866F1E00724DC2 /* UIImage+animatedGIF.h */,
-				ED1C7FD21C866F1E00724DC2 /* UIImage+animatedGIF.m */,
 				ED1C7FD41C866FB600724DC2 /* GifMaker_ObjC-Bridging-Header.h */,
 				EDD81E201C8A26510045C1BD /* Gif.h */,
 				EDD81E211C8A26510045C1BD /* Gif.m */,
@@ -193,7 +193,7 @@
 				ED3F823C1C8A5A8B0084EC81 /* GifEditorViewController.h */,
 				ED3F823D1C8A5A8B0084EC81 /* GifEditorViewController.m */,
 				ED1C7F951C866D4C00724DC2 /* Supporting Files */,
-				2AF807EF1CCFE30F00CFD995 /* Frameworks */,
+				2AF807EF1CCFE30F00CFD995 /* Third Party Code */,
 			);
 			path = GifMaker_ObjC;
 			sourceTree = "<group>";

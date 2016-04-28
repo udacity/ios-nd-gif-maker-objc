@@ -222,7 +222,6 @@ static const int kLoopCount = 0;
     
     dispatch_async(dispatch_get_main_queue(), ^{
         [self dismissViewControllerAnimated:TRUE completion:nil];
-        //[self dismissViewControllerAnimated:TRUE completion:nil];
         [self.navigationController pushViewController:gifEditorVC animated:true];
     });
 }
