@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SavedGifsViewController : UIViewController<UICollectionViewDelegate, UICollectionViewDataSource, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
-
-@property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *flowLayout;
+@interface SavedGifsViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @end

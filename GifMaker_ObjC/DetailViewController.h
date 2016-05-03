@@ -10,8 +10,7 @@
 #import "Gif.h"
 
 @interface DetailViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UIImageView *gifImageView;
-@property (weak, nonatomic) IBOutlet UIButton *shareButton;
+
 @property (nonatomic) Gif *gif;
 
 @end

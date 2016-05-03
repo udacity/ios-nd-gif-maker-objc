@@ -10,10 +10,8 @@
 
 @implementation GifCell
 
--(instancetype)populateCellWithGif:(Gif*)gif {
+- (void)configureForGif:(Gif *)gif {
     self.gifImageView.image = gif.gifImage;
-    
-    return self;
 }
 
 @end

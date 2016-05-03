@@ -7,30 +7,26 @@
 //
 
 #import "DetailViewController.h"
+#import "UIViewController+Theme.h"
+
+#import <QuartzCore/QuartzCore.h>
 
 @interface DetailViewController ()
+
+@property (weak, nonatomic) IBOutlet UIImageView *gifImageView;
+@property (weak, nonatomic) IBOutlet UIButton *shareButton;
 
 @end
 
 @implementation DetailViewController
 
-
--(void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:TRUE];
-    self.gifImageView.image = self.gif.gifImage;
-    //UIColor *detailViewColor = UIColor color
-    self.navigationController.navigationBar.barTintColor = self.view.backgroundColor;
-    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
+    [self.shareButton.layer setCornerRadius:4.0];
+    
+    self.gifImageView.image = self.gif.gifImage;
+    [self applyTheme:DarkTranslucent];
 }
 
 - (IBAction)shareGif:(id)sender {
@@ -42,12 +38,16 @@
     
     [shareController setCompletionWithItemsHandler: ^(NSString *activityType, BOOL completed, NSArray *returnedItems, NSError *activityError) {
         if (completed) {
-            [self.navigationController popToRootViewControllerAnimated:TRUE];
+            [self dismissViewControllerAnimated:TRUE completion:nil];
         }
     }];
     
     
     [self presentViewController:shareController animated:TRUE completion: nil];
+}
+
+- (IBAction)dismissViewController:(id)sender {
+    [self dismissViewControllerAnimated:TRUE completion:nil];
 }
 
 @end

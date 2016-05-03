@@ -8,10 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WelcomeViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface WelcomeViewController : UIViewController 
 
 @property (weak, nonatomic) IBOutlet UIImageView *defaultGifImageView;
-@property (nonatomic) NSURL *videoURL;
-@property (nonatomic) NSURL *gifURL;
 
 @end

@@ -7,11 +7,15 @@
 //
 
 #import "GifEditorViewController.h"
+#import "UIViewController+Theme.h"
+
 #import "GifPreviewViewController.h"
-@import Regift;
 #import "UIImage+animatedGif.h"
 
+#import "GifMaker_Objc-Swift.h"
+
 @interface GifEditorViewController ()
+
 @property (weak, nonatomic) IBOutlet UITextField *captionTextField;
 
 @end
@@ -22,95 +26,95 @@ static const int kLoopCount = 0; // 0 means loop forever
 
 @implementation GifEditorViewController
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    self.title = @"Add a Caption";
+    [self applyTheme:Dark];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-}
 
--(void)viewWillAppear:(BOOL)animated {
-    self.captionTextField.delegate = self;
     self.gifImageView.image = self.gif.gifImage;
-    [self configureNavBar];
-    [self subscribeToKeyboardNotifications];
-}
-
--(void)configureNavBar{
-    UIBarButtonItem *nextButton = [[UIBarButtonItem alloc]
-                                   initWithTitle:@"Next"
-                                   style:UIBarButtonItemStylePlain
-                                   target:self
-                                   action:@selector(presentPreview)];
-    self.navigationItem.rightBarButtonItem = nextButton;
-    self.navigationItem.rightBarButtonItem.tintColor = [UIColor colorWithRed:252.0/255.0 green:55.0/255.0 blue:104.0/255.0 alpha:1];
-    [self.navigationController.navigationBar setTitleTextAttributes:
-     @{NSForegroundColorAttributeName:[UIColor whiteColor]}];
     
-    self.navigationController.navigationBar.barTintColor = self.view.backgroundColor;
-    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    self.navigationItem.title = @"Add a Caption";
+    NSDictionary *defaultAttributes = @{NSStrokeColorAttributeName : [UIColor blackColor],
+                                        NSStrokeWidthAttributeName : @(-4),
+                                        NSForegroundColorAttributeName : [UIColor whiteColor],
+                                        NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:40.0]};
+    [self.captionTextField setDefaultTextAttributes:defaultAttributes];
+    [self.captionTextField setTextAlignment:NSTextAlignmentCenter];
+    [self.captionTextField setAttributedPlaceholder:[[NSAttributedString alloc] initWithString:@"Add Caption" attributes:defaultAttributes]];
+    
+    [self subscribeToKeyboardNotifications];
+    
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
+    [self.view addGestureRecognizer:tapGesture];
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
     
-    self.navigationItem.title = @"";
+    self.title = @"";
 }
 
--(void)viewDidDisappear:(BOOL)animated {
-    [self unsubscribeFromKeyboardNotifications];
+- (void)dismissKeyboard {
+    [self.view endEditing:TRUE];
 }
 
 #pragma mark - UITextFieldDelegate methods
 
--(BOOL)textFieldShouldReturn:(UITextField *)textField {
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
     return true;
+}
+
+#pragma mark - Observe Keyboard notifications
+
+- (void)subscribeToKeyboardNotifications {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+}
+
+- (void)unsubscribeFromKeyboardNotifications {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+}
+
+- (void)keyboardWillShow:(NSNotification*)notification {
+    CGRect rect = self.view.frame;
+    rect.origin.y -= [self getKeyboardHeight:notification];
+    self.view.frame = rect;
+}
+
+- (void)keyboardWillHide:(NSNotification*)notification {
+    CGRect rect = self.view.frame;
+    rect.origin.y += [self getKeyboardHeight:notification];
+    self.view.frame = rect;
+}
+
+- (CGFloat)getKeyboardHeight:(NSNotification*)notification {
+    NSDictionary *userInfo = notification.userInfo;
+    NSValue *keyboardFrameEnd = [userInfo valueForKey: UIKeyboardFrameEndUserInfoKey];
+    CGRect keyboardFrameEndRect = [keyboardFrameEnd CGRectValue];
+    return keyboardFrameEndRect.size.height;
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
     textField.placeholder = nil;
 }
 
-#pragma mark - Observe Keyboard notifications
--(void)subscribeToKeyboardNotifications {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
-}
-
--(void)unsubscribeFromKeyboardNotifications {
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
-}
-
--(void)keyboardWillShow:(NSNotification*)notification {
-    CGRect rect = self.view.frame;
-    rect.origin.y -= [self getKeyboardHeight:notification];
-    self.view.frame = rect;
-}
-
--(void)keyboardWillHide:(NSNotification*)notification {
-    CGRect rect = self.view.frame;
-    rect.origin.y += [self getKeyboardHeight:notification];
-    self.view.frame = rect;
-}
-
--(CGFloat)getKeyboardHeight:(NSNotification*)notification {
-    NSDictionary *userInfo = notification.userInfo;
-    NSValue *keyboardFrameEnd = [userInfo valueForKey: UIKeyboardFrameEndUserInfoKey]; // of CGRect
-    CGRect keyboardFrameEndRect = [keyboardFrameEnd CGRectValue];
-    return keyboardFrameEndRect.size.height;
-}
-
 # pragma mark - Preview gif
--(void)presentPreview {
-    Regift *regift = [[Regift alloc] initWithSourceFileURL:self.gif.rawVideoURL frameCount:kFrameCount delayTime:kDelayTime loopCount:kLoopCount];
-    
-    UIFont *captionFont = self.captionTextField.font;
-    NSURL *urlForGifWithCaption = [regift createGifWithCaption:self.captionTextField.text font:captionFont ];
 
-    Gif *newGif = [[Gif alloc] initWithGifUrl:urlForGifWithCaption videoURL:self.gif.rawVideoURL caption:self.captionTextField.text];
-    
+- (IBAction)presentPreview:(id)sender {
     GifPreviewViewController *previewVC = [self.storyboard instantiateViewControllerWithIdentifier:@"GifPreviewViewController"];
+    self.gif.caption = self.captionTextField.text;
+
+    Regift *regift = [[Regift alloc] initWithSourceFileURL:self.gif.rawVideoURL frameCount:kFrameCount delayTime:kDelayTime loopCount:kLoopCount];
+    UIFont *captionFont = self.captionTextField.font;
+    NSURL *gifURL = [regift createGifWithCaption:self.captionTextField.text font:captionFont];
+
+    Gif *newGif = [[Gif alloc] initWithGifUrl:gifURL videoURL:self.gif.rawVideoURL caption:self.captionTextField.text];
     previewVC.gif = newGif;
     
     [self.navigationController pushViewController:previewVC animated:true];

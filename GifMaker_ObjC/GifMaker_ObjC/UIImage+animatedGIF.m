@@ -2,10 +2,10 @@
 //  UIImage+animatedGIF.m
 //  GifMaker_ObjC
 //
-// The contents of this repository are dedicated to the public domain, in accordance with the CC0 1.0 Universal Public Domain Dedication, which is reproduced in the file COPYRIGHT.
+//  Modified by Gabrielle Miller-Messner on 3/1/16.
+//  Author: Rob Mayoff 2012-01-27
+//  The contents of the source repository for these files are dedicated to the public domain, in accordance with the CC0 1.0 Universal Public Domain Dedication, which is reproduced in the file COPYRIGHT.
 
-// Author: Rob Mayoff 2012-01-27
-//
 
 #import "UIImage+animatedGIF.h"
 
