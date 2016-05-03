@@ -16,7 +16,6 @@
 @interface GifPreviewViewController()
 
 @property (weak, nonatomic) IBOutlet UIImageView *gifImageView;
-//@property (weak, nonatomic) IBOutlet UILabel *gifCaptionLabel;
 
 @property (weak, nonatomic) IBOutlet UIButton *shareButton;
 @property (weak, nonatomic) IBOutlet UIButton *saveButton;
@@ -51,21 +50,13 @@
     [self.shareButton.layer setBorderWidth:1.0];
     
     [self.saveButton.layer setCornerRadius:4.0];
-    
-    // Customize Label
-    NSDictionary *defaultAttributes = @{NSStrokeColorAttributeName : [UIColor blackColor],
-                                        NSStrokeWidthAttributeName : @(-4),
-                                        NSForegroundColorAttributeName : [UIColor whiteColor],
-                                        NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:40.0]};
-    NSAttributedString *attributedCaption = [[NSAttributedString alloc] initWithString:self.gif.caption attributes:defaultAttributes];
-    //[self.gifCaptionLabel setAttributedText:attributedCaption];
 }
 
 - (IBAction)shareGif:(id)sender {
     NSData *animatedGif = [NSData dataWithContentsOfURL:self.gif.url];
-    NSArray *sharingItems = [NSArray arrayWithObjects: animatedGif, nil];
+    NSArray *itemsToShare = [NSArray arrayWithObjects: animatedGif, nil];
     
-    UIActivityViewController *shareController = [[UIActivityViewController alloc] initWithActivityItems:sharingItems applicationActivities:nil];
+    UIActivityViewController *shareController = [[UIActivityViewController alloc] initWithActivityItems:itemsToShare applicationActivities:nil];
     [shareController setCompletionWithItemsHandler: ^(NSString *activityType, BOOL completed, NSArray *returnedItems, NSError *activityError) {
         if (completed) {
             [self.navigationController popToRootViewControllerAnimated:TRUE];

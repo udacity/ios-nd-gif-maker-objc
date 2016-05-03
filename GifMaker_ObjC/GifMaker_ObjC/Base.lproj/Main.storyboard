@@ -189,7 +189,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Next" id="kvy-5V-EgW">
                             <color key="tintColor" red="1" green="0.25490196079999999" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <action selector="presentPreview:" destination="gN0-HT-VRx" id="a82-Eg-xTD"/>
+                                <action selector="presentPreview:" destination="gN0-HT-VRx" id="yec-7C-M7U"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -201,7 +201,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XSQ-pK-rKN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1244" y="-770"/>
+            <point key="canvasLocation" x="-1327" y="-770"/>
         </scene>
         <!--Gif Preview View Controller-->
         <scene sceneID="6jO-Zd-0F6">
