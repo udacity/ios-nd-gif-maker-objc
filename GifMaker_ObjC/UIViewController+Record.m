@@ -104,7 +104,7 @@ static const int kLoopCount = 0;
     }
 }
 
--(void)makeVideoSquare:(NSURL*)rawVideoURL  skdfjh{
+-(void)makeVideoSquare:(NSURL*)rawVideoURL  {
     //make it square
     AVAsset *videoAsset = [AVAsset assetWithURL:rawVideoURL];
     AVMutableComposition *composition = [AVMutableComposition composition];
