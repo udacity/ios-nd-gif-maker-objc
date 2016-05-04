@@ -69,6 +69,8 @@
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
     self.navigationController.navigationBar.hidden = FALSE;
     self.title = @"";
 }
