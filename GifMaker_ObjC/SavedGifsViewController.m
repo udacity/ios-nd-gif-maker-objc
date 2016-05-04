@@ -64,7 +64,7 @@
 -(void)showWelcome {
     if([[NSUserDefaults standardUserDefaults] boolForKey:@"WelcomeViewSeen"] != YES) {
         UIViewController *welcomeViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"WelcomeViewController"];
-        [self.navigationController pushViewController:welcomeViewController animated:true];
+        [self.navigationController pushViewController:welcomeViewController animated:YES];
     }
 }
 
@@ -90,7 +90,7 @@
     detailVC.gif = gif;
     
     detailVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-    [self presentViewController:detailVC animated:TRUE completion:nil];
+    [self presentViewController:detailVC animated:YES completion:nil];
 }
 
 

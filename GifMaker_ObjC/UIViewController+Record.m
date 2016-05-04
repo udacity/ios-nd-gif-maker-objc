@@ -60,7 +60,7 @@ static const int kLoopCount = 0;
     cameraController.allowsEditing = true;
     cameraController.delegate = self;
     
-    [self presentViewController:cameraController animated:TRUE completion:nil];
+    [self presentViewController:cameraController animated:YES completion:nil];
 }
 
 - (void)launchPhotoLibrary {
@@ -70,13 +70,13 @@ static const int kLoopCount = 0;
     photoLibraryController.allowsEditing = true;
     photoLibraryController.delegate = self;
     
-    [self presentViewController:photoLibraryController animated:TRUE completion:nil];
+    [self presentViewController:photoLibraryController animated:YES completion:nil];
 }
 
 # pragma mark - ImagePickerControllerDelegate Methods
 
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
-    [self dismissViewControllerAnimated:TRUE completion:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 // Allows Editing
@@ -201,8 +201,8 @@ static const int kLoopCount = 0;
     gifEditorVC.gif = gif;
     
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self dismissViewControllerAnimated:TRUE completion:nil];
-        [self.navigationController pushViewController:gifEditorVC animated:true];
+        [self dismissViewControllerAnimated:YES completion:nil];
+        [self.navigationController pushViewController:gifEditorVC animated:YES];
     });
 }
 

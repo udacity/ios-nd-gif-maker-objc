@@ -59,7 +59,7 @@ static const int kLoopCount = 0; // 0 means loop forever
 }
 
 - (void)dismissKeyboard {
-    [self.view endEditing:TRUE];
+    [self.view endEditing:YES];
 }
 
 #pragma mark - UITextFieldDelegate methods
@@ -119,7 +119,7 @@ static const int kLoopCount = 0; // 0 means loop forever
     Gif *newGif = [[Gif alloc] initWithGifUrl:gifURL videoURL:self.gif.rawVideoURL caption:self.captionTextField.text];
     previewVC.gif = newGif;
     
-    [self.navigationController pushViewController:previewVC animated:true];
+    [self.navigationController pushViewController:previewVC animated:YES];
 }
 
 @end
