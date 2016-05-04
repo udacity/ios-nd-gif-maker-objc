@@ -149,7 +149,7 @@ static const int kLoopCount = 0;
     AVMutableVideoCompositionInstruction *instruction = [AVMutableVideoCompositionInstruction videoCompositionInstruction];
     instruction.timeRange = CMTimeRangeMake(kCMTimeZero, CMTimeMakeWithSeconds(60, 30) );
     
-    // rotate to portrait
+//    // rotate to portrait
     AVMutableVideoCompositionLayerInstruction* transformer = [AVMutableVideoCompositionLayerInstruction videoCompositionLayerInstructionWithAssetTrack:videoTrack];
     CGAffineTransform t1 = CGAffineTransformMakeTranslation(videoTrack.naturalSize.height, -(videoTrack.naturalSize.width - videoTrack.naturalSize.height) /2 );
     CGAffineTransform t2 = CGAffineTransformRotate(t1, M_PI_2);
@@ -169,7 +169,6 @@ static const int kLoopCount = 0;
     __block NSURL *squareURL;
     
     [exporter exportAsynchronouslyWithCompletionHandler:^(void){
-        NSLog(@"Exporting done!");
         squareURL = exporter.outputURL;
         [self convertVideoToGif:squareURL];
     }];
