@@ -4,7 +4,7 @@
 //
 //  Created by Ayush Saraswat on 4/26/16.
 //  Copyright © 2016 Gabrielle Miller-Messner. All rights reserved.
-//
+//  Code for makeVideoSquare: modified from http://www.netwalk.be/article/record-square-video-ios
 
 #import "UIViewController+Record.h"
 #import "GifEditorViewController.h"
@@ -134,6 +134,8 @@ static const int kLoopCount = 0;
     }
 }
 
+// makeVideoSquare includes code modified from http://www.netwalk.be/article/record-square-video-ios
+
 -(void)makeVideoSquare: (NSURL*)rawVideoURL{
     //make it square
     AVAsset *videoAsset = [AVAsset assetWithURL:rawVideoURL];
@@ -164,7 +166,7 @@ static const int kLoopCount = 0;
     exporter.videoComposition = videoComposition;
     NSString *path = [self createPath];
     exporter.outputURL = [NSURL fileURLWithPath:path];
-    exporter.outputFileType=AVFileTypeQuickTimeMovie;
+    exporter.outputFileType = AVFileTypeQuickTimeMovie;
     
     __block NSURL *squareURL;
     
