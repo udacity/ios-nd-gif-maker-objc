@@ -94,7 +94,7 @@ private struct Group {
             loopCount: loopCount
         )
         
-        completion(result: gift.createGif())
+        completion(result: gift.createGif(caption: nil, font: nil))
     }
     
     /**
@@ -125,7 +125,7 @@ private struct Group {
             loopCount: loopCount
         )
         
-        completion(result: gift.createGif())
+        completion(result: gift.createGif(caption: nil, font: nil))
     }
     
     /// A reference to the asset we are converting.
@@ -208,7 +208,8 @@ private struct Group {
      Get the URL of the GIF created with the attributes provided in the initializer.
      - returns: The path to the created GIF, or `nil` if there was an error creating it.
      */
-    public func createGif() -> NSURL? {
+    
+    public func createGif(caption caption : String?, font : UIFont?) -> NSURL? {
         
         let fileProperties = [kCGImagePropertyGIFDictionary as String:[
             kCGImagePropertyGIFLoopCount as String: NSNumber(int: Int32(loopCount))],
@@ -235,11 +236,20 @@ private struct Group {
         }
         
         do {
-            return try createGIFForTimePoints(timePoints, fileProperties: fileProperties, frameProperties: frameProperties, frameCount: frameCount)
             
+            if let caption = caption, font = font {
+                return try createGIFForTimePointsAndCaption(timePoints, fileProperties: fileProperties, frameProperties: frameProperties, frameCount: frameCount, caption: caption, font:font)
+            }else{
+                return try createGIFForTimePoints(timePoints, fileProperties: fileProperties, frameProperties: frameProperties, frameCount: frameCount)
+            }
         } catch {
             return nil
         }
+    }
+    
+    // Helper function
+    public func createGif() -> NSURL? {
+        return createGif(caption: nil, font: nil)
     }
     
     /**
@@ -324,44 +334,7 @@ private struct Group {
         return fileURL!
     }
 
-    /// Methods that add a caption to the gif. GM - April 2016
-    /// Get the URL of the GIF created with the attributes provided in the initializer along with a caption to be overlayed.
-    public func createGifWithCaption(caption: NSString, font: UIFont) -> NSURL? {
-        let fileProperties = [kCGImagePropertyGIFDictionary as String:
-            [
-                kCGImagePropertyGIFLoopCount as String: loopCount
-            ]]
-        
-        let frameProperties = [kCGImagePropertyGIFDictionary as String:
-            [
-                kCGImagePropertyGIFDelayTime as String: delayTime
-            ]]
-        
-        let asset = AVURLAsset(URL: sourceFileURL, options: nil)
-        
-        // The total length of the movie, in seconds.
-        let movieLength = Float(asset.duration.value) / Float(asset.duration.timescale)
-        
-        // How far along the video track we want to move, in seconds.
-        let increment = Float(movieLength) / Float(frameCount)
-        
-        // Add each of the frames to the buffer
-        var timePoints: [TimePoint] = []
-        
-        for frameNumber in 0 ..< frameCount {
-            let seconds: Float64 = Float64(increment) * Float64(frameNumber)
-            let time = CMTimeMakeWithSeconds(seconds, Regift.TimeInterval)
-            
-            timePoints.append(time)
-        }
-        
-        do {
-            return try createGIFForTimePointsAndCaption(timePoints, fileProperties: fileProperties, frameProperties: frameProperties, frameCount: frameCount, caption: caption, font:font)
-            
-        } catch {
-            return nil
-        }
-    }
+
     
     /// Create a GIF using the given time points in a movie file stored at the URL provided and a caption to be overlayed.
     ///
