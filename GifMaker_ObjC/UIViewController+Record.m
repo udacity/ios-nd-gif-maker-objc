@@ -92,20 +92,14 @@ static const int kLoopCount = 0;
         // Get start and end points from trimmed video
         NSNumber *start = [info objectForKey:@"_UIImagePickerControllerVideoEditingStart"];
         NSNumber *end = [info objectForKey:@"_UIImagePickerControllerVideoEditingEnd"];
-        float duration = end.floatValue - start.floatValue;
+        NSNumber *duration = [NSNumber numberWithFloat: end.floatValue - start.floatValue];
         
-        // If start and end are nil then clipping was not used.
-        if (start != nil) {
-            [self convertTrimmedVideoToGif:rawVideoURL start:start.floatValue duration:duration];
-            // If video was not trimmed, use the entire video.
-        } else {
-            [self makeVideoSquare:rawVideoURL];
-        }
+        [self makeVideoSquare:rawVideoURL start: start duration: duration];
     }
 }
 
--(void)makeVideoSquare:(NSURL*)rawVideoURL {
-    //make it square
+-(void)makeVideoSquare:(NSURL*)rawVideoURL start:(NSNumber*)start duration:(NSNumber*)duration {
+    //make video square
     AVAsset *videoAsset = [AVAsset assetWithURL:rawVideoURL];
     AVMutableComposition *composition = [AVMutableComposition composition];
     [composition  addMutableTrackWithMediaType:AVMediaTypeVideo preferredTrackID:kCMPersistentTrackID_Invalid];
@@ -119,7 +113,7 @@ static const int kLoopCount = 0;
     AVMutableVideoCompositionInstruction *instruction = [AVMutableVideoCompositionInstruction videoCompositionInstruction];
     instruction.timeRange = CMTimeRangeMake(kCMTimeZero, CMTimeMakeWithSeconds(60, 30) );
     
-//    // rotate to portrait
+    // rotate to portrait
     AVMutableVideoCompositionLayerInstruction* transformer = [AVMutableVideoCompositionLayerInstruction videoCompositionLayerInstructionWithAssetTrack:videoTrack];
     CGAffineTransform t1 = CGAffineTransformMakeTranslation(videoTrack.naturalSize.height, -(videoTrack.naturalSize.width - videoTrack.naturalSize.height) /2 );
     CGAffineTransform t2 = CGAffineTransformRotate(t1, M_PI_2);
@@ -140,7 +134,7 @@ static const int kLoopCount = 0;
     
     [exporter exportAsynchronouslyWithCompletionHandler:^(void){
         squareURL = exporter.outputURL;
-        [self convertVideoToGif:squareURL];
+        [self convertTrimmedVideoToGif:squareURL start:start duration:duration];
     }];
 }
 
@@ -173,20 +167,19 @@ static const int kLoopCount = 0;
 }
 
 # pragma mark - Gif Conversion and Display methods
-
--(void)convertVideoToGif:(NSURL*)videoURL {
+-(void)convertTrimmedVideoToGif:(NSURL*)videoURL start:(NSNumber*)start duration: (NSNumber*)duration {
     
-    Regift *regift = [[Regift alloc] initWithSourceFileURL:videoURL destinationFileURL: nil frameCount:kFrameCount delayTime:kDelayTime loopCount:kLoopCount];
+    Regift *regift;
+    
+    if (start == nil) {
+        // Untrimmed
+        regift = [[Regift alloc] initWithSourceFileURL:videoURL destinationFileURL: nil frameCount:kFrameCount delayTime:kDelayTime loopCount:kLoopCount];
+    } else {
+        // trimmed
+        regift = [[Regift alloc] initWithSourceFileURL:videoURL destinationFileURL:nil startTime:start.floatValue duration:duration.floatValue frameRate:15 loopCount:kLoopCount];
+    }
     
     NSURL *gifURL = [regift createGif];
-    [self saveGif:gifURL videoURL:videoURL];
-}
-
--(void)convertTrimmedVideoToGif:(NSURL*)videoURL start:(float)start duration: (float)duration {
-    
-    Regift *trimmedRegift = [[Regift alloc] initWithSourceFileURL:videoURL destinationFileURL:nil startTime:start duration:duration frameRate:15 loopCount:kLoopCount];
-    
-    NSURL *gifURL = [trimmedRegift createGif];
     
     [self saveGif:gifURL videoURL:videoURL];
 }
