@@ -82,15 +82,19 @@ static const int kLoopCount = 0; // 0 means loop forever
 }
 
 - (void)keyboardWillShow:(NSNotification*)notification {
-    CGRect rect = self.view.frame;
-    rect.origin.y -= [self getKeyboardHeight:notification];
-    self.view.frame = rect;
+    if (self.view.frame.origin.y >= 0) {
+        CGRect rect = self.view.frame;
+        rect.origin.y -= [self getKeyboardHeight:notification];
+        self.view.frame = rect;
+    }
 }
 
 - (void)keyboardWillHide:(NSNotification*)notification {
-    CGRect rect = self.view.frame;
-    rect.origin.y += [self getKeyboardHeight:notification];
-    self.view.frame = rect;
+    if (self.view.frame.origin.y < 0) {
+        CGRect rect = self.view.frame;
+        rect.origin.y += [self getKeyboardHeight:notification];
+        self.view.frame = rect;
+    }
 }
 
 - (CGFloat)getKeyboardHeight:(NSNotification*)notification {
