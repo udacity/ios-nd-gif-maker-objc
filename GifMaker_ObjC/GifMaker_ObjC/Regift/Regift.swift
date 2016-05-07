@@ -7,13 +7,8 @@
 //  Copyright (c) 2014 Matthew Palmer. All rights reserved.
 //
 
-#if os(iOS)
-    import UIKit
-    import MobileCoreServices
-#elseif os(OSX)
-    import AppKit
-#endif
-
+import UIKit
+import MobileCoreServices
 import ImageIO
 import AVFoundation
 
