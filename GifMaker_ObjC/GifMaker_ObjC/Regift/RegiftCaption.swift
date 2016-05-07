@@ -16,7 +16,7 @@ extension Regift {
         // Text attributes
         let color = UIColor.whiteColor()
         
-        let biggerFont: UIFont = UIFont(name: "HelveticaNeue-CondensedBlack", size:(font.pointSize * 1.3))!
+        let biggerFont: UIFont = UIFont(name: "HelveticaNeue-CondensedBlack", size:(font.pointSize))!
         let attributes = [NSForegroundColorAttributeName:color, NSFontAttributeName:biggerFont, NSStrokeColorAttributeName : UIColor.blackColor(), NSStrokeWidthAttributeName : -4]
         
         // Text size
