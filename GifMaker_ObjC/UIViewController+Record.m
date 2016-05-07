@@ -83,7 +83,6 @@ static const int kLoopCount = 0;
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
     
     CFStringRef mediaType = (__bridge CFStringRef)([info objectForKey:UIImagePickerControllerMediaType]);
-    //[self dismissViewControllerAnimated:TRUE completion:nil];
     
     // Handle a movie capture
     if (mediaType == kUTTypeMovie) {
@@ -93,51 +92,14 @@ static const int kLoopCount = 0;
         // Get start and end points from trimmed video
         NSNumber *start = [info objectForKey:@"_UIImagePickerControllerVideoEditingStart"];
         NSNumber *end = [info objectForKey:@"_UIImagePickerControllerVideoEditingEnd"];
+        NSNumber *duration = [NSNumber numberWithFloat: end.floatValue - start.floatValue];
         
-        // If start and end are nil then clipping was not used.
-        if (start != nil) {
-            int startMilliseconds = ([start doubleValue] * 1000);
-            int endMilliseconds = ([end doubleValue] * 1000);
-            
-            // Use AVFoundation to trim the video
-            AVURLAsset *videoAsset = [AVURLAsset URLAssetWithURL:rawVideoURL options:nil];
-            NSString *outputURL = [self createPath];
-            AVAssetExportSession *exportSession = [[AVAssetExportSession alloc] initWithAsset:videoAsset presetName:AVAssetExportPresetHighestQuality];
-            AVAssetExportSession *trimmedSession = [self configureExportSession:exportSession outputURL:outputURL startMilliseconds:startMilliseconds endMilliseconds:endMilliseconds];
-            __block NSURL *trimmedURL;
-            
-            // Export trimmed video
-            [trimmedSession exportAsynchronouslyWithCompletionHandler:^{
-                switch (trimmedSession.status) {
-                    case AVAssetExportSessionStatusCompleted:
-                        // Custom method to import the Exported Video
-                        trimmedURL = trimmedSession.outputURL;
-                        [self makeVideoSquare:trimmedURL];
-                        break;
-                    case AVAssetExportSessionStatusFailed:
-                        //
-                        NSLog(@"Failed:%@",trimmedSession.error);
-                        break;
-                    case AVAssetExportSessionStatusCancelled:
-                        //
-                        NSLog(@"Canceled:%@",trimmedSession.error);
-                        break;
-                    default:
-                        break;
-                }
-            }];
-            
-            // If video was not trimmed, use the entire video.
-        } else {
-            [self makeVideoSquare:rawVideoURL];
-        }
+        [self makeVideoSquare:rawVideoURL start: start duration: duration];
     }
 }
 
-// makeVideoSquare includes code modified from http://www.netwalk.be/article/record-square-video-ios
-
--(void)makeVideoSquare: (NSURL*)rawVideoURL{
-    //make it square
+-(void)makeVideoSquare:(NSURL*)rawVideoURL start:(NSNumber*)start duration:(NSNumber*)duration {
+    //make video square
     AVAsset *videoAsset = [AVAsset assetWithURL:rawVideoURL];
     AVMutableComposition *composition = [AVMutableComposition composition];
     [composition  addMutableTrackWithMediaType:AVMediaTypeVideo preferredTrackID:kCMPersistentTrackID_Invalid];
@@ -151,7 +113,7 @@ static const int kLoopCount = 0;
     AVMutableVideoCompositionInstruction *instruction = [AVMutableVideoCompositionInstruction videoCompositionInstruction];
     instruction.timeRange = CMTimeRangeMake(kCMTimeZero, CMTimeMakeWithSeconds(60, 30) );
     
-//    // rotate to portrait
+    // rotate to portrait
     AVMutableVideoCompositionLayerInstruction* transformer = [AVMutableVideoCompositionLayerInstruction videoCompositionLayerInstructionWithAssetTrack:videoTrack];
     CGAffineTransform t1 = CGAffineTransformMakeTranslation(videoTrack.naturalSize.height, -(videoTrack.naturalSize.width - videoTrack.naturalSize.height) /2 );
     CGAffineTransform t2 = CGAffineTransformRotate(t1, M_PI_2);
@@ -172,7 +134,7 @@ static const int kLoopCount = 0;
     
     [exporter exportAsynchronouslyWithCompletionHandler:^(void){
         squareURL = exporter.outputURL;
-        [self convertVideoToGif:squareURL];
+        [self convertTrimmedVideoToGif:squareURL start:start duration:duration];
     }];
 }
 
@@ -205,10 +167,20 @@ static const int kLoopCount = 0;
 }
 
 # pragma mark - Gif Conversion and Display methods
-
--(void)convertVideoToGif:(NSURL*)videoURL {
-    Regift *regift = [[Regift alloc] initWithSourceFileURL:videoURL frameCount:kFrameCount delayTime:kDelayTime loopCount:kLoopCount];
+-(void)convertTrimmedVideoToGif:(NSURL*)videoURL start:(NSNumber*)start duration: (NSNumber*)duration {
+    
+    Regift *regift;
+    
+    if (start == nil) {
+        // Untrimmed
+        regift = [[Regift alloc] initWithSourceFileURL:videoURL destinationFileURL: nil frameCount:kFrameCount delayTime:kDelayTime loopCount:kLoopCount];
+    } else {
+        // trimmed
+        regift = [[Regift alloc] initWithSourceFileURL:videoURL destinationFileURL:nil startTime:start.floatValue duration:duration.floatValue frameRate:15 loopCount:kLoopCount];
+    }
+    
     NSURL *gifURL = [regift createGif];
+    
     [self saveGif:gifURL videoURL:videoURL];
 }
 

@@ -114,7 +114,9 @@ static const int kLoopCount = 0; // 0 means loop forever
     GifPreviewViewController *previewVC = [self.storyboard instantiateViewControllerWithIdentifier:@"GifPreviewViewController"];
     self.gif.caption = self.captionTextField.text;
 
-    Regift *regift = [[Regift alloc] initWithSourceFileURL:self.gif.rawVideoURL frameCount:kFrameCount delayTime:kDelayTime loopCount:kLoopCount];
+    Regift *regift = [[Regift alloc] initWithSourceFileURL:self.gif.rawVideoURL destinationFileURL:nil frameCount:kFrameCount delayTime:kDelayTime loopCount:kLoopCount];
+    
+//    Regift *regift = [[Regift alloc] initWithSourceFileURL:self.gif.rawVideoURL frameCount:kFrameCount delayTime:kDelayTime loopCount:kLoopCount];
     UIFont *captionFont = self.captionTextField.font;
     NSURL *gifURL = [regift createGifWithCaption:self.captionTextField.text font:captionFont];
 
