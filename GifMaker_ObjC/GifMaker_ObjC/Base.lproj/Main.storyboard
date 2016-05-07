@@ -130,9 +130,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="rBY-mr-O59" secondAttribute="trailing" id="zxv-rx-Rz8"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="My Collection" id="7HF-Yq-Lti">
-                        <barButtonItem key="rightBarButtonItem" image="Settings" id="zup-x8-ciT"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="My Collection" id="7HF-Yq-Lti"/>
                     <connections>
                         <outlet property="collectionView" destination="hbv-Kk-KXX" id="nHc-Pf-htS"/>
                         <outlet property="emptyView" destination="rBY-mr-O59" id="4wX-ry-rt4"/>
@@ -438,7 +436,6 @@
     </scenes>
     <resources>
         <image name="Close" width="22" height="22"/>
-        <image name="Settings" width="22" height="22"/>
         <image name="createButton" width="60" height="60"/>
         <image name="graphicCollectionEmpty" width="72" height="73"/>
     </resources>
