@@ -54,29 +54,36 @@ static const int kLoopCount = 0;
 }
 
 - (void)launchCamera {
-    UIImagePickerController *cameraController = [[UIImagePickerController alloc] init];
-    cameraController.sourceType = UIImagePickerControllerSourceTypeCamera;
-    cameraController.mediaTypes = @[(NSString *) kUTTypeMovie];
-    cameraController.allowsEditing = true;
-    cameraController.delegate = self;
+
     
-    [self presentViewController:cameraController animated:TRUE completion:nil];
+    [self presentViewController:[self pickerControllerWithSource:UIImagePickerControllerSourceTypeCamera]
+                       animated:YES
+                     completion:nil];
 }
 
 - (void)launchPhotoLibrary {
-    UIImagePickerController *photoLibraryController = [[UIImagePickerController alloc] init];
-    photoLibraryController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    photoLibraryController.mediaTypes = @[(NSString *) kUTTypeMovie];
-    photoLibraryController.allowsEditing = true;
-    photoLibraryController.delegate = self;
-    
-    [self presentViewController:photoLibraryController animated:TRUE completion:nil];
+   
+    [self presentViewController:[self pickerControllerWithSource:UIImagePickerControllerSourceTypePhotoLibrary]
+                       animated:YES
+                     completion:nil];
 }
 
+// MARK:  - Utils
+-(UIImagePickerController*) pickerControllerWithSource: (UIImagePickerControllerSourceType) source{
+    
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.sourceType = source;
+    picker.mediaTypes = @[(NSString *) kUTTypeMovie];
+    picker.allowsEditing = YES;
+    picker.delegate = self;
+    
+    return picker;
+    
+}
 # pragma mark - ImagePickerControllerDelegate Methods
 
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
-    [self dismissViewControllerAnimated:TRUE completion:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 // Allows Editing
@@ -194,8 +201,8 @@ static const int kLoopCount = 0;
     gifEditorVC.gif = gif;
     
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self dismissViewControllerAnimated:TRUE completion:nil];
-        [self.navigationController pushViewController:gifEditorVC animated:true];
+        [self dismissViewControllerAnimated:YES completion:nil];
+        [self.navigationController pushViewController:gifEditorVC animated:YES];
     });
 }
 

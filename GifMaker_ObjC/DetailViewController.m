@@ -38,16 +38,16 @@
     
     [shareController setCompletionWithItemsHandler: ^(NSString *activityType, BOOL completed, NSArray *returnedItems, NSError *activityError) {
         if (completed) {
-            [self dismissViewControllerAnimated:TRUE completion:nil];
+            [self dismissViewControllerAnimated:YES completion:nil];
         }
     }];
     
     
-    [self presentViewController:shareController animated:TRUE completion: nil];
+    [self presentViewController:shareController animated:YES completion: nil];
 }
 
 - (IBAction)dismissViewController:(id)sender {
-    [self dismissViewControllerAnimated:TRUE completion:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
