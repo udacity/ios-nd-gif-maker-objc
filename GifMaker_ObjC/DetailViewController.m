@@ -31,19 +31,33 @@
 
 - (IBAction)shareGif:(id)sender {
     
-    NSData *animatedGif = [NSData dataWithContentsOfURL:self.gif.url];
-    NSArray *sharingItems = [NSArray arrayWithObjects: animatedGif, nil];
+//    NSData *animatedGif = [NSData dataWithContentsOfURL:self.gif.url];
+//    NSArray *sharingItems = [NSArray arrayWithObjects: animatedGif, nil];
+//    
+//    NSString *pathForFile = [self createPath];
+//    
+//    
+//    NSData *dataOfGif = [NSData dataWithContentsOfFile: pathForFile];
+//    
+//    UIActivityViewController *shareController = [[UIActivityViewController alloc] initWithActivityItems:sharingItems applicationActivities:nil];
+//    
+//    [shareController setCompletionWithItemsHandler: ^(NSString *activityType, BOOL completed, NSArray *returnedItems, NSError *activityError) {
+//        if (completed) {
+//            [self dismissViewControllerAnimated:YES completion:nil];
+//        }
+//    }];
+//    
+//    
+//    [self presentViewController:shareController animated:YES completion: nil];
+}
+
+- (NSString*)createPath {
     
-    UIActivityViewController *shareController = [[UIActivityViewController alloc] initWithActivityItems:sharingItems applicationActivities:nil];
-    
-    [shareController setCompletionWithItemsHandler: ^(NSString *activityType, BOOL completed, NSArray *returnedItems, NSError *activityError) {
-        if (completed) {
-            [self dismissViewControllerAnimated:YES completion:nil];
-        }
-    }];
-    
-    
-    [self presentViewController:shareController animated:YES completion: nil];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *outputURL = [documentsDirectory stringByAppendingPathComponent:@"savedGifsToShare"] ;
+   
+    return outputURL;
 }
 
 - (IBAction)dismissViewController:(id)sender {

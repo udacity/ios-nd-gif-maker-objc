@@ -19,6 +19,7 @@
 static int const kFrameCount = 16;
 static const float kDelayTime = 0.2;
 static const int kLoopCount = 0;
+static const float kFrameRate = 15;
 
 - (IBAction)presentVideoOptions:(id)sender {
     if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
@@ -141,7 +142,7 @@ static const int kLoopCount = 0;
     
     [exporter exportAsynchronouslyWithCompletionHandler:^(void){
         squareURL = exporter.outputURL;
-        [self convertTrimmedVideoToGif:squareURL start:start duration:duration];
+        [self convertVideoToGif:squareURL start:start duration:duration];
     }];
 }
 
@@ -174,7 +175,7 @@ static const int kLoopCount = 0;
 }
 
 # pragma mark - Gif Conversion and Display methods
--(void)convertTrimmedVideoToGif:(NSURL*)videoURL start:(NSNumber*)start duration: (NSNumber*)duration {
+-(void)convertVideoToGif:(NSURL*)videoURL start:(NSNumber*)start duration: (NSNumber*)duration {
     
     Regift *regift;
     
@@ -183,7 +184,7 @@ static const int kLoopCount = 0;
         regift = [[Regift alloc] initWithSourceFileURL:videoURL destinationFileURL: nil frameCount:kFrameCount delayTime:kDelayTime loopCount:kLoopCount];
     } else {
         // trimmed
-        regift = [[Regift alloc] initWithSourceFileURL:videoURL destinationFileURL:nil startTime:start.floatValue duration:duration.floatValue frameRate:15 loopCount:kLoopCount];
+        regift = [[Regift alloc] initWithSourceFileURL:videoURL destinationFileURL:nil startTime:start.floatValue duration:duration.floatValue frameRate:kFrameRate loopCount:kLoopCount];
     }
     
     NSURL *gifURL = [regift createGif];

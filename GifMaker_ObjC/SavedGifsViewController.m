@@ -9,7 +9,6 @@
 #import "SavedGifsViewController.h"
 #import "UIViewController+Record.h"
 #import "UIViewController+Theme.h"
-
 #import "AppDelegate.h"
 #import "WelcomeViewController.h"
 #import "DetailViewController.h"

@@ -16,12 +16,14 @@ extension Regift {
         // Text attributes
         let color = UIColor.whiteColor()
         
+        print(font.pointSize)
         let biggerFont: UIFont = UIFont(name: "HelveticaNeue-CondensedBlack", size:(font.pointSize))!
         let attributes = [NSForegroundColorAttributeName:color, NSFontAttributeName:biggerFont, NSStrokeColorAttributeName : UIColor.blackColor(), NSStrokeWidthAttributeName : -4]
         
         // Text size
-        let size =  text.sizeWithAttributes(attributes)
-        let captionWidth = size.width
+        let size:CGSize =  text.sizeWithAttributes(attributes)
+        let adjustedWidth = ceil(size.width)
+        let adjustedHeight = ceil(size.height)
         
         // Draw image
         UIGraphicsBeginImageContext(image.size)
@@ -29,9 +31,9 @@ extension Regift {
         image.drawInRect(firstRect)
         
         // Draw text
-        let sideMargin = (image.size.width - captionWidth)/2.0
+        let sideMargin = (image.size.width - adjustedWidth)/2.0
         let textOrigin  = CGPointMake(sideMargin, image.size.height - 70)
-        let secondRect = CGRectMake(textOrigin.x,textOrigin.y,image.size.width,image.size.height)
+        let secondRect = CGRectMake(textOrigin.x,textOrigin.y, adjustedWidth, adjustedHeight)
         text.drawInRect(CGRectIntegral(secondRect), withAttributes: attributes)
         
         // Capture combined image and text
