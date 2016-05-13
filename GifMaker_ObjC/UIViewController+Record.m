@@ -138,11 +138,11 @@ static const float kFrameRate = 15;
     exporter.outputURL = [NSURL fileURLWithPath:path];
     exporter.outputFileType = AVFileTypeQuickTimeMovie;
     
-    __block NSURL *squareURL;
+    __block NSURL *croppedURL;
     
     [exporter exportAsynchronouslyWithCompletionHandler:^(void){
-        squareURL = exporter.outputURL;
-        [self convertVideoToGif:squareURL start:start duration:duration];
+        croppedURL = exporter.outputURL;
+        [self convertVideoToGif:croppedURL start:start duration:duration];
     }];
 }
 
@@ -175,21 +175,21 @@ static const float kFrameRate = 15;
 }
 
 # pragma mark - Gif Conversion and Display methods
--(void)convertVideoToGif:(NSURL*)videoURL start:(NSNumber*)start duration: (NSNumber*)duration {
+-(void)convertVideoToGif:(NSURL*)croppedURL start:(NSNumber*)start duration: (NSNumber*)duration {
     
     Regift *regift;
     
     if (start == nil) {
         // Untrimmed
-        regift = [[Regift alloc] initWithSourceFileURL:videoURL destinationFileURL: nil frameCount:kFrameCount delayTime:kDelayTime loopCount:kLoopCount];
+        regift = [[Regift alloc] initWithSourceFileURL:croppedURL destinationFileURL: nil frameCount:kFrameCount delayTime:kDelayTime loopCount:kLoopCount];
     } else {
         // trimmed
-        regift = [[Regift alloc] initWithSourceFileURL:videoURL destinationFileURL:nil startTime:start.floatValue duration:duration.floatValue frameRate:kFrameRate loopCount:kLoopCount];
+        regift = [[Regift alloc] initWithSourceFileURL:croppedURL destinationFileURL:nil startTime:start.floatValue duration:duration.floatValue frameRate:kFrameRate loopCount:kLoopCount];
     }
     
     NSURL *gifURL = [regift createGif];
     
-    [self saveGif:gifURL videoURL:videoURL];
+    [self saveGif:gifURL videoURL:croppedURL];
 }
 
 -(void)saveGif:(NSURL*)gifURL videoURL: videoURL{

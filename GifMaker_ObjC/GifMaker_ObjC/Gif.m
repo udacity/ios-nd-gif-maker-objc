@@ -18,7 +18,7 @@
     if(self){
         self.url = url;
         self.caption = caption;
-        self.rawVideoURL = videoURL;
+        self.croppedVideoURL = videoURL;
         self.gifImage = [UIImage animatedImageWithAnimatedGIFURL:url];
     }
     
@@ -43,7 +43,7 @@
     // Unarchive the data, one property at a time
     self.url = [decoder decodeObjectForKey:@"gifURL"];
     self.caption = [decoder decodeObjectForKey:@"caption"];
-    self.rawVideoURL = [decoder decodeObjectForKey:@"rawVideoURL"];
+    self.croppedVideoURL = [decoder decodeObjectForKey:@"croppedVideoURL"];
     self.gifImage = [decoder decodeObjectForKey:@"gifImage"];
 
     return self;
@@ -52,7 +52,7 @@
 -(void)encodeWithCoder:(NSCoder *)coder {
     [coder encodeObject:self.url forKey: @"gifURL"];
     [coder encodeObject:self.caption forKey: @"caption"];
-    [coder encodeObject:self.rawVideoURL forKey: @"rawVideoURL"];
+    [coder encodeObject:self.croppedVideoURL forKey: @"croppedVideoURL"];
     [coder encodeObject:self.gifImage forKey: @"gifImage"];
 }
 
