@@ -4,7 +4,7 @@
 //
 //  Created by Ayush Saraswat on 4/26/16.
 //  Copyright © 2016 Gabrielle Miller-Messner. All rights reserved.
-//  Code for makeVideoSquare: modified from http://www.netwalk.be/article/record-square-video-ios
+//  Code for cropVideoToSquare: modified from http://www.netwalk.be/article/record-square-video-ios
 
 #import "UIViewController+Record.h"
 #import "GifEditorViewController.h"
@@ -102,18 +102,16 @@ static const float kFrameRate = 15;
         NSNumber *end = [info objectForKey:@"_UIImagePickerControllerVideoEditingEnd"];
         NSNumber *duration = [NSNumber numberWithFloat: end.floatValue - start.floatValue];
         
-        [self makeVideoSquare:rawVideoURL start: start duration: duration];
+        [self cropVideoToSquare:rawVideoURL start: start duration: duration];
     }
 }
 
--(void)makeVideoSquare:(NSURL*)rawVideoURL start:(NSNumber*)start duration:(NSNumber*)duration {
-    //make video square
+-(void)cropVideoToSquare:(NSURL*)rawVideoURL start:(NSNumber*)start duration:(NSNumber*)duration {
+    //Create the AVAsset and AVAssetTrack
     AVAsset *videoAsset = [AVAsset assetWithURL:rawVideoURL];
-    AVMutableComposition *composition = [AVMutableComposition composition];
-    [composition  addMutableTrackWithMediaType:AVMediaTypeVideo preferredTrackID:kCMPersistentTrackID_Invalid];
-    
     AVAssetTrack *videoTrack = [[videoAsset tracksWithMediaType:AVMediaTypeVideo] objectAtIndex:0];
     
+    // Crop to square
     AVMutableVideoComposition* videoComposition = [AVMutableVideoComposition videoComposition];
     videoComposition.renderSize = CGSizeMake(videoTrack.naturalSize.height, videoTrack.naturalSize.height);
     videoComposition.frameDuration = CMTimeMake(1, 30);

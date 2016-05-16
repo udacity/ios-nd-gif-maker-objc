@@ -55,6 +55,7 @@ static const int kLoopCount = 0; // 0 means loop forever
 -(void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     
+    [self unsubscribeFromKeyboardNotifications];
     self.title = @"";
 }
 
@@ -69,7 +70,7 @@ static const int kLoopCount = 0; // 0 means loop forever
     return true;
 }
 
-#pragma mark - Observe Keyboard notifications
+#pragma mark - Observe and respond to keyboard notifications
 
 - (void)subscribeToKeyboardNotifications {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
@@ -116,7 +117,6 @@ static const int kLoopCount = 0; // 0 means loop forever
 
     Regift *regift = [[Regift alloc] initWithSourceFileURL:self.gif.croppedVideoURL destinationFileURL:nil frameCount:kFrameCount delayTime:kDelayTime loopCount:kLoopCount];
     
-//    Regift *regift = [[Regift alloc] initWithSourceFileURL:self.gif.croppedVideoURL frameCount:kFrameCount delayTime:kDelayTime loopCount:kLoopCount];
     UIFont *captionFont = self.captionTextField.font;
     NSURL *gifURL = [regift createGifWithCaption:self.captionTextField.text font:captionFont];
 
