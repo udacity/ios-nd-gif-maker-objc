@@ -29,6 +29,7 @@ static const int kLoopCount = 0; // 0 means loop forever
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
+    [self subscribeToKeyboardNotifications];
     self.title = @"Add a Caption";
     [self applyTheme:Dark];
 }
@@ -45,8 +46,6 @@ static const int kLoopCount = 0; // 0 means loop forever
     [self.captionTextField setDefaultTextAttributes:defaultAttributes];
     [self.captionTextField setTextAlignment:NSTextAlignmentCenter];
     [self.captionTextField setAttributedPlaceholder:[[NSAttributedString alloc] initWithString:@"Add Caption" attributes:defaultAttributes]];
-    
-    [self subscribeToKeyboardNotifications];
     
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:tapGesture];
