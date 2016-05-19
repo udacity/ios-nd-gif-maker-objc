@@ -101,13 +101,13 @@
                                     <action selector="presentVideoOptions:" destination="upq-jB-3dI" eventType="touchUpInside" id="d2Q-QD-du0"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="rBY-mr-O59">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="rBY-mr-O59">
                                 <rect key="frame" x="20" y="238" width="560" height="124"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="graphicCollectionEmpty" translatesAutoresizingMaskIntoConstraints="NO" id="IOx-EA-SOI">
                                         <rect key="frame" x="244" y="0.0" width="72" height="73"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Let's create some GIFs!! Get started by tapping the button below" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gY-ir-reI">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's create some GIFs!! Get started by tapping the button below" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gY-ir-reI">
                                         <rect key="frame" x="33" y="103" width="494" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="41" id="cfy-nz-EU4"/>
@@ -174,7 +174,7 @@
                                     <constraint firstAttribute="width" secondItem="Idg-S9-dYE" secondAttribute="height" multiplier="1:1" id="VYW-pa-uQv"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add Caption" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hx5-Iw-gBr">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add Caption" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hx5-Iw-gBr">
                                 <rect key="frame" x="20" y="518" width="560" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="ZG3-3H-HnY"/>
@@ -298,20 +298,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tie-bE-ygI">
-                                <rect key="frame" x="20" y="530" width="560" height="50"/>
-                                <color key="backgroundColor" red="1" green="0.25490196078431371" blue="0.4392156862745098" alpha="0.80324689716312059" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="1yF-Ba-fUp"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
-                                <state key="normal" title="SHARE">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="shareGif:" destination="Ilf-GF-t1a" eventType="touchUpInside" id="14r-Ix-i6v"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fMj-xi-5Fm">
                                 <rect key="frame" x="20" y="20" width="560" height="560"/>
                                 <constraints>
@@ -336,16 +322,12 @@
                             <constraint firstItem="fMj-xi-5Fm" firstAttribute="centerX" secondItem="98u-Ei-l0c" secondAttribute="centerX" id="1nT-PV-jGp"/>
                             <constraint firstItem="qvD-Hf-gP0" firstAttribute="top" secondItem="141-ek-2z6" secondAttribute="bottom" constant="-2" id="6Pv-km-Uga"/>
                             <constraint firstItem="qvD-Hf-gP0" firstAttribute="trailing" secondItem="98u-Ei-l0c" secondAttribute="trailingMargin" constant="11" id="CcA-Ms-Y4k"/>
-                            <constraint firstItem="tie-bE-ygI" firstAttribute="leading" secondItem="98u-Ei-l0c" secondAttribute="leadingMargin" id="SSN-yS-Ja1"/>
-                            <constraint firstItem="tie-bE-ygI" firstAttribute="trailing" secondItem="98u-Ei-l0c" secondAttribute="trailingMargin" id="YsK-Gn-Xxo"/>
                             <constraint firstItem="fMj-xi-5Fm" firstAttribute="trailing" secondItem="98u-Ei-l0c" secondAttribute="trailingMargin" id="wH4-Qz-1Xt"/>
                             <constraint firstItem="fMj-xi-5Fm" firstAttribute="leading" secondItem="98u-Ei-l0c" secondAttribute="leadingMargin" id="wHQ-EP-jcX"/>
-                            <constraint firstItem="8DJ-Ka-ETF" firstAttribute="top" secondItem="tie-bE-ygI" secondAttribute="bottom" constant="20" id="zYz-Sa-xDb"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="gifImageView" destination="fMj-xi-5Fm" id="iq6-Tq-6AD"/>
-                        <outlet property="shareButton" destination="tie-bE-ygI" id="54Z-yr-Ndg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BEl-4x-y0s" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -399,7 +381,7 @@
                                         <rect key="frame" x="12" y="-118" width="536" height="56"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" misplaced="YES" text="Welcome to GIFit" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WBs-4n-SXa">
-                                                <rect key="frame" x="189" y="0.0" width="160" height="24"/>
+                                                <rect key="frame" x="188" y="0.0" width="160" height="24"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="24" id="b1M-SR-O4K"/>
                                                     <constraint firstAttribute="width" constant="160" id="e3s-qn-91n"/>
@@ -420,7 +402,7 @@
                                                     </mask>
                                                 </variation>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" misplaced="YES" text="Let's create some GIFs!! Get started by tapping the button below" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cYt-Kh-sCA">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Let's create some GIFs!! Get started by tapping the button below" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cYt-Kh-sCA">
                                                 <rect key="frame" x="34" y="36" width="469" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="287" id="4bc-OV-Ywa"/>
