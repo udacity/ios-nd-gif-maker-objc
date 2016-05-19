@@ -15,6 +15,7 @@
 @property (nonatomic) NSString *caption;
 @property (nonatomic) UIImage *gifImage;
 @property (nonatomic) NSURL *croppedVideoURL;
+@property (nonatomic) NSUUID *randomID;
 
 -(instancetype)initWithGifUrl: (NSURL*)url videoURL:(NSURL*)videoURL caption:(NSString*)caption;
 -(instancetype)initWithName:(NSString*)name;
