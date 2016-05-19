@@ -13,6 +13,8 @@
 
 #import <QuartzCore/QuartzCore.h>
 
+#define GifFileURL [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:@"savedGifsAsGifs"]
+
 @interface GifPreviewViewController()
 
 @property (weak, nonatomic) IBOutlet UIImageView *gifImageView;
@@ -66,7 +68,17 @@
     [self presentViewController:shareController animated:YES completion: nil];
 }
 
+-(NSURL*)createUniqueURL {
+    NSString *uniqueGifPath = [GifFileURL stringByAppendingPathComponent:self.gif.uniqueID];
+    NSURL *uniqueGifURL = [NSURL fileURLWithPath:uniqueGifPath];
+    return uniqueGifURL;
+}
+
 - (IBAction)saveGif:(id)sender {
+    // Copy GIF data from temporary URL
+    self.gif.gifData = [NSData dataWithContentsOfURL:self.gif.url];
+    
+    // Save updated Gif object to Gif array model
     AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
     [appDelegate.gifs addObject:self.gif];
     

@@ -191,7 +191,7 @@ static const float kFrameRate = 15;
 }
 
 -(void)saveGif:(NSURL*)gifURL videoURL: videoURL{
-    Gif *newGif = [[Gif alloc] initWithGifUrl:gifURL videoURL:videoURL caption:nil];
+    Gif *newGif = [[Gif alloc] initWithGifURL:gifURL videoURL:videoURL caption:nil];
     [self displayGif:newGif];
 }
 

@@ -11,14 +11,14 @@
 
 @implementation Gif
 
--(instancetype)initWithGifUrl: (NSURL*)url videoURL:(NSURL*)videoURL caption:(NSString*)caption {
+-(instancetype)initWithGifURL: (NSURL*)url videoURL:(NSURL*)videoURL caption:(NSString*)caption {
     
     self = [super init];
     
     if(self){
         self.url = url;
         self.caption = caption;
-        self.croppedVideoURL = videoURL;
+        self.videoURL = videoURL;
         self.gifImage = [UIImage animatedImageWithAnimatedGIFURL:url];
     }
     
@@ -43,19 +43,19 @@
     // Unarchive the data, one property at a time
     self.url = [decoder decodeObjectForKey:@"gifURL"];
     self.caption = [decoder decodeObjectForKey:@"caption"];
-    self.croppedVideoURL = [decoder decodeObjectForKey:@"croppedVideoURL"];
+    self.videoURL = [decoder decodeObjectForKey:@"videoURL"];
     self.gifImage = [decoder decodeObjectForKey:@"gifImage"];
-
+    self.gifData = [decoder decodeObjectForKey:@"gifData"];
+    
     return self;
 }
 
 -(void)encodeWithCoder:(NSCoder *)coder {
     [coder encodeObject:self.url forKey: @"gifURL"];
     [coder encodeObject:self.caption forKey: @"caption"];
-    [coder encodeObject:self.croppedVideoURL forKey: @"croppedVideoURL"];
+    [coder encodeObject:self.videoURL forKey: @"videoURL"];
     [coder encodeObject:self.gifImage forKey: @"gifImage"];
+    [coder encodeObject: self.gifData forKey:@"gifData"];
 }
-
-
 
 @end
