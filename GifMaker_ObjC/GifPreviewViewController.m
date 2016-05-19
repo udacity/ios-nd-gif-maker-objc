@@ -13,8 +13,6 @@
 
 #import <QuartzCore/QuartzCore.h>
 
-#define GifFileURL [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:@"savedGifsAsGifs"]
-
 @interface GifPreviewViewController()
 
 @property (weak, nonatomic) IBOutlet UIImageView *gifImageView;
