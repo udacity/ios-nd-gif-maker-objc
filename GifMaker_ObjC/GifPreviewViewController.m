@@ -68,12 +68,6 @@
     [self presentViewController:shareController animated:YES completion: nil];
 }
 
--(NSURL*)createUniqueURL {
-    NSString *uniqueGifPath = [GifFileURL stringByAppendingPathComponent:self.gif.uniqueID];
-    NSURL *uniqueGifURL = [NSURL fileURLWithPath:uniqueGifPath];
-    return uniqueGifURL;
-}
-
 - (IBAction)saveGif:(id)sender {
     // Copy GIF data from temporary URL
     self.gif.gifData = [NSData dataWithContentsOfURL:self.gif.url];
