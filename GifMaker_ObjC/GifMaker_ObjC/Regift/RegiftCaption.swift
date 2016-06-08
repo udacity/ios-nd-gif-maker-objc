@@ -41,7 +41,6 @@ extension Regift {
         let bottomMargin = image.size.height/6.0
         let textOrigin  = CGPointMake(sideMargin, image.size.height - bottomMargin)
         let secondRect = CGRectMake(textOrigin.x,textOrigin.y, adjustedWidth, adjustedHeight)
-        //text.drawInRect(CGRectIntegral(secondRect), withAttributes: attributes)
         text.drawWithRect(secondRect, options:.UsesLineFragmentOrigin, attributes: attributes, context:nil)
         
         // Capture combined image and text

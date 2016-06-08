@@ -30,10 +30,10 @@
 }
 
 - (IBAction)shareGif:(id)sender {
-    NSArray *sharingItems;
-    sharingItems = [NSArray arrayWithObjects: self.gif.gifData, nil];
+    NSArray *itemsToShare;
+    itemsToShare = [NSArray arrayWithObjects: self.gif.gifData, nil];
     
-    UIActivityViewController *shareController = [[UIActivityViewController alloc] initWithActivityItems:sharingItems applicationActivities:nil];
+    UIActivityViewController *shareController = [[UIActivityViewController alloc] initWithActivityItems:itemsToShare applicationActivities:nil];
     
     [shareController setCompletionWithItemsHandler: ^(NSString *activityType, BOOL completed, NSArray *returnedItems, NSError *activityError) {
         if (completed) {
