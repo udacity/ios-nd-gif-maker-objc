@@ -11,15 +11,15 @@ import UIKit
 extension Regift {
     
     
-    func addCaption(image: CGImageRef, text: NSString, font: UIFont) -> CGImage {
-        let image = UIImage(CGImage:image)
+    func addCaption(_ image: CGImage, text: NSString, font: UIFont) -> CGImage {
+        let image = UIImage(cgImage:image)
         
         // Text attributes
-        let color = UIColor.whiteColor()
-        var attributes = [NSForegroundColorAttributeName:color, NSFontAttributeName:font, NSStrokeColorAttributeName : UIColor.blackColor(), NSStrokeWidthAttributeName : -4]
+        let color = UIColor.white()
+        var attributes = [NSForegroundColorAttributeName:color, NSFontAttributeName:font, NSStrokeColorAttributeName : UIColor.black(), NSStrokeWidthAttributeName : -4]
         
         // Get scale factor
-        let testSize:CGSize =  text.sizeWithAttributes(attributes)
+        let testSize:CGSize =  text.size(attributes: attributes)
         let scaleFactor = testSize.height/360
         
         // Apply scale factor to attributes
@@ -27,25 +27,25 @@ extension Regift {
         attributes[NSFontAttributeName] = scaledFont
         
         // Text size
-        let size:CGSize =  text.sizeWithAttributes(attributes)
+        let size:CGSize =  text.size(attributes: attributes)
         let adjustedWidth = ceil(size.width)
         let adjustedHeight = ceil(size.height)
         
         // Draw image
         UIGraphicsBeginImageContext(image.size)
-        let firstRect = CGRectMake(0,0,image.size.width,image.size.height)
-        image.drawInRect(firstRect)
+        let firstRect = CGRect(x: 0,y: 0,width: image.size.width,height: image.size.height)
+        image.draw(in: firstRect)
         
         // Draw text
         let sideMargin = (image.size.width - adjustedWidth)/2.0
         let bottomMargin = image.size.height/6.0
-        let textOrigin  = CGPointMake(sideMargin, image.size.height - bottomMargin)
-        let secondRect = CGRectMake(textOrigin.x,textOrigin.y, adjustedWidth, adjustedHeight)
-        text.drawWithRect(secondRect, options:.UsesLineFragmentOrigin, attributes: attributes, context:nil)
+        let textOrigin  = CGPoint(x: sideMargin, y: image.size.height - bottomMargin)
+        let secondRect = CGRect(x: textOrigin.x,y: textOrigin.y, width: adjustedWidth, height: adjustedHeight)
+        text.draw(with: secondRect, options:.usesLineFragmentOrigin, attributes: attributes, context:nil)
         
         // Capture combined image and text
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        return newImage.CGImage!
+        return newImage!.cgImage!
     }
 }
