@@ -17,12 +17,12 @@
 		A92C34521D1E280800D3A451 /* SavedGifsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A92C344A1D1E280800D3A451 /* SavedGifsViewController.m */; };
 		A92C34531D1E280800D3A451 /* UIViewController+Record.m in Sources */ = {isa = PBXBuildFile; fileRef = A92C344C1D1E280800D3A451 /* UIViewController+Record.m */; };
 		A92C34541D1E280800D3A451 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A92C344E1D1E280800D3A451 /* WelcomeViewController.m */; };
+		A92C345C1D1E2A8600D3A451 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A92C345A1D1E2A8600D3A451 /* LaunchScreen.xib */; };
 		ED055A281CCAC9D0003398D9 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED055A271CCAC9D0003398D9 /* QuartzCore.framework */; };
 		ED1C7F971C866D4C00724DC2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1C7F961C866D4C00724DC2 /* main.m */; };
 		ED1C7F9A1C866D4C00724DC2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1C7F991C866D4C00724DC2 /* AppDelegate.m */; };
 		ED1C7FA01C866D4C00724DC2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED1C7F9E1C866D4C00724DC2 /* Main.storyboard */; };
 		ED1C7FA21C866D4C00724DC2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED1C7FA11C866D4C00724DC2 /* Assets.xcassets */; };
-		ED1C7FA51C866D4C00724DC2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED1C7FA31C866D4C00724DC2 /* LaunchScreen.storyboard */; };
 		ED1C7FD31C866F1E00724DC2 /* UIImage+animatedGIF.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1C7FD21C866F1E00724DC2 /* UIImage+animatedGIF.m */; };
 		ED3F823E1C8A5A8B0084EC81 /* GifEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3F823D1C8A5A8B0084EC81 /* GifEditorViewController.m */; };
 		EDD81E221C8A26510045C1BD /* Gif.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD81E211C8A26510045C1BD /* Gif.m */; };
@@ -48,6 +48,7 @@
 		A92C344D1D1E280800D3A451 /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
 		A92C344E1D1E280800D3A451 /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
 		A92C34591D1E2A0900D3A451 /* GifMaker_ObjC-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GifMaker_ObjC-Bridging-Header.h"; sourceTree = "<group>"; };
+		A92C345B1D1E2A8600D3A451 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		ED055A271CCAC9D0003398D9 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		ED1C7F921C866D4C00724DC2 /* GifMaker_ObjC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GifMaker_ObjC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED1C7F961C866D4C00724DC2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -55,7 +56,6 @@
 		ED1C7F991C866D4C00724DC2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		ED1C7F9F1C866D4C00724DC2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ED1C7FA11C866D4C00724DC2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		ED1C7FA41C866D4C00724DC2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ED1C7FA61C866D4C00724DC2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED1C7FD11C866F1E00724DC2 /* UIImage+animatedGIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+animatedGIF.h"; sourceTree = "<group>"; };
 		ED1C7FD21C866F1E00724DC2 /* UIImage+animatedGIF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+animatedGIF.m"; sourceTree = "<group>"; };
@@ -105,7 +105,7 @@
 				ED1C7FA11C866D4C00724DC2 /* Assets.xcassets */,
 				EDD81E251C8A3B980045C1BD /* tinaFeyHiFive.gif */,
 				ED1C7F9E1C866D4C00724DC2 /* Main.storyboard */,
-				ED1C7FA31C866D4C00724DC2 /* LaunchScreen.storyboard */,
+				A92C345A1D1E2A8600D3A451 /* LaunchScreen.xib */,
 			);
 			name = Assets;
 			sourceTree = "<group>";
@@ -247,8 +247,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A92C345C1D1E2A8600D3A451 /* LaunchScreen.xib in Resources */,
 				EDD81E261C8A3B980045C1BD /* tinaFeyHiFive.gif in Resources */,
-				ED1C7FA51C866D4C00724DC2 /* LaunchScreen.storyboard in Resources */,
 				ED1C7FA21C866D4C00724DC2 /* Assets.xcassets in Resources */,
 				ED1C7FA01C866D4C00724DC2 /* Main.storyboard in Resources */,
 			);
@@ -282,20 +282,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		A92C345A1D1E2A8600D3A451 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A92C345B1D1E2A8600D3A451 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
 		ED1C7F9E1C866D4C00724DC2 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				ED1C7F9F1C866D4C00724DC2 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		ED1C7FA31C866D4C00724DC2 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				ED1C7FA41C866D4C00724DC2 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
