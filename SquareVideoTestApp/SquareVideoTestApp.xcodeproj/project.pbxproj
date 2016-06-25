@@ -7,36 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A9ADD8031D1EAA7D00010343 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9ADD8011D1EAA7D00010343 /* LaunchScreen.xib */; };
 		EDF051131CC82F0100D9EC55 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF051121CC82F0100D9EC55 /* main.m */; };
 		EDF051161CC82F0100D9EC55 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF051151CC82F0100D9EC55 /* AppDelegate.m */; };
 		EDF051191CC82F0100D9EC55 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF051181CC82F0100D9EC55 /* ViewController.m */; };
 		EDF0511C1CC82F0100D9EC55 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDF0511A1CC82F0100D9EC55 /* Main.storyboard */; };
 		EDF0511E1CC82F0100D9EC55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDF0511D1CC82F0100D9EC55 /* Assets.xcassets */; };
-		EDF051211CC82F0100D9EC55 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDF0511F1CC82F0100D9EC55 /* LaunchScreen.storyboard */; };
-		EDF0512C1CC82F0100D9EC55 /* SquareVideoTestAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF0512B1CC82F0100D9EC55 /* SquareVideoTestAppTests.m */; };
-		EDF051371CC82F0100D9EC55 /* SquareVideoTestAppUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF051361CC82F0100D9EC55 /* SquareVideoTestAppUITests.m */; };
 		EDF051461CC82F9400D9EC55 /* RecordVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF051451CC82F9400D9EC55 /* RecordVideoViewController.m */; };
 		EDF051491CC838E100D9EC55 /* RecordVideoViewController+AllowEditing.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF051481CC838E100D9EC55 /* RecordVideoViewController+AllowEditing.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		EDF051281CC82F0100D9EC55 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EDF051061CC82F0100D9EC55 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = EDF0510D1CC82F0100D9EC55;
-			remoteInfo = SquareVideoTestApp;
-		};
-		EDF051331CC82F0100D9EC55 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EDF051061CC82F0100D9EC55 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = EDF0510D1CC82F0100D9EC55;
-			remoteInfo = SquareVideoTestApp;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
+		A9ADD8021D1EAA7D00010343 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		EDF0510E1CC82F0100D9EC55 /* SquareVideoTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SquareVideoTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDF051121CC82F0100D9EC55 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EDF051141CC82F0100D9EC55 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -45,14 +27,7 @@
 		EDF051181CC82F0100D9EC55 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		EDF0511B1CC82F0100D9EC55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EDF0511D1CC82F0100D9EC55 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		EDF051201CC82F0100D9EC55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EDF051221CC82F0100D9EC55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EDF051271CC82F0100D9EC55 /* SquareVideoTestAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SquareVideoTestAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		EDF0512B1CC82F0100D9EC55 /* SquareVideoTestAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SquareVideoTestAppTests.m; sourceTree = "<group>"; };
-		EDF0512D1CC82F0100D9EC55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EDF051321CC82F0100D9EC55 /* SquareVideoTestAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SquareVideoTestAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		EDF051361CC82F0100D9EC55 /* SquareVideoTestAppUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SquareVideoTestAppUITests.m; sourceTree = "<group>"; };
-		EDF051381CC82F0100D9EC55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EDF051441CC82F9400D9EC55 /* RecordVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordVideoViewController.h; sourceTree = "<group>"; };
 		EDF051451CC82F9400D9EC55 /* RecordVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordVideoViewController.m; sourceTree = "<group>"; };
 		EDF051471CC838E100D9EC55 /* RecordVideoViewController+AllowEditing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RecordVideoViewController+AllowEditing.h"; sourceTree = "<group>"; };
@@ -67,29 +42,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EDF051241CC82F0100D9EC55 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EDF0512F1CC82F0100D9EC55 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A9ADD8041D1EAA8300010343 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				EDF0511D1CC82F0100D9EC55 /* Assets.xcassets */,
+				EDF0511A1CC82F0100D9EC55 /* Main.storyboard */,
+				A9ADD8011D1EAA7D00010343 /* LaunchScreen.xib */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
 		EDF051051CC82F0100D9EC55 = {
 			isa = PBXGroup;
 			children = (
 				EDF051101CC82F0100D9EC55 /* SquareVideoTestApp */,
-				EDF0512A1CC82F0100D9EC55 /* SquareVideoTestAppTests */,
-				EDF051351CC82F0100D9EC55 /* SquareVideoTestAppUITests */,
 				EDF0510F1CC82F0100D9EC55 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -98,8 +67,6 @@
 			isa = PBXGroup;
 			children = (
 				EDF0510E1CC82F0100D9EC55 /* SquareVideoTestApp.app */,
-				EDF051271CC82F0100D9EC55 /* SquareVideoTestAppTests.xctest */,
-				EDF051321CC82F0100D9EC55 /* SquareVideoTestAppUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -111,14 +78,11 @@
 				EDF051151CC82F0100D9EC55 /* AppDelegate.m */,
 				EDF051171CC82F0100D9EC55 /* ViewController.h */,
 				EDF051181CC82F0100D9EC55 /* ViewController.m */,
-				EDF0511A1CC82F0100D9EC55 /* Main.storyboard */,
-				EDF0511D1CC82F0100D9EC55 /* Assets.xcassets */,
-				EDF0511F1CC82F0100D9EC55 /* LaunchScreen.storyboard */,
-				EDF051221CC82F0100D9EC55 /* Info.plist */,
 				EDF051471CC838E100D9EC55 /* RecordVideoViewController+AllowEditing.h */,
 				EDF051481CC838E100D9EC55 /* RecordVideoViewController+AllowEditing.m */,
 				EDF051441CC82F9400D9EC55 /* RecordVideoViewController.h */,
 				EDF051451CC82F9400D9EC55 /* RecordVideoViewController.m */,
+				A9ADD8041D1EAA8300010343 /* Assets */,
 				EDF051111CC82F0100D9EC55 /* Supporting Files */,
 			);
 			path = SquareVideoTestApp;
@@ -127,27 +91,10 @@
 		EDF051111CC82F0100D9EC55 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EDF051221CC82F0100D9EC55 /* Info.plist */,
 				EDF051121CC82F0100D9EC55 /* main.m */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		EDF0512A1CC82F0100D9EC55 /* SquareVideoTestAppTests */ = {
-			isa = PBXGroup;
-			children = (
-				EDF0512B1CC82F0100D9EC55 /* SquareVideoTestAppTests.m */,
-				EDF0512D1CC82F0100D9EC55 /* Info.plist */,
-			);
-			path = SquareVideoTestAppTests;
-			sourceTree = "<group>";
-		};
-		EDF051351CC82F0100D9EC55 /* SquareVideoTestAppUITests */ = {
-			isa = PBXGroup;
-			children = (
-				EDF051361CC82F0100D9EC55 /* SquareVideoTestAppUITests.m */,
-				EDF051381CC82F0100D9EC55 /* Info.plist */,
-			);
-			path = SquareVideoTestAppUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,42 +117,6 @@
 			productReference = EDF0510E1CC82F0100D9EC55 /* SquareVideoTestApp.app */;
 			productType = "com.apple.product-type.application";
 		};
-		EDF051261CC82F0100D9EC55 /* SquareVideoTestAppTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = EDF0513E1CC82F0100D9EC55 /* Build configuration list for PBXNativeTarget "SquareVideoTestAppTests" */;
-			buildPhases = (
-				EDF051231CC82F0100D9EC55 /* Sources */,
-				EDF051241CC82F0100D9EC55 /* Frameworks */,
-				EDF051251CC82F0100D9EC55 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				EDF051291CC82F0100D9EC55 /* PBXTargetDependency */,
-			);
-			name = SquareVideoTestAppTests;
-			productName = SquareVideoTestAppTests;
-			productReference = EDF051271CC82F0100D9EC55 /* SquareVideoTestAppTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		EDF051311CC82F0100D9EC55 /* SquareVideoTestAppUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = EDF051411CC82F0100D9EC55 /* Build configuration list for PBXNativeTarget "SquareVideoTestAppUITests" */;
-			buildPhases = (
-				EDF0512E1CC82F0100D9EC55 /* Sources */,
-				EDF0512F1CC82F0100D9EC55 /* Frameworks */,
-				EDF051301CC82F0100D9EC55 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				EDF051341CC82F0100D9EC55 /* PBXTargetDependency */,
-			);
-			name = SquareVideoTestAppUITests;
-			productName = SquareVideoTestAppUITests;
-			productReference = EDF051321CC82F0100D9EC55 /* SquareVideoTestAppUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -217,14 +128,6 @@
 				TargetAttributes = {
 					EDF0510D1CC82F0100D9EC55 = {
 						CreatedOnToolsVersion = 7.3;
-					};
-					EDF051261CC82F0100D9EC55 = {
-						CreatedOnToolsVersion = 7.3;
-						TestTargetID = EDF0510D1CC82F0100D9EC55;
-					};
-					EDF051311CC82F0100D9EC55 = {
-						CreatedOnToolsVersion = 7.3;
-						TestTargetID = EDF0510D1CC82F0100D9EC55;
 					};
 				};
 			};
@@ -242,8 +145,6 @@
 			projectRoot = "";
 			targets = (
 				EDF0510D1CC82F0100D9EC55 /* SquareVideoTestApp */,
-				EDF051261CC82F0100D9EC55 /* SquareVideoTestAppTests */,
-				EDF051311CC82F0100D9EC55 /* SquareVideoTestAppUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -253,23 +154,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EDF051211CC82F0100D9EC55 /* LaunchScreen.storyboard in Resources */,
 				EDF0511E1CC82F0100D9EC55 /* Assets.xcassets in Resources */,
+				A9ADD8031D1EAA7D00010343 /* LaunchScreen.xib in Resources */,
 				EDF0511C1CC82F0100D9EC55 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EDF051251CC82F0100D9EC55 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EDF051301CC82F0100D9EC55 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,52 +175,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EDF051231CC82F0100D9EC55 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EDF0512C1CC82F0100D9EC55 /* SquareVideoTestAppTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EDF0512E1CC82F0100D9EC55 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EDF051371CC82F0100D9EC55 /* SquareVideoTestAppUITests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		EDF051291CC82F0100D9EC55 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = EDF0510D1CC82F0100D9EC55 /* SquareVideoTestApp */;
-			targetProxy = EDF051281CC82F0100D9EC55 /* PBXContainerItemProxy */;
-		};
-		EDF051341CC82F0100D9EC55 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = EDF0510D1CC82F0100D9EC55 /* SquareVideoTestApp */;
-			targetProxy = EDF051331CC82F0100D9EC55 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin PBXVariantGroup section */
+		A9ADD8011D1EAA7D00010343 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A9ADD8021D1EAA7D00010343 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
 		EDF0511A1CC82F0100D9EC55 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				EDF0511B1CC82F0100D9EC55 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		EDF0511F1CC82F0100D9EC55 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EDF051201CC82F0100D9EC55 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -443,52 +301,6 @@
 			};
 			name = Release;
 		};
-		EDF0513F1CC82F0100D9EC55 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = SquareVideoTestAppTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Udacity.SquareVideoTestAppTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SquareVideoTestApp.app/SquareVideoTestApp";
-			};
-			name = Debug;
-		};
-		EDF051401CC82F0100D9EC55 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = SquareVideoTestAppTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Udacity.SquareVideoTestAppTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SquareVideoTestApp.app/SquareVideoTestApp";
-			};
-			name = Release;
-		};
-		EDF051421CC82F0100D9EC55 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = SquareVideoTestAppUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Udacity.SquareVideoTestAppUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = SquareVideoTestApp;
-			};
-			name = Debug;
-		};
-		EDF051431CC82F0100D9EC55 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = SquareVideoTestAppUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Udacity.SquareVideoTestAppUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = SquareVideoTestApp;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -508,22 +320,7 @@
 				EDF0513D1CC82F0100D9EC55 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-		};
-		EDF0513E1CC82F0100D9EC55 /* Build configuration list for PBXNativeTarget "SquareVideoTestAppTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				EDF0513F1CC82F0100D9EC55 /* Debug */,
-				EDF051401CC82F0100D9EC55 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-		};
-		EDF051411CC82F0100D9EC55 /* Build configuration list for PBXNativeTarget "SquareVideoTestAppUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				EDF051421CC82F0100D9EC55 /* Debug */,
-				EDF051431CC82F0100D9EC55 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
