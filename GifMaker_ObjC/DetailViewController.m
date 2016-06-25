@@ -30,24 +30,22 @@
 }
 
 - (IBAction)shareGif:(id)sender {
+    NSArray *itemsToShare;
+    itemsToShare = [NSArray arrayWithObjects: self.gif.gifData, nil];
     
-    NSData *animatedGif = [NSData dataWithContentsOfURL:self.gif.url];
-    NSArray *sharingItems = [NSArray arrayWithObjects: animatedGif, nil];
-    
-    UIActivityViewController *shareController = [[UIActivityViewController alloc] initWithActivityItems:sharingItems applicationActivities:nil];
+    UIActivityViewController *shareController = [[UIActivityViewController alloc] initWithActivityItems:itemsToShare applicationActivities:nil];
     
     [shareController setCompletionWithItemsHandler: ^(NSString *activityType, BOOL completed, NSArray *returnedItems, NSError *activityError) {
         if (completed) {
-            [self dismissViewControllerAnimated:TRUE completion:nil];
+            [self dismissViewControllerAnimated:YES completion:nil];
         }
     }];
     
-    
-    [self presentViewController:shareController animated:TRUE completion: nil];
+    [self presentViewController:shareController animated:YES completion: nil];
 }
 
 - (IBAction)dismissViewController:(id)sender {
-    [self dismissViewControllerAnimated:TRUE completion:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

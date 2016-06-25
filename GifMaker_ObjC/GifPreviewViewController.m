@@ -59,18 +59,22 @@
     UIActivityViewController *shareController = [[UIActivityViewController alloc] initWithActivityItems:itemsToShare applicationActivities:nil];
     [shareController setCompletionWithItemsHandler: ^(NSString *activityType, BOOL completed, NSArray *returnedItems, NSError *activityError) {
         if (completed) {
-            [self.navigationController popToRootViewControllerAnimated:TRUE];
+            [self.navigationController popToRootViewControllerAnimated:YES];
         }
     }];
     
-    [self presentViewController:shareController animated:TRUE completion: nil];
+    [self presentViewController:shareController animated:YES completion: nil];
 }
 
 - (IBAction)saveGif:(id)sender {
+    // Copy GIF data from temporary URL
+    self.gif.gifData = [NSData dataWithContentsOfURL:self.gif.url];
+    
+    // Save updated Gif object to Gif array model
     AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
     [appDelegate.gifs addObject:self.gif];
     
-    [self.navigationController popToRootViewControllerAnimated:TRUE];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 @end

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2AF807EB1CCFDA5600CFD995 /* AVAssetImageGeneratorTimePoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF807E61CCFDA5600CFD995 /* AVAssetImageGeneratorTimePoints.swift */; };
-		2AF807EC1CCFDA5600CFD995 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2AF807E71CCFDA5600CFD995 /* Info.plist */; };
 		2AF807ED1CCFDA5600CFD995 /* Regift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF807E91CCFDA5600CFD995 /* Regift.swift */; };
 		2AF807EE1CCFDA5600CFD995 /* RegiftCaption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF807EA1CCFDA5600CFD995 /* RegiftCaption.swift */; };
 		2AF807F21CCFE3C300CFD995 /* UIViewController+Record.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF807F11CCFE3C300CFD995 /* UIViewController+Record.m */; };
@@ -51,8 +50,6 @@
 
 /* Begin PBXFileReference section */
 		2AF807E61CCFDA5600CFD995 /* AVAssetImageGeneratorTimePoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVAssetImageGeneratorTimePoints.swift; sourceTree = "<group>"; };
-		2AF807E71CCFDA5600CFD995 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2AF807E81CCFDA5600CFD995 /* Regift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Regift.h; sourceTree = "<group>"; };
 		2AF807E91CCFDA5600CFD995 /* Regift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Regift.swift; sourceTree = "<group>"; };
 		2AF807EA1CCFDA5600CFD995 /* RegiftCaption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegiftCaption.swift; sourceTree = "<group>"; };
 		2AF807F01CCFE3C300CFD995 /* UIViewController+Record.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+Record.h"; path = "../UIViewController+Record.h"; sourceTree = "<group>"; };
@@ -124,8 +121,6 @@
 			isa = PBXGroup;
 			children = (
 				2AF807E61CCFDA5600CFD995 /* AVAssetImageGeneratorTimePoints.swift */,
-				2AF807E71CCFDA5600CFD995 /* Info.plist */,
-				2AF807E81CCFDA5600CFD995 /* Regift.h */,
 				2AF807E91CCFDA5600CFD995 /* Regift.swift */,
 				2AF807EA1CCFDA5600CFD995 /* RegiftCaption.swift */,
 			);
@@ -329,7 +324,6 @@
 			files = (
 				EDD81E261C8A3B980045C1BD /* tinaFeyHiFive.gif in Resources */,
 				ED1C7FA51C866D4C00724DC2 /* LaunchScreen.storyboard in Resources */,
-				2AF807EC1CCFDA5600CFD995 /* Info.plist in Resources */,
 				ED1C7FA21C866D4C00724DC2 /* Assets.xcassets in Resources */,
 				ED1C7FA01C866D4C00724DC2 /* Main.storyboard in Resources */,
 			);

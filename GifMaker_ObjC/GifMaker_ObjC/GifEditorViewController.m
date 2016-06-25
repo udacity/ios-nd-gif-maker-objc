@@ -29,6 +29,7 @@ static const int kLoopCount = 0; // 0 means loop forever
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
+    [self subscribeToKeyboardNotifications];
     self.title = @"Add a Caption";
     [self applyTheme:Dark];
 }
@@ -46,8 +47,6 @@ static const int kLoopCount = 0; // 0 means loop forever
     [self.captionTextField setTextAlignment:NSTextAlignmentCenter];
     [self.captionTextField setAttributedPlaceholder:[[NSAttributedString alloc] initWithString:@"Add Caption" attributes:defaultAttributes]];
     
-    [self subscribeToKeyboardNotifications];
-    
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:tapGesture];
 }
@@ -55,11 +54,12 @@ static const int kLoopCount = 0; // 0 means loop forever
 -(void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     
+    [self unsubscribeFromKeyboardNotifications];
     self.title = @"";
 }
 
 - (void)dismissKeyboard {
-    [self.view endEditing:TRUE];
+    [self.view endEditing:YES];
 }
 
 #pragma mark - UITextFieldDelegate methods
@@ -69,7 +69,7 @@ static const int kLoopCount = 0; // 0 means loop forever
     return true;
 }
 
-#pragma mark - Observe Keyboard notifications
+#pragma mark - Observe and respond to keyboard notifications
 
 - (void)subscribeToKeyboardNotifications {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
@@ -82,15 +82,19 @@ static const int kLoopCount = 0; // 0 means loop forever
 }
 
 - (void)keyboardWillShow:(NSNotification*)notification {
-    CGRect rect = self.view.frame;
-    rect.origin.y -= [self getKeyboardHeight:notification];
-    self.view.frame = rect;
+    if (self.view.frame.origin.y >= 0) {
+        CGRect rect = self.view.frame;
+        rect.origin.y -= [self getKeyboardHeight:notification];
+        self.view.frame = rect;
+    }
 }
 
 - (void)keyboardWillHide:(NSNotification*)notification {
-    CGRect rect = self.view.frame;
-    rect.origin.y += [self getKeyboardHeight:notification];
-    self.view.frame = rect;
+    if (self.view.frame.origin.y < 0) {
+        CGRect rect = self.view.frame;
+        rect.origin.y += [self getKeyboardHeight:notification];
+        self.view.frame = rect;
+    }
 }
 
 - (CGFloat)getKeyboardHeight:(NSNotification*)notification {
@@ -110,14 +114,15 @@ static const int kLoopCount = 0; // 0 means loop forever
     GifPreviewViewController *previewVC = [self.storyboard instantiateViewControllerWithIdentifier:@"GifPreviewViewController"];
     self.gif.caption = self.captionTextField.text;
 
-    Regift *regift = [[Regift alloc] initWithSourceFileURL:self.gif.rawVideoURL frameCount:kFrameCount delayTime:kDelayTime loopCount:kLoopCount];
+    Regift *regift = [[Regift alloc] initWithSourceFileURL:self.gif.videoURL destinationFileURL:nil frameCount:kFrameCount delayTime:kDelayTime loopCount:kLoopCount];
+    
     UIFont *captionFont = self.captionTextField.font;
     NSURL *gifURL = [regift createGifWithCaption:self.captionTextField.text font:captionFont];
 
-    Gif *newGif = [[Gif alloc] initWithGifUrl:gifURL videoURL:self.gif.rawVideoURL caption:self.captionTextField.text];
+    Gif *newGif = [[Gif alloc] initWithGifURL:gifURL videoURL:self.gif.videoURL caption:self.captionTextField.text];
     previewVC.gif = newGif;
     
-    [self.navigationController pushViewController:previewVC animated:true];
+    [self.navigationController pushViewController:previewVC animated:YES];
 }
 
 @end

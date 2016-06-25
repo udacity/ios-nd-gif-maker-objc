@@ -4,7 +4,7 @@
 //
 //  Created by Ayush Saraswat on 4/26/16.
 //  Copyright © 2016 Gabrielle Miller-Messner. All rights reserved.
-//
+//  Code for cropVideoToSquare: modified from http://www.netwalk.be/article/record-square-video-ios
 
 #import "UIViewController+Record.h"
 #import "GifEditorViewController.h"
@@ -19,6 +19,7 @@
 static int const kFrameCount = 16;
 static const float kDelayTime = 0.2;
 static const int kLoopCount = 0;
+static const float kFrameRate = 15;
 
 - (IBAction)presentVideoOptions:(id)sender {
     if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
@@ -54,36 +55,42 @@ static const int kLoopCount = 0;
 }
 
 - (void)launchCamera {
-    UIImagePickerController *cameraController = [[UIImagePickerController alloc] init];
-    cameraController.sourceType = UIImagePickerControllerSourceTypeCamera;
-    cameraController.mediaTypes = @[(NSString *) kUTTypeMovie];
-    cameraController.allowsEditing = true;
-    cameraController.delegate = self;
+
     
-    [self presentViewController:cameraController animated:TRUE completion:nil];
+    [self presentViewController:[self pickerControllerWithSource:UIImagePickerControllerSourceTypeCamera]
+                       animated:YES
+                     completion:nil];
 }
 
 - (void)launchPhotoLibrary {
-    UIImagePickerController *photoLibraryController = [[UIImagePickerController alloc] init];
-    photoLibraryController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    photoLibraryController.mediaTypes = @[(NSString *) kUTTypeMovie];
-    photoLibraryController.allowsEditing = true;
-    photoLibraryController.delegate = self;
-    
-    [self presentViewController:photoLibraryController animated:TRUE completion:nil];
+   
+    [self presentViewController:[self pickerControllerWithSource:UIImagePickerControllerSourceTypePhotoLibrary]
+                       animated:YES
+                     completion:nil];
 }
 
+// MARK:  - Utils
+-(UIImagePickerController*) pickerControllerWithSource: (UIImagePickerControllerSourceType) source{
+    
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.sourceType = source;
+    picker.mediaTypes = @[(NSString *) kUTTypeMovie];
+    picker.allowsEditing = YES;
+    picker.delegate = self;
+    
+    return picker;
+    
+}
 # pragma mark - ImagePickerControllerDelegate Methods
 
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
-    [self dismissViewControllerAnimated:TRUE completion:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 // Allows Editing
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
     
     CFStringRef mediaType = (__bridge CFStringRef)([info objectForKey:UIImagePickerControllerMediaType]);
-    //[self dismissViewControllerAnimated:TRUE completion:nil];
     
     // Handle a movie capture
     if (mediaType == kUTTypeMovie) {
@@ -93,55 +100,18 @@ static const int kLoopCount = 0;
         // Get start and end points from trimmed video
         NSNumber *start = [info objectForKey:@"_UIImagePickerControllerVideoEditingStart"];
         NSNumber *end = [info objectForKey:@"_UIImagePickerControllerVideoEditingEnd"];
+        NSNumber *duration = [NSNumber numberWithFloat: end.floatValue - start.floatValue];
         
-        // If start and end are nil then clipping was not used.
-        if (start != nil) {
-            int startMilliseconds = ([start doubleValue] * 1000);
-            int endMilliseconds = ([end doubleValue] * 1000);
-            
-            // Use AVFoundation to trim the video
-            AVURLAsset *videoAsset = [AVURLAsset URLAssetWithURL:rawVideoURL options:nil];
-            NSString *outputURL = [self createPath];
-            AVAssetExportSession *exportSession = [[AVAssetExportSession alloc] initWithAsset:videoAsset presetName:AVAssetExportPresetHighestQuality];
-            AVAssetExportSession *trimmedSession = [self configureExportSession:exportSession outputURL:outputURL startMilliseconds:startMilliseconds endMilliseconds:endMilliseconds];
-            __block NSURL *trimmedURL;
-            
-            // Export trimmed video
-            [trimmedSession exportAsynchronouslyWithCompletionHandler:^{
-                switch (trimmedSession.status) {
-                    case AVAssetExportSessionStatusCompleted:
-                        // Custom method to import the Exported Video
-                        trimmedURL = trimmedSession.outputURL;
-                        [self makeVideoSquare:trimmedURL];
-                        break;
-                    case AVAssetExportSessionStatusFailed:
-                        //
-                        NSLog(@"Failed:%@",trimmedSession.error);
-                        break;
-                    case AVAssetExportSessionStatusCancelled:
-                        //
-                        NSLog(@"Canceled:%@",trimmedSession.error);
-                        break;
-                    default:
-                        break;
-                }
-            }];
-            
-            // If video was not trimmed, use the entire video.
-        } else {
-            [self makeVideoSquare:rawVideoURL];
-        }
+        [self cropVideoToSquare:rawVideoURL start: start duration: duration];
     }
 }
 
--(void)makeVideoSquare: (NSURL*)rawVideoURL{
-    //make it square
+-(void)cropVideoToSquare:(NSURL*)rawVideoURL start:(NSNumber*)start duration:(NSNumber*)duration {
+    //Create the AVAsset and AVAssetTrack
     AVAsset *videoAsset = [AVAsset assetWithURL:rawVideoURL];
-    AVMutableComposition *composition = [AVMutableComposition composition];
-    [composition  addMutableTrackWithMediaType:AVMediaTypeVideo preferredTrackID:kCMPersistentTrackID_Invalid];
-    
     AVAssetTrack *videoTrack = [[videoAsset tracksWithMediaType:AVMediaTypeVideo] objectAtIndex:0];
     
+    // Crop to square
     AVMutableVideoComposition* videoComposition = [AVMutableVideoComposition videoComposition];
     videoComposition.renderSize = CGSizeMake(videoTrack.naturalSize.height, videoTrack.naturalSize.height);
     videoComposition.frameDuration = CMTimeMake(1, 30);
@@ -149,7 +119,7 @@ static const int kLoopCount = 0;
     AVMutableVideoCompositionInstruction *instruction = [AVMutableVideoCompositionInstruction videoCompositionInstruction];
     instruction.timeRange = CMTimeRangeMake(kCMTimeZero, CMTimeMakeWithSeconds(60, 30) );
     
-//    // rotate to portrait
+    // rotate to portrait
     AVMutableVideoCompositionLayerInstruction* transformer = [AVMutableVideoCompositionLayerInstruction videoCompositionLayerInstructionWithAssetTrack:videoTrack];
     CGAffineTransform t1 = CGAffineTransformMakeTranslation(videoTrack.naturalSize.height, -(videoTrack.naturalSize.width - videoTrack.naturalSize.height) /2 );
     CGAffineTransform t2 = CGAffineTransformRotate(t1, M_PI_2);
@@ -164,13 +134,13 @@ static const int kLoopCount = 0;
     exporter.videoComposition = videoComposition;
     NSString *path = [self createPath];
     exporter.outputURL = [NSURL fileURLWithPath:path];
-    exporter.outputFileType=AVFileTypeQuickTimeMovie;
+    exporter.outputFileType = AVFileTypeQuickTimeMovie;
     
-    __block NSURL *squareURL;
+    __block NSURL *croppedURL;
     
     [exporter exportAsynchronouslyWithCompletionHandler:^(void){
-        squareURL = exporter.outputURL;
-        [self convertVideoToGif:squareURL];
+        croppedURL = exporter.outputURL;
+        [self convertVideoToGif:croppedURL start:start duration:duration];
     }];
 }
 
@@ -203,15 +173,25 @@ static const int kLoopCount = 0;
 }
 
 # pragma mark - Gif Conversion and Display methods
-
--(void)convertVideoToGif:(NSURL*)videoURL {
-    Regift *regift = [[Regift alloc] initWithSourceFileURL:videoURL frameCount:kFrameCount delayTime:kDelayTime loopCount:kLoopCount];
+-(void)convertVideoToGif:(NSURL*)croppedURL start:(NSNumber*)start duration: (NSNumber*)duration {
+    
+    Regift *regift;
+    
+    if (start == nil) {
+        // Untrimmed
+        regift = [[Regift alloc] initWithSourceFileURL:croppedURL destinationFileURL: nil frameCount:kFrameCount delayTime:kDelayTime loopCount:kLoopCount];
+    } else {
+        // trimmed
+        regift = [[Regift alloc] initWithSourceFileURL:croppedURL destinationFileURL:nil startTime:start.floatValue duration:duration.floatValue frameRate:kFrameRate loopCount:kLoopCount];
+    }
+    
     NSURL *gifURL = [regift createGif];
-    [self saveGif:gifURL videoURL:videoURL];
+    
+    [self saveGif:gifURL videoURL:croppedURL];
 }
 
 -(void)saveGif:(NSURL*)gifURL videoURL: videoURL{
-    Gif *newGif = [[Gif alloc] initWithGifUrl:gifURL videoURL:videoURL caption:nil];
+    Gif *newGif = [[Gif alloc] initWithGifURL:gifURL videoURL:videoURL caption:nil];
     [self displayGif:newGif];
 }
 
@@ -220,8 +200,8 @@ static const int kLoopCount = 0;
     gifEditorVC.gif = gif;
     
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self dismissViewControllerAnimated:TRUE completion:nil];
-        [self.navigationController pushViewController:gifEditorVC animated:true];
+        [self dismissViewControllerAnimated:YES completion:nil];
+        [self.navigationController pushViewController:gifEditorVC animated:YES];
     });
 }
 
