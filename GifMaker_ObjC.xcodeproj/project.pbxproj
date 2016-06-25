@@ -47,6 +47,7 @@
 		A92C344C1D1E280800D3A451 /* UIViewController+Record.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Record.m"; sourceTree = "<group>"; };
 		A92C344D1D1E280800D3A451 /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
 		A92C344E1D1E280800D3A451 /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
+		A92C34591D1E2A0900D3A451 /* GifMaker_ObjC-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GifMaker_ObjC-Bridging-Header.h"; sourceTree = "<group>"; };
 		ED055A271CCAC9D0003398D9 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		ED1C7F921C866D4C00724DC2 /* GifMaker_ObjC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GifMaker_ObjC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED1C7F961C866D4C00724DC2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -58,7 +59,6 @@
 		ED1C7FA61C866D4C00724DC2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED1C7FD11C866F1E00724DC2 /* UIImage+animatedGIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+animatedGIF.h"; sourceTree = "<group>"; };
 		ED1C7FD21C866F1E00724DC2 /* UIImage+animatedGIF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+animatedGIF.m"; sourceTree = "<group>"; };
-		ED1C7FD41C866FB600724DC2 /* GifMaker_ObjC-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GifMaker_ObjC-Bridging-Header.h"; sourceTree = "<group>"; };
 		ED3F823C1C8A5A8B0084EC81 /* GifEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GifEditorViewController.h; sourceTree = "<group>"; };
 		ED3F823D1C8A5A8B0084EC81 /* GifEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GifEditorViewController.m; sourceTree = "<group>"; };
 		EDD81E201C8A26510045C1BD /* Gif.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gif.h; sourceTree = "<group>"; };
@@ -99,6 +99,56 @@
 			name = "Third Party Code";
 			sourceTree = "<group>";
 		};
+		A92C34551D1E28FD00D3A451 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				ED1C7FA11C866D4C00724DC2 /* Assets.xcassets */,
+				EDD81E251C8A3B980045C1BD /* tinaFeyHiFive.gif */,
+				ED1C7F9E1C866D4C00724DC2 /* Main.storyboard */,
+				ED1C7FA31C866D4C00724DC2 /* LaunchScreen.storyboard */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
+		A92C34561D1E297D00D3A451 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				A92C344B1D1E280800D3A451 /* UIViewController+Record.h */,
+				A92C344C1D1E280800D3A451 /* UIViewController+Record.m */,
+				2AF807F31CCFF7E000CFD995 /* UIViewController+Theme.h */,
+				2AF807F41CCFF7E000CFD995 /* UIViewController+Theme.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		A92C34571D1E299C00D3A451 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A92C34451D1E280800D3A451 /* GifCell.h */,
+				A92C34461D1E280800D3A451 /* GifCell.m */,
+				A92C34431D1E280800D3A451 /* DetailViewController.h */,
+				A92C34441D1E280800D3A451 /* DetailViewController.m */,
+				A92C34471D1E280800D3A451 /* GifPreviewViewController.h */,
+				A92C34481D1E280800D3A451 /* GifPreviewViewController.m */,
+				A92C34491D1E280800D3A451 /* SavedGifsViewController.h */,
+				A92C344A1D1E280800D3A451 /* SavedGifsViewController.m */,
+				A92C344D1D1E280800D3A451 /* WelcomeViewController.h */,
+				A92C344E1D1E280800D3A451 /* WelcomeViewController.m */,
+				ED3F823C1C8A5A8B0084EC81 /* GifEditorViewController.h */,
+				ED3F823D1C8A5A8B0084EC81 /* GifEditorViewController.m */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		A92C34581D1E29C800D3A451 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EDD81E201C8A26510045C1BD /* Gif.h */,
+				EDD81E211C8A26510045C1BD /* Gif.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		ED1C7F891C866D4C00724DC2 = {
 			isa = PBXGroup;
 			children = (
@@ -118,32 +168,13 @@
 		ED1C7F941C866D4C00724DC2 /* GifMaker_ObjC */ = {
 			isa = PBXGroup;
 			children = (
-				A92C34431D1E280800D3A451 /* DetailViewController.h */,
-				A92C34441D1E280800D3A451 /* DetailViewController.m */,
-				A92C34451D1E280800D3A451 /* GifCell.h */,
-				A92C34461D1E280800D3A451 /* GifCell.m */,
-				A92C34471D1E280800D3A451 /* GifPreviewViewController.h */,
-				A92C34481D1E280800D3A451 /* GifPreviewViewController.m */,
-				A92C34491D1E280800D3A451 /* SavedGifsViewController.h */,
-				A92C344A1D1E280800D3A451 /* SavedGifsViewController.m */,
-				A92C344B1D1E280800D3A451 /* UIViewController+Record.h */,
-				A92C344C1D1E280800D3A451 /* UIViewController+Record.m */,
-				A92C344D1D1E280800D3A451 /* WelcomeViewController.h */,
-				A92C344E1D1E280800D3A451 /* WelcomeViewController.m */,
-				2AF807F31CCFF7E000CFD995 /* UIViewController+Theme.h */,
-				2AF807F41CCFF7E000CFD995 /* UIViewController+Theme.m */,
-				EDD81E251C8A3B980045C1BD /* tinaFeyHiFive.gif */,
 				ED1C7F981C866D4C00724DC2 /* AppDelegate.h */,
 				ED1C7F991C866D4C00724DC2 /* AppDelegate.m */,
-				ED1C7F9E1C866D4C00724DC2 /* Main.storyboard */,
-				ED1C7FA11C866D4C00724DC2 /* Assets.xcassets */,
-				ED1C7FA31C866D4C00724DC2 /* LaunchScreen.storyboard */,
-				ED1C7FA61C866D4C00724DC2 /* Info.plist */,
-				ED1C7FD41C866FB600724DC2 /* GifMaker_ObjC-Bridging-Header.h */,
-				EDD81E201C8A26510045C1BD /* Gif.h */,
-				EDD81E211C8A26510045C1BD /* Gif.m */,
-				ED3F823C1C8A5A8B0084EC81 /* GifEditorViewController.h */,
-				ED3F823D1C8A5A8B0084EC81 /* GifEditorViewController.m */,
+				A92C34591D1E2A0900D3A451 /* GifMaker_ObjC-Bridging-Header.h */,
+				A92C34561D1E297D00D3A451 /* Categories */,
+				A92C34571D1E299C00D3A451 /* View Controllers */,
+				A92C34581D1E29C800D3A451 /* Model */,
+				A92C34551D1E28FD00D3A451 /* Assets */,
 				ED1C7F951C866D4C00724DC2 /* Supporting Files */,
 				2AF807EF1CCFE30F00CFD995 /* Third Party Code */,
 			);
@@ -153,6 +184,7 @@
 		ED1C7F951C866D4C00724DC2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				ED1C7FA61C866D4C00724DC2 /* Info.plist */,
 				ED1C7F961C866D4C00724DC2 /* main.m */,
 			);
 			name = "Supporting Files";
