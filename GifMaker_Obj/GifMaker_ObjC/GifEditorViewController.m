@@ -117,7 +117,7 @@ static const int kLoopCount = 0; // 0 means loop forever
     Regift *regift = [[Regift alloc] initWithSourceFileURL:self.gif.videoURL destinationFileURL:nil frameCount:kFrameCount delayTime:kDelayTime loopCount:kLoopCount];
     
     UIFont *captionFont = self.captionTextField.font;
-    NSURL *gifURL = [regift createGifWithCaption:self.captionTextField.text font:captionFont];
+    NSURL *gifURL = [regift createGif:self.captionTextField.text font:captionFont];                     
 
     Gif *newGif = [[Gif alloc] initWithGifURL:gifURL videoURL:self.gif.videoURL caption:self.captionTextField.text];
     previewVC.gif = newGif;

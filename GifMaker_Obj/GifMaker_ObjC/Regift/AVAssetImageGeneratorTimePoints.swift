@@ -9,7 +9,7 @@
 import AVFoundation
 
 public extension AVAssetImageGenerator {
-    public func generateCGImagesAsynchronouslyForTimePoints(_ timePoints: [TimePoint], completionHandler: AVAssetImageGeneratorCompletionHandler) {
+    public func generateCGImagesAsynchronouslyForTimePoints(_ timePoints: [TimePoint], completionHandler: @escaping AVAssetImageGeneratorCompletionHandler) {
         let times = timePoints.map {timePoint in
             return NSValue(time: timePoint)
         }

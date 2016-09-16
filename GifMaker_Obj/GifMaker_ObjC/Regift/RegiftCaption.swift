@@ -15,8 +15,8 @@ extension Regift {
         let image = UIImage(cgImage:image)
         
         // Text attributes
-        let color = UIColor.white()
-        var attributes = [NSForegroundColorAttributeName:color, NSFontAttributeName:font, NSStrokeColorAttributeName : UIColor.black(), NSStrokeWidthAttributeName : -4]
+        let color = UIColor.white
+        var attributes = [NSForegroundColorAttributeName:color, NSFontAttributeName:font, NSStrokeColorAttributeName : UIColor.black, NSStrokeWidthAttributeName : -4] as [String : Any]
         
         // Get scale factor
         let testSize:CGSize =  text.size(attributes: attributes)
