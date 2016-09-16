@@ -2,6 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>SquareVideoTestApp would like to use your microphone.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>SquareVideoTestApp would like to use your camera.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>SquareVideoTestApp would like to use your photo library.</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
@@ -33,8 +39,6 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 </dict>
 </plist>

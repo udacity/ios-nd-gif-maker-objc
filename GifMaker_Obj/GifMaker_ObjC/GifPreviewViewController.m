@@ -71,7 +71,7 @@
     self.gif.gifData = [NSData dataWithContentsOfURL:self.gif.url];
     
     // Save updated Gif object to Gif array model
-    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     [appDelegate.gifs addObject:self.gif];
     
     [self.navigationController popToRootViewControllerAnimated:YES];

@@ -56,7 +56,7 @@
     [self.view.layer insertSublayer:bottomBlur above:self.collectionView.layer];
     
     // Load Stored Gifs
-    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     self.savedGifs = appDelegate.gifs;
 }
 
